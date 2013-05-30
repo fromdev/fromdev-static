@@ -1,0 +1,413 @@
+<html><head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>htmlwrap - jsFiddle demo by kzvikzvi1</title>
+  
+  <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="jquery.jcryption.min.js" type="text/javascript"></script>
+  
+  
+  <link href="/css/result-light.css" type="text/css" rel="stylesheet">
+  
+  <style type="text/css">
+    textarea {
+    width: 100%; 
+    height: 635px;
+    }
+    
+div.container {
+    margin: auto;   
+    width: 100%;
+}
+
+div.left {
+    float: left;
+    width: 40%;
+}
+
+div.center {
+    float: left;
+    width: 12%;
+    border: 2px solid #dddddd;
+    margin: 10px;
+
+}
+div.right {
+    float: left;
+    width: 40%;
+}
+  </style>
+  
+
+
+<script type="text/javascript">//&lt;![CDATA[ 
+$(window).load(function(){
+
+	$('#dialog').dialog({
+		autoOpen : false,
+		width : 'auto',
+		title : 'Enter Password'
+	});
+    var createTag = function (options) {
+        log('createTag called');
+        return options.openTag + options.selectedText + options.closeTag;
+    };
+    var createHashText = function (text) {
+        if (text) {
+            return text.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
+        }
+        return '';
+    };
+
+    var createLinkTag = function (options) {
+        log('createLinkTag called');
+        var hashText = createHashText(options.selectedText);
+        var url = $(options.linkSelector).val();
+        if (url && url.trim().length > 0) {
+            if (validateUrl(url)) {
+                //url is good
+            } else {
+                error('Please provide a valid url');
+                return options.selectedText;
+            }
+        } else {
+            url = '#' + hashText;
+        }
+        var openTag = '<a rel="nofollow" title="' + options.selectedText + '" name="' + hashText + '" href="' + url + '" >';
+        var closeTag = '</a>';
+        return openTag + options.selectedText + closeTag;
+    };
+
+    var createImageTag = function (options) {
+        log('createImageTag called');
+        var hashText = createHashText(options.selectedText);
+        var url = $(options.linkSelector).val();
+        if (url && url.trim().length > 0 && (validateUrl(url))) {
+            //url is good
+            url = url.trim();
+        } else {
+            error('Please provide a valid image url');
+            return options.selectedText;
+        }
+        return '<img title="' + options.selectedText + '" alt="' + options.selectedText + '" src="' + url + '" style="clear:left; float:left;margin-right:2em; margin-bottom:1em;" />';
+    };
+
+    var appendTag = function (options) {
+        log('appendTag called');
+        return options.selectedText + ' ' + options.appendTagText;
+    };
+
+    var wrap = function (options) {
+        log('');
+        var textArea = $(options.elementSelector);
+        var len = textArea.val().length;
+        var start = textArea[0].selectionStart;
+        var end = textArea[0].selectionEnd;
+        var selectedText = textArea.val().substring(start, end).trim();
+        if(options.decorator) {
+        	selectedText = options.decorator(selectedText);
+        }
+
+        if (start !== end && selectedText.length > 0) {
+            var replacement = selectedText;
+            if (options.creator) {
+                $.extend(options, {
+                    selectedText: selectedText
+                });
+                replacement = options.creator(options);
+            }
+            textArea.val(textArea.val().substring(0, start) + replacement + textArea.val().substring(end, len));
+        } else {
+            error('Please select some text');
+        }
+    };
+
+    $("#showtext").focus(function () {
+        var $this = $(this);
+        $this.select();
+
+        // Work around Chrome's little problem
+        $this.mouseup(function () {
+            // Prevent further mouseup intervention
+            $this.unbind("mouseup");
+            return false;
+        });
+    });
+
+    $('#wrap-h1').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<h1>',
+            closeTag: '</h1>',
+            decorator: toTitleCase
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    $('#wrap-h2').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<h2>',
+            closeTag: '</h2>',
+            decorator: toTitleCase
+        });
+
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    $('#wrap-h3').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<h3>',
+            closeTag: '</h3>',
+            decorator: toTitleCase
+        });
+
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    $('#wrap-p').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<p>',
+            closeTag: '</p>'
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#wrap-strong').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<strong>',
+            closeTag: '</strong>'
+        });
+
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#wrap-ul').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<ul>',
+            closeTag: '</ul>'
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#wrap-ol').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<ol>',
+            closeTag: '</ol>'
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    $('#wrap-li').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<li>',
+            closeTag: '</li>'
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#wrap-code').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<code>',
+            closeTag: '</code>'
+        });
+
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#wrap-div').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<div class="related-index">',
+            closeTag: '</div>'
+        });
+
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#wrap-link').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            linkSelector: '#link-url',
+            creator: createLinkTag
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    $('#wrap-image').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            linkSelector: '#link-url',
+            creator: createImageTag
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    $('#append-clear-div').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            appendTagText: '<div class="clear"></div>',
+            creator: appendTag
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+    $('#append-more').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            appendTagText: '<!--more-->',
+            creator: appendTag
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+
+    var originalText = $('#fulltext').val();
+    $('#reset').click(function () {
+        $('#fulltext').val(originalText);
+        $('#showtext').val('');
+    });
+    
+	$('#load-urls').click(function(){
+    	var urls =  extractUrls({
+    					string: $('#fulltext').val()
+					});
+    	buildOptions({data:urls, elementSelector:'#url-list'});
+	});
+	$('#encrypt').click(function(){
+		if($.jCryption) {
+		 $('#showtext').val($.jCryption.encrypt($('#fulltext').val(),'ILoveFromDev'));
+		 } else {
+		 	log('cant find jCryption');
+		 }
+	});
+
+	$('#decrypt').click(function(){
+		 $('#dialog').dialog('open');
+		 $('#showtext').val($.jCryption.decrypt($('#fulltext').val(),'ILoveFromDev'));			
+    	
+	});
+	
+	$('#url-list').change(function(){
+    	$('#link-url').val($('#url-list option:selected').val());
+    });
+	
+    var error = function (msg) {
+        $('#log').text(msg).css('color', 'red');
+    };
+    var log = function (msg) {
+        if (console.log) {
+            console.log(msg);
+        }
+        $('#log').text(msg).css('color', 'black');
+    };
+
+    var validateUrl = function (url) {
+        if (url) {
+            if (/^([a-z]([a-z]|\d|\+|-|\.)*):(\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?((\[(|(v[\da-f]{1,}\.(([a-z]|\d|-|\.|_|~)|[!\$&'\(\)\*\+,;=]|:)+))\])|((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=])*)(:\d*)?)(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*|(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)|((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)){0})(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(url)) {
+                return true;
+            }
+        }
+        return false;
+    };
+    
+    var extractUrls = function (options) {
+    var urls = [];
+    var count = 0;
+    if (options) {
+    	options.string = options.string.replace(/http/g, ' http');
+    	options.words = options.string.split(' ');
+        if (options.words.length > 0) {
+             $('#log').text('extractUrls called' + options.words.length);
+            for (var i=0; i < options.words.length; i++) {
+                if (validateUrl(options.words[i].trim())) {
+                	
+                    urls[count] = options.words[i].trim();
+                    count++;
+                }
+            }
+        }
+
+    }
+    return urls;
+};
+
+    var buildOptions = function(options) {
+		if (options) {
+			$(options.elementSelector).empty();
+			var html = [];
+			var len = options.data.length;
+			html[html.length] = '';
+			for ( var i = 0; i < len; i++) {
+				html[html.length] = '<option value="' + options.data[i] + '">' + options.data[i] + '</option>';
+			}
+			$(options.elementSelector).append(html.join(''));
+		}
+	};
+	var toTitleCase = function(str) {
+	    return str.replace(/(?:^|\s)\w/g, function(match) {
+        	return match.toUpperCase();
+    	});
+	};
+
+
+
+});//]]&gt;  
+
+</script>
+
+
+</head>
+<body>
+<div class="container">
+<div class="left">
+<textarea id="fulltext"></textarea>
+</div>
+<div class="center">
+<div id="log"></div>
+<button id="wrap-h1">Wrap H1</button>
+<button id="wrap-h2">Wrap H2</button>
+<button id="wrap-h3">Wrap H3</button>
+<button id="wrap-p">Wrap P</button>
+<button id="wrap-strong">Wrap Strong</button>
+<button id="wrap-ul">Wrap UL</button>
+<button id="wrap-li">Wrap List</button>
+<button id="wrap-ol">Wrap OL</button>
+<button id="wrap-code">Wrap Code</button>
+<button id="wrap-div">Wrap Author Div</button>
+<button id="append-clear-div">Append Clear Div</button>
+<button id="append-more">Append More tag</button>
+<select id="url-list"><option>Add URL</option></select>
+<button id="load-urls">Load URLs</button>
+<input type="text" id="link-url" value="" placeholder="Enter URL">
+<button id="wrap-link">Wrap link</button>
+<button id="wrap-image">Wrap Image</button>
+<button id="encrypt">Encrypt</button>
+<button id="decrypt">Decrypt</button>
+<button id="reset">Reset</button>
+</div>
+<div class="right">
+<textarea id="showtext"></textarea>
+</div >
+</div>
+
+<div id="dialog">Enter Password
+<input type="password" id="password"/>
+</div>
+
+  
+
+
+
+
+
+</body></html>

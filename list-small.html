@@ -1,0 +1,69 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+<script>
+var nameToken = "NAME_TOKEN";
+var hrefToken = "HREF_TOKEN";
+var titleToken = "TITLE_TOKEN";
+var headingToken = "HEADING_TOKEN";
+var headingTemplate = "";
+var content = "";
+var imgHref = "";
+ $(document).ready(function() {
+    $("#generate").click(function () { 
+	  $(editedContent).text('');
+	  titleToken = $("#heading1").val().trim();
+	  nameToken = $("#heading1").val().trim().toLowerCase().replace(/[^a-z]/g,'-');
+	  headingToken = titleToken;
+	  hrefToken = $("#url1").val().trim();	  
+	  if(hrefToken == '') {
+		hrefToken = "#"+nameToken;
+	  }
+	  imgHref = $("#imgurl1").val().trim();
+	  if(imgHref == '') {
+	//	hrefToken = "#"+nameToken;
+	  }
+	  content = $("#content1").val().trim();
+	  
+	  headingTemplate =  '&lt;h3&gt;&lt;a rel="nofollow" name="' + nameToken + '" href="' + hrefToken + '" title="' + titleToken + '" &gt;' + headingToken + '&lt;/a&gt;&lt;/h3&gt;';
+
+	  if(imgHref != '') {
+	  	headingTemplate = headingTemplate + '&lt;a name="' + nameToken + '" href="' + hrefToken + '" title="' + titleToken + '" style="clear:left; float:left;margin-right:2em; margin-bottom:1em;" rel="nofollow" &gt;';
+	  	headingTemplate = headingTemplate + '&lt;img title=&quot;' + titleToken + '&quot; src=&quot;' + imgHref +'&quot; alt=&quot;' + titleToken + '&quot;/&gt';
+	headingTemplate = headingTemplate + '&lt;/a&gt;';
+		}
+	  headingTemplate = headingTemplate + '&lt;p&gt;' + content + '&lt;/p&gt;<br/>';
+	  
+	  $('#editedContent').append(headingTemplate);   
+	  
+	  
+	return false;
+    });
+  });
+</script>
+
+</head>
+<body>
+
+<div style="float:left;width:40%;">
+<div><h1>List Title: </h1> <input id="heading1" type="text" value="" name="heading"/></div>
+<div><h1>List URL: </h1> <input id="url1" type="text" value="" name="url"/></div>
+<div><h1>Image URL: </h1> <input id="imgurl1" type="text" value="" name="url"/></div>
+<div><h1>List Content: </h1>
+<textarea id="content1" rows="10" cols="50" name="content">
+
+</textarea>
+
+</div>
+</div>
+<div style="width:50%;float:right;"> <h1>Copy updated Content from here: </h1>
+<div  style='background-color:grey;' id="editedContent"  name="editedContent">
+
+</div>
+
+</div>
+<button name="generate" id="generate">Generate</button>
+
+
+</body>
+</html>

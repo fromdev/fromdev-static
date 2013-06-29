@@ -62,7 +62,7 @@ $(window).load(function(){
     var createLinkTag = function (options) {
         log('createLinkTag called');
         var hashText = createHashText(options.selectedText);
-        var url = $(options.linkSelector).val();
+        var url = $.trim($(options.linkSelector).val());
         if (url && url.trim().length > 0) {
             if (validateUrl(url)) {
                 //url is good
@@ -296,6 +296,8 @@ $(window).load(function(){
 		 $('#showtext').val($.jCryption.decrypt($('#fulltext').val(),'ILoveFromDev'));			
     	
 	});
+
+
 	
 	$('#url-list').change(function(){
     	$('#link-url').val($('#url-list option:selected').val());

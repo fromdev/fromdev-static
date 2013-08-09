@@ -1,5 +1,5 @@
 http://feeds.copyblogger.com/copyblogger&x=1
-http://feeds.feedburner.com/Fromdev
+http://www.fromdev.com/feeds/posts/default?orderby=updated&max-results=1000
 http://feeds2.feedburner.com/webdesignerdepot?format=rss
 http://rss1.smashingmagazine.com/feed/
 http://feeds.feedburner.com/onextrapixel

@@ -1,27 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs height="300" title="BlogSocial">
-  <Require feature="opensocial-0.7"/>
-  <Require feature="google.blog"/>
-  <Require feature="skins"/>
-  <Require feature="views"/>
- </ModulePrefs>
- <Content type="html">
-   <![CDATA[
-<script type="text/javascript">
-    var randarray = new Array();var l=0;var flag;
-    var numofpost=5;function fromdevRandomPost(json){
-    var total = parseInt(json.feed.openSearch$totalResults.$t,10);
-    for(i=0;i < numofpost;){flag=0;randarray.length=numofpost;l=Math.floor(Math.random()*total);for(j in randarray){if(l==randarray[j]){ flag=1;}}
-    if(flag==0&&l!=0){randarray[i++]=l;}}document.write('<ul>');
-    for(n in randarray){ var p=randarray[n];var entry=json.feed.entry[p-1];
-    for(k=0; k < entry.link.length; k++){if(entry.link[k].rel=='alternate'){var item = "<li>" + "<a href=" + entry.link[k].href + ">" + entry.title.$t + "</a> </li>";
-    document.write(item);}}
-    }document.write('</ul>');}
-    </script>
-<script type="text/javascript" src="/feeds/posts/default?alt=json-in-script&amp;start-index=1&amp;max-results=1000&amp;callback=fromdevRandomPost"></script>
+  <ModulePrefs title="Fetch JSON Example"/>
+  <Content type="html">
+  <![CDATA[
+    <div id="content_div"></div>
+    <script type="text/javascript">
 
- ]]>
+    function makeJSONRequest() {    
+      var params = {};
+      params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+      // This URL returns a JSON-encoded string that represents a JavaScript object
+      var url = "/feeds/posts/default?alt=json&amp;start-index=1&amp;max-results=1000";
+      gadgets.io.makeRequest(url, response, params);
+    };
 
+    function response(obj) { 
+      var json = obj.data;
+      var randarray = [];
+ 	  var l = 0;
+      var flag;
+ 	  var numofpost = 5;
+      var html = '';
+
+     var total = parseInt(json.feed.openSearch$totalResults.$t, 10);
+     for (i = 0; i < numofpost;) {
+         flag = 0;
+         randarray.length = numofpost;
+         l = Math.floor(Math.random() * total);
+         for (var j in randarray) {
+             if (l == randarray[j]) {
+                 flag = 1;
+             }
+         }
+         if (flag === 0 && l !== 0) {
+             randarray[i++] = l;
+         }
+     }
+   
+     html=html+'<ul>';
+     for (var n in randarray) {
+         var p = randarray[n];
+         var entry = json.feed.entry[p - 1];
+         for (k = 0; k < entry.link.length; k++) {
+             if (entry.link[k].rel == 'alternate') {
+                 var item = "<li>" + "<a href=" + entry.link[k].href + ">" + entry.title.$t + "</a> </li>";
+               
+                 html=html+item;
+             }
+         }
+
+     html=html+'</ul>';
+ }         
+      document.getElementById('content_div').innerHTML = html;
+     };
+     gadgets.util.registerOnLoadHandler(makeJSONRequest);
+     </script>
+  ]]>
   </Content>
 </Module>

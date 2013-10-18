@@ -16,42 +16,9 @@
 
     function response(obj) { 
       var json = obj.data;
-      var randarray = [];
- 	  var l = 0;
-      var flag;
- 	  var numofpost = 5;
-      var html = '';
-
-     var total = parseInt(json.feed.openSearch$totalResults.$t, 10);
-     for (i = 0; i < numofpost;) {
-         flag = 0;
-         randarray.length = numofpost;
-         l = Math.floor(Math.random() * total);
-         for (var j in randarray) {
-             if (l == randarray[j]) {
-                 flag = 1;
-             }
-         }
-         if (flag === 0 && l !== 0) {
-             randarray[i++] = l;
-         }
-     }
+      var html = "";
    
-     html=html+'<ul>';
-     for (var n in randarray) {
-         var p = randarray[n];
-         var entry = json.feed.entry[p - 1];
-         for (k = 0; k < entry.link.length; k++) {
-             if (entry.link[k].rel == 'alternate') {
-                 var item = "<li>" + "<a href=" + entry.link[k].href + ">" + entry.title.$t + "</a> </li>";
-               
-                 html=html+item;
-             }
-         }
-
-     html=html+'</ul>';
- }         
-      document.getElementById('content_div').innerHTML = html;
+      document.getElementById('content_div').innerHTML = "Hello World";
      };
      gadgets.util.registerOnLoadHandler(makeJSONRequest);
      </script>

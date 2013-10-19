@@ -1,0 +1,16 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.js"></script>
+<script type="text/javascript">
+  var buttonLabel = "Surprise Me!";
+  function randomPostLink(json) {
+      var total = parseInt(json.feed.openSearch$totalResults.$t, 10);
+      var randomId = Math.floor(Math.random() * total);
+      var entry = json.feed.entry[randomId - 1];
+     
+      for (k = 0; k < entry.link.length; k++) {
+          if (entry.link[k].rel == 'alternate') {
+              $('a:contains("' + buttonLabel+ '")').attr('href', entry.link[k].href);
+          }
+      }
+  }
+</script>
+<script type="text/javascript" src="/feeds/posts/default?alt=json-in-script&amp;start-index=1&amp;max-results=1000&amp;callback=randomPostLink"></script>

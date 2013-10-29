@@ -64,6 +64,10 @@ $(window).load(function(){
             url = '#' + hashText;
         }
         var openTag = '<a rel="nofollow" title="' + options.selectedText + '" name="' + hashText + '" href="' + url + '" >';
+        if(options.selectedText.indexOf("http:") > -1 || options.selectedText.indexOf("https:") > -1) {
+        	log('HTTP Found');
+        	openTag = '<a rel="nofollow" href="' + url + '" >';
+        } 
         var closeTag = '</a>';
         return openTag + options.selectedText + closeTag;
     };
@@ -343,7 +347,7 @@ $(window).load(function(){
     var count = 0;
     if (options) {
     	options.string = options.string.replace(/http/g, ' http');
-    	options.words = options.string.split(' ');
+    	options.words = options.string.split(/[_\s]/g);
         if (options.words.length > 0) {
              $('#log').text('extractUrls called' + options.words.length);
             for (var i=0; i < options.words.length; i++) {
@@ -404,7 +408,7 @@ $(window).load(function(){
 <button id="wrap-div">Wrap Author Div</button>
 <button id="append-clear-div">Append Clear Div</button>
 <button id="append-more">Append More tag</button>
-<select id="url-list"><option>Add URL</option></select>
+<select id="url-list" style="height:100px;" size="4"><option>Add URL</option></select>
 <button id="load-urls">Load URLs</button>
 <input type="text" id="link-url" value="" placeholder="Enter URL or ASIN">
 <input type="text" id="amazon-tag" value="" placeholder="Enter Amazon Tag">

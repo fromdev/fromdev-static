@@ -25,6 +25,9 @@
             url = '#' + hashText;
         }
         var openTag = '<a rel="nofollow" title="' + options.selectedText + '" name="' + hashText + '" href="' + url + '" >';
+    	if(options.selectedText.indexOf("http:") > -1 || options.selectedText.indexOf("https:") > -1) {
+        	openTag = '<a rel="nofollow" href="' + url + '" >';;
+        } 
         var closeTag = '</a>';
         return openTag + options.selectedText + closeTag;
     };
@@ -164,7 +167,7 @@
     var count = 0;
     if (options) {
     	options.string = options.string.replace(/http/g, ' http');
-    	options.words = options.string.split(' ');
+    	options.words = options.string.split(/[_\s]/g);
         if (options.words.length > 0) {
              $('#log').text('extractUrls called' + options.words.length);
             for (var i=0; i < options.words.length; i++) {

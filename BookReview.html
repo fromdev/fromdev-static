@@ -44,7 +44,9 @@ $(document).ready(function(){
             useAllText: true
         });
         if(imageLink && authorText && review) {
-        	$('#showtext').val(imageLink + authorText + review );
+        	var html = imageLink + authorText + review;
+        	$('#showtext').val( html);
+        	$('#preview').html(html);
         }
     });
     
@@ -83,7 +85,8 @@ $(document).ready(function(){
 <button type="submit" id="wrap">Create HTML</button>
 </div>
 <div class="right">
-<textarea id="showtext"></textarea>
+<textarea id="showtext" style="height:70%;"></textarea>
+<div id="preview" style="margin:5px;">Preview Area</div>
 </div >
 </div>
 </form>

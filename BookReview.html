@@ -17,15 +17,35 @@ $(document).ready(function(){
 		$this.validate(); 		
 		return false;
   	});
- 	
-    $('#wrap').click(function () {
 
-        var imageLink = wrapItem({
+    var getRemote = function () {
+	   // var baseUrl = 'http://localhost:8888/redirectedurl?';
+		var baseUrl = 'http://redirectedurl.appspot.com/redirectedurl?';
+		var asin = $('#asin').val().trim().replace(/[_\s]/g, '');
+		console.log('asin ' + asin);
+		var imageUrl = 'http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=' + asin + '&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1';
+	    console.log(imageUrl);
+	    $.ajax({
+	        type: "GET",
+	        dataType: "jsonp",
+	        jsonpCallback: 'jsonCallback',
+	        url: baseUrl + 'url=' + encodeURIComponent(imageUrl),
+	        contentType: "application/json; charset=utf-8",
+	        async: false,
+	        error:jsonCallback,
+	        success:jsonCallback
+	    });
+	};
+
+	var jsonCallback = function (data) {
+	    console.log('success: ' + data.url);
+	    var imageLink = wrapItem({
             elementSelector: '#title',
             linkSelector: '#asin',
             tagSelector:'#amazon-tag',
             creator: createAmazonImageTag,
-            useAllText: true
+            useAllText: true,
+            finalImageUrl: data.url
         });
  
  		var authorText = wrapItem({
@@ -48,6 +68,12 @@ $(document).ready(function(){
         	$('#showtext').val( html);
         	$('#preview').html(html);
         }
+	};
+ 	
+    $('#wrap').click(function () {
+    
+		getRemote();
+
     });
     
     $("#showtext").focus(function () {

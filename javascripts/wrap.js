@@ -54,6 +54,9 @@
         if(asin) {
         var url = 'http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=' + asin + '&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1' ;
         var hrefUrl = 'http://www.amazon.com/dp/' + asin + '?tag=' + $(options.tagSelector).val();
+        if(options.finalImageUrl) {
+        	url = options.finalImageUrl;
+        }
         if (url && url.trim().length > 0 && (validateUrl(url))) {
             //url is good
             url = url.trim();
@@ -71,6 +74,7 @@
         return;
         }
     };
+
     var appendTag = function (options) {
         log('appendTag called');
         return options.selectedText + ' ' + options.appendTagText;

@@ -21,9 +21,9 @@ $(document).ready(function(){
     $('#wrap').click(function () {
         var heading = wrapItem({
             elementSelector: '#title',
-            creator: createTag,
-            openTag: '<h2>',
-            closeTag: '</h2>',
+            creator: createNestedLinkTag,
+            parentOpenTag: '<h2>',
+            parentCloseTag: '</h2>',
             decorator: toTitleCase,
             useAllText: true
         });        
@@ -62,9 +62,10 @@ $(document).ready(function(){
 <form id="form">
 <div class="container">
 <p> <a href="Introduction.html">Introduction</a> | <a href="BookReview.html">Book Review</a> | <a href="ListItem.html">List Item</a>  | <a href="LinkListItem.html">Link List Item</a> | <a href="summary.html">Summary</a></p>
-<p> <h2>List Item</h2></p>
+<p> <h2>Link List Item</h2></p>
 <div class="left">
 <input type="text" id="title" value="" placeholder="Enter List Item Title" required>
+<input type="text" id="url" value="" placeholder="Enter URL" required>
 <textarea id="fulltext" value="" placeholder="Enter Paragraph Content Here" required></textarea>
 </div>
 <div class="center">

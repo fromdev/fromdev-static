@@ -31,6 +31,10 @@
         var closeTag = '</a>';
         return openTag + options.selectedText + closeTag;
     };
+    
+    var createNestedLinkTag = function (options) {
+    	return options.parentOpenTag + createLinkTag(options) + options.parentCloseTag;
+    };
 
     var createImageTag = function (options) {
         log('createImageTag called');

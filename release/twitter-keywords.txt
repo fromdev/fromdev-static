@@ -26,3 +26,16 @@ it books
 software books
 design patterns
 core java books
+hacking tutorial
+waf
+firewalls
+programming
+android tutorials
+opensource
+magento
+jquery
+joomla
+tomcat
+zencart
+web architects
+cdn

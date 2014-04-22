@@ -2,3 +2,4 @@ http://feeds.feedburner.com/IMustRead
 http://feeds.feedburner.com/themillionsblog/fedw
 http://feeds.feedburner.com/TheParisReviewBlog
 http://recommendedreading.tumblr.com/rss
+http://feeds.feedburner.com/LiteraryKicks

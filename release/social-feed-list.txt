@@ -1,0 +1,14 @@
+http://feeds.feedburner.com/Quicksprout
+http://www.socialmediaexaminer.com/feed/
+http://feeds.feedburner.com/mozblog
+http://feeds.searchengineland.com/searchengineland
+http://feeds.searchenginejournal.com/SearchEngineJournal
+http://searchenginewatch.com/rss
+http://feeds.seroundtable.com/SearchEngineRoundtable1
+http://www.seocentro.com/feeds/seocentro.xml
+http://feeds.feedburner.com/seobythesea/Tesr
+http://feeds.marketingpilgrim.com/marketing-pilgrim
+http://www.seobook.com/index.rdf
+http://searchenginewatch.com/rss
+http://feeds.copyblogger.com/copyblogger
+http://seogadget.com/feed/

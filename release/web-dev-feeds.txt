@@ -16,3 +16,4 @@ http://www.killerstartups.com/feed/
 http://digg.com/search/?q=web%20design&format=rss
 http://digg.com/tag/curious.rss
 http://digg.com/tag/technology.rss
+http://www.javacodegeeks.com/author/sachin-joshi/feed/

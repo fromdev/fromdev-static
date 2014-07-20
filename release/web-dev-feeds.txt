@@ -18,3 +18,4 @@ http://digg.com/tag/curious.rss
 http://digg.com/tag/technology.rss
 http://www.javacodegeeks.com/author/sachin-joshi/feed/
 http://desktoptips.weebly.com/1/feed
+https://raw.githubusercontent.com/fromdev/fromdev-static/gh-pages/release/fromdev-backlinks.xml

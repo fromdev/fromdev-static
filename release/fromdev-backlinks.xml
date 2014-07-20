@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+>
+
+<channel>
+    <title>Feed Randomizer</title>
+    <link>http://feedrandomizer.appspot.com/</link>
+    <atom:link href="http://feedrandomizer.appspot.com/feedrandomizer" rel="self" type="application/rss+xml" />
+    <description>Feed Randomizer</description>
+    <language>en</language>
+    <item>
+	    <title>Handy Eclipse Shortcuts For Super Productive Developers</title>
+	    <guid isPermaLink="false">1e8ae4b0-aec1-40c7-b66f-185dd391e8c5</guid>
+	    <link>http://www.slideshare.net/fromdev/handy-eclipseshortcutsproductivity</link>
+	    <pubDate>Sun, 20 Jul 2014 19:36:37 +0000</pubDate>
+	    <description><![CDATA[ <p>Eclipse is my favorite tool since I started coding in Java. Over past few years I have learned many shortcuts and these Shortcuts have made my life very easy and highly productive. </p> ]]></description> 
+    </item>
+    <item>
+	    <title>10 Essential Linux Commands To Be A Hacker</title>
+	    <guid isPermaLink="false">76bdf2f5-2b2f-4530-ba3a-17c6036074c9</guid>
+	    <link>http://issuu.com/sachinfromdev/docs/essential-linux-commands-hacker</link>
+	    <pubDate>Sun, 20 Jul 2014 19:42:15 +0000</pubDate>
+	    <description><![CDATA[ <p>Linux is favorite operating system of geeks. Many pro hackers love to do programming on linux. It is one of the most widely used operating system for hosting server software.</p> ]]></description> 
+    </item>
+</channel>
+</rss>

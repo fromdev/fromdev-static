@@ -7,9 +7,9 @@
 >
 
 <channel>
-    <title>Feed Randomizer</title>
-    <link>http://feedrandomizer.appspot.com/</link>
-    <atom:link href="http://feedrandomizer.appspot.com/feedrandomizer" rel="self" type="application/rss+xml" />
+    <title>Awesome Articles On Web Linking To Fromdev</title>
+    <link>http://raw.githubusercontent.com/fromdev</link>
+    <atom:link href="http://raw.githubusercontent.com/fromdev/fromdev-static/gh-pages/release" rel="self" type="application/rss+xml" />
     <description>Feed Randomizer</description>
     <language>en</language>
     <item>

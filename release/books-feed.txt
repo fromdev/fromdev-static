@@ -4,3 +4,4 @@ http://feeds.feedburner.com/TheParisReviewBlog
 http://recommendedreading.tumblr.com/rss
 http://feeds.feedburner.com/LiteraryKicks
 http://www.fromdev.com/feeds/posts/default/-/Books
+https://raw.githubusercontent.com/fromdev/fromdev-static/gh-pages/release/imustread-backlinks.xml

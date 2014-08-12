@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+    xmlns:content="http://purl.org/rss/1.0/modules/content/"
+    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+>
+
+<channel>
+    <title>Awesome Articles On Web Linking To Fromdev</title>
+    <link>http://raw.githubusercontent.com/fromdev</link>
+    <atom:link href="http://raw.githubusercontent.com/fromdev/fromdev-static/gh-pages/release" rel="self" type="application/rss+xml" />
+    <description>Feed Randomizer</description>
+    <language>en</language>
+    <item>
+	    <title>15 Best Websites & Resources For Book Nerds</title>
+	    <guid isPermaLink="false">1e8ae4b0-aec1-40c7-b66f-185dd391e8c5</guid>
+	    <link>http://www.scribd.com/doc/236635638/15-Best-Websites-Resources-For-Book-Nerds</link>
+	    <pubDate>Sun, 20 Jul 2014 19:36:37 +0000</pubDate>
+	    <description><![CDATA[ <p>Good Books are always difficult to find specially since there are millions of books written and not every book is worth your time.  </p> ]]></description> 
+    </item>
+</channel>
+</rss>

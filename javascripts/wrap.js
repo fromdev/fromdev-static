@@ -24,9 +24,9 @@
         } else {
             url = '#' + hashText;
         }
-        var openTag = '<a rel="nofollow" title="' + options.selectedText + '" name="' + hashText + '" href="' + url + '" >';
+        var openTag = '<a rel="nofollow" target="_blank" title="' + options.selectedText + '" name="' + hashText + '" href="' + url + '" >';
     	if(options.selectedText.indexOf("http:") > -1 || options.selectedText.indexOf("https:") > -1) {
-        	openTag = '<a rel="nofollow" href="' + url + '" >';;
+        	openTag = '<a rel="nofollow" target="_blank" href="' + url + '" >';;
         } 
         var closeTag = '</a>';
         return openTag + options.selectedText + closeTag;

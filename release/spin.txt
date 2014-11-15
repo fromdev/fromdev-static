@@ -1,14 +1,1 @@
-[
-    [
-        "test",
-        "test2",
-        "test3",
-        "test4"
-    ],
-    [
-        "atest",
-        "atest2",
-        "atest3",
-        "atest4"
-    ]
-]
+{"test":["2","1"],"test2":["2","1"]}

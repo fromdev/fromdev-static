@@ -23,6 +23,7 @@
     "Website To Buy Cheap College Books",
     "Cheap Used Books For College Students",
     "Websites For Used Cheap College Books",
-    "Websites For Cheap Used College Textbooks"
+    "Websites For Cheap Used College Textbooks",
+    "Sites To Get Discount On College Text Books"
     ]
 }

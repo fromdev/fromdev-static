@@ -9,5 +9,20 @@
         "15 Awesome Drupal CMS Themes",
         "15 Best Drupal Templates", 
         "15 Awesome Drupal CMS Templates"
+    ],
+    "http://www.imustread.com/2014/10/Best-Read-it-Later-Apps.html": [
+        "10 Best Read it Later Apps",
+        "Top 10 Read it Later Apps",
+        "Read it Later Apps Like Pocket"
+    ],
+    "http://www.imustread.com/2014/06/websites-cheap-college-textbooks.html": [
+    "25+ Best Websites To Buy Cheap College Text Books",
+    "Top Sites To Buy Cheap College Text Books",
+    "How-To Find Cheap Used Textbooks For College",
+    "Websites For Cheap College Books Used", 
+    "Website To Buy Cheap College Books",
+    "Cheap Used Books For College Students",
+    "Websites For Used Cheap College Books",
+    "Websites For Cheap Used College Textbooks"
     ]
 }

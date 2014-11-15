@@ -8,6 +8,6 @@
         "15 Awesome Drupal Themes For Your Content Management System",
         "15 Awesome Drupal CMS Themes",
         "15 Best Drupal Templates", 
-        "15 Awesome Drupal CMS Templates"
+        "15 Awesome Drupal CMS Templates"][}
     ]
 }

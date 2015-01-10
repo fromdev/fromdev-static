@@ -1,0 +1,33 @@
+{
+    "appName": "Java Interview Question Answer App",
+    "version": "1.0",
+    "aboutTitle": "About Title",
+    "aboutDesc": "About Description",
+    "timestamp": "1234567",
+    "qaList": [
+        {
+            "id": "1",
+            "q": "TestQuestion",
+            "a": "Test answer <b> bold text with html tag </b>",
+            "category": "Core Java"
+        },
+        {
+            "id": "2",
+            "q": "TestQuestion",
+            "a": "Testanswer",
+            "category": "Serialization"
+        },
+        {
+            "id": "3",
+            "q": "TestQuestion",
+            "a": "Testanswer",
+            "category": "Core Java"
+        },
+        {
+            "id": "4",
+            "q": "TestQuestion",
+            "a": "Testanswer",
+            "category": "Multi Threading"
+        }
+    ]
+}

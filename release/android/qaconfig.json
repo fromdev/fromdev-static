@@ -7,8 +7,8 @@
     "qaList": [
         {
             "id": "1",
-            "q": "TestQuestion",
-            "a": "Test answer <b> bold text with html tag </b>",
+            "q": "What is immutable object in Java? Can you change values of a immutable object?",
+            "a": "A Java object is considered immutable when its state cannot change after it is created. Use of immutable objects is widely accepted as a sound strategy for creating simple, reliable code. Immutable objects are particularly useful in concurrent applications. Since they cannot change state, they cannot be corrupted by thread interference or observed in an inconsistent state. java.lang.String and java.lang.Integer classes are the Examples of immutable objects from the Java Development Kit. Immutable objects simplify your program due to following characteristics : <ul><li>Immutable objects are simple to use test and construct.</li><li>Immutable objects are automatically thread-safe.</li><li>Immutable objects do not require a copy constructor. </li><li>Immutable objects do not require an implementation of clone. </li><li>Immutable objects allow hashCode to use lazy initialization, and to cache its return value.</li><li>Immutable objects do not need to be copied defensively when used as a field. </li><li>Immutable objects are good Map keys and Set elements (Since state of these objects must not change while stored in a collection).</li><li>Immutable objects have their class invariant established once upon construction, and it never needs to be checked again.</li><li>Immutable objects always have 'failure atomicity' (a term used by Joshua Bloch) : if an immutable object throws an exception, it's never left in an undesirable or indeterminate state.</li>",
             "category": "Core Java"
         },
         {
@@ -19,8 +19,8 @@
         },
         {
             "id": "3",
-            "q": "TestQuestion",
-            "a": "Testanswer",
+            "q": "How to create a immutable object in Java? Does all property of immutable object needs to be final?",
+            "a": "To create a object immutable You need to make the class final and all its member final so that once objects gets crated no one can modify its state. You can achieve same functionality by making member as non final but private and not modifying them except in constructor. Also its NOT necessary to have all the properties final since you can achieve same functionality by making member as non final but private and not modifying them except in constructor. ",
             "category": "Core Java"
         },
         {

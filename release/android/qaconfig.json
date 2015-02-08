@@ -15,8 +15,8 @@
         },
         {
             "id": "2",
-            "q": "TestQuestion",
-            "a": "Testanswer",
+            "q": "TestQuestion With HTML Link",
+            "a": "Testanswer can be found on this link as well <a href='http://www.fromdev.com'/>fromdev</a>   ",
             "category": "Serialization"
         },
         {

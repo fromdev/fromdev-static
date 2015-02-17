@@ -1,8 +1,8 @@
 {
     "appName": "Java Interview Question Answer App",
-    "version": "1.0",
-    "aboutTitle": "About Title",
-    "aboutDesc": "About Description",
+    "version": "2.0",
+    "aboutTitle": "About Us",
+    "aboutDesc": "Java Interview Question Answer App is created for learning Java concepts with interview perspective. This app is created by <a href='http://www.fromdev.com'>Fromdev.com</a>. FromDev is a fast growing digital weblog that constantly publishes quality articles about interesting tutorials, noteworthy programming resources, online tips and tricks, books recommendation, practical and useful information for modern web developers and anyone interested in the web industry. To discuss questions and answers please visit <a href='http://www.fromdev.com'>Fromdev.com</a>.",
     "timestamp": "1234567",
     "adminEmail": "craig.enter@gmail.com",
     "adminEmailPass" : "f1md3vpass",

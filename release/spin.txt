@@ -915,4 +915,11 @@
 	"Wireframe Tools For Designing Mockups & Getting Feedback On Wireframes!",
 	"Prototyping, Mockup, And Wireframing Tools For Iphone App Development ",
 	"Mockup And Wireframing Tools For Developers",
-	"What’S The Difference Between A Wireframe And Mock-Up?"]}
+	"What’S The Difference Between A Wireframe And Mock-Up?"],
+	"http://www.fromdev.com/2014/12/software-for-educational-institutions.html": [
+        "Best Educational Software For Schools",
+        "Useful Software For Educators",
+        "Top School Management Softwares",
+        "School Administration Software Alternatives", 
+        "School Administrative Software List"
+    ]}

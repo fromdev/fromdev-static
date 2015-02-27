@@ -921,5 +921,7 @@
         "Useful Software For Educators",
         "Top School Management Softwares",
         "School Administration Software Alternatives", 
-        "School Administrative Software List"
+        "School Administrative Software List",
+        "School Management And Administration Software List",
+        "School Administration And Management Software Options"
     ]}

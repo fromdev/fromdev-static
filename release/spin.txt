@@ -924,4 +924,15 @@
         "School Administrative Software List",
         "School Management And Administration Software List",
         "School Administration And Management Software Options"
+    ],"http://www.fromdev.com/2015/02/email-marketing-services.html": [
+        "Best Email Services",
+        "Which Email Marketing Service Is The Best",
+        "Best Online Email Service",
+        "What Is Best Email Service", 
+        "Which Email Service Is The Best",
+        "What Email Service Is Best",
+        "Top Online Email Marketing Services",
+        "Which Email Marketing Provider Is The Best",
+        "Top Email Providers For Marketing Your Business",
+        "Top 10 Email Services"
     ]}

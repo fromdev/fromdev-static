@@ -936,4 +936,18 @@
         "Which Email Marketing Provider Is The Best",
         "Top Email Providers For Marketing Your Business",
         "Top 10 Email Services"
+    ], "http://www.fromdev.com/2013/06/Best-Cell-Phone-Spy-iPhone-Apps.html": [
+        "iPhone Apps That Spy On You",
+        "iPad Apps That Spy On You",
+        "These iPhone Apps Spying On You",
+        "iPhone Apps That Spy On You",
+        "iPhone Apps Spying On You", 
+        "Top Spy Apps iPhone",
+        "Best Parental Control App For iPhone",
+        "These iPad Apps Spying On You",
+        "iPad Apps That Spy On You",
+        "iPad Apps Spying On You", 
+        "Top Spy Apps iPad",
+        "Best Parental Control App For iPad",
+        "Best iPhone Tracking Apps"
     ]}

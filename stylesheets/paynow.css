@@ -1,0 +1,373 @@
+/** 
+	PayNow! - jQuery PayPal Plugin 
+	by @flGravity
+*/
+
+
+/* [1] Reset
+======================================================*/
+
+.paynow-button {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	background: none;
+	font-family: inherit;
+	font-style: normal;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.paynow-button:focus,
+.paynow-button:active {
+	outline: none;
+}
+
+
+/* [2] Basic Style
+======================================================*/
+
+.paynow-button {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #fff;
+	white-space: nowrap;
+	vertical-align: middle;	
+	cursor: pointer;
+	-webkit-font-smoothing: antialiased;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.paynow-button-disabled {
+	cursor: default!important;
+	opacity: 0.5!important;
+}
+
+
+/* [3] "Default" Button Style
+======================================================*/
+
+.paynow-style-default {
+	padding: 9px 15px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid #32A643;
+	background-color: #3DCC53;
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.paynow-style-default:hover {
+	color: #fff;
+	background-color: #3ABF4E;
+}
+
+
+/* [4] "Round" Button Style
+======================================================*/
+
+.paynow-style-round {
+	padding: 8px 22px;
+	color: #FF4D4D;
+	border: 2px solid #FF4D4D;
+	border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+}
+
+.paynow-style-round:hover {
+	color: #fff;
+	background-color: #FF4D4D;
+}
+
+
+/* [5] "Frame" Button Style
+======================================================*/
+
+.paynow-style-frame {
+	background: none;
+	padding: 8px 15px;
+	color: #ccc;
+	font-size: 13px;
+	letter-spacing: 0.5px;
+	border: 2px solid #ccc;
+}
+
+.paynow-style-frame:hover {
+	border: 2px solid #4DFFD5;
+	color: #fff;
+	background: rgba(0,0,0,0.2);
+	box-shadow: inset 0 0 10px 0 #4DFFD5;
+}
+
+
+/* [6] "Double" Button Style
+======================================================*/
+
+.paynow-style-double {
+	background: none!important;
+	border: 0!important;
+}
+
+.paynow-style-double .paynow-label {
+	position: relative;
+	float: left;
+	padding: 15px 15px;
+	-webkit-border-radius: 5px 0 0 5px;
+	-moz-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
+	background-color: #4DC3FF;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.paynow-style-double .paynow-label:before {
+	content: "";
+	position: absolute;
+	border: 5px solid transparent;
+	border-left-color: #4DC3FF;
+	right: -10px; top: 50%; 
+	margin-top: -5px;
+	width: 0; height: 0;
+}
+
+.paynow-style-double .paynow-price { 
+	float: left;
+	padding: 15px 10px;
+	font-size: 20px;
+	font-weight: normal;
+	letter-spacing: -1px;
+	-webkit-border-radius: 0 5px 5px 0;
+	-moz-border-radius: 0 5px 5px 0;
+	border-radius: 0 5px 5px 0;
+	background-color: #666;
+	-webkit-transition: background .2s;
+	-moz-transition: background .2s;
+	-o-transition: background .2s;
+	transition: background .2s;
+}
+
+.paynow-style-double .paynow-price sub {
+	font-size: 70%;
+	line-height: 1.2em;
+	color: #aaa;
+	vertical-align: bottom;
+	margin: 0 1px;
+}
+
+.paynow-style-double:hover .paynow-price {
+	background-color: #444;
+}
+
+
+/* [7] "Boxed" Button Style
+======================================================*/
+
+.paynow-style-boxed {
+	position: relative;
+	width: 80px;
+	height: 60px;
+	background-color: #eee;
+	border: 1px solid #e1e1e1;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	overflow: hidden;
+	-webkit-transform: scale(1);
+}
+
+.paynow-style-boxed:hover {
+	background-color: #eee;
+}
+
+.paynow-style-boxed .paynow-price,
+.paynow-style-boxed .paynow-label {
+	display: block;
+	color: #555;
+	text-align: center;
+	-webkit-transition: all 0.2s;
+	-moz-transition: all 0.2s;
+	-o-transition: all 0.2s;
+	transition: all 0.2s;
+}
+
+.paynow-style-boxed .paynow-price {
+	font-size: 26px;
+	line-height: 30px;
+	font-family: Helvetica, Arial, sans-serif;
+	letter-spacing: -2px;
+}
+
+.paynow-style-boxed.paynow-button-active .paynow-price,
+.paynow-style-boxed:hover .paynow-price {
+	-webkit-transform: scale(0.66) translate(0, -20px);
+	-moz-transform: scale(0.66) translate(0, -20px);
+	-o-transform: scale(0.66) translate(0, -20px);
+	transform: scale(0.66) translate(0, -20px);
+}
+
+.paynow-style-boxed .paynow-label {
+	position: absolute;
+	left: 0; bottom: 0;
+	line-height: 25px;
+	height: 2px;
+	width: 100%;
+	color: #fff;
+	background-color: #35B36C;
+	text-transform: uppercase;
+	font-size: 11px;
+	letter-spacing: 1px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.paynow-style-boxed.paynow-button-active .paynow-label,
+.paynow-style-boxed:hover .paynow-label {
+	height: 25px;
+}
+
+.paynow-style-boxed .paynow-label:before {
+	content: "";
+	position: absolute;
+	top: -10px; 
+	left: 50%;
+	margin-left: -5px;
+	width: 0; 
+	height: 0;
+	border: 5px solid transparent;
+	border-bottom-color: #35B36C;
+}
+
+
+/* [8] "Square" Button Style
+======================================================*/
+
+.paynow-style-square {
+	position: relative;
+	padding: 10px 20px;
+	background: #4DA0FF;
+	color: #fff;
+	font-size: 13px;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+}
+
+.paynow-style-square:hover {
+	background: #4590E6;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+	-webkit-animation: shake 1s ease 1 0.3s;
+	-moz-animation: shake 1s ease 1 0.3s;
+	-o-animation: shake 1s ease 1 0.3s;
+	animation: shake 1s ease 1 0.3s;
+	-webkit-transform-origin: top center;
+	-moz-transform-origin: top center;
+	-o-transform-origin: top center;
+	transform-origin: top center;
+}
+
+.paynow-style-square:before {
+	content: "";
+	position: absolute;
+	top: -10px; left: 50%; 
+	margin-left: -5px;
+	width: 0; 
+	height: 0;
+	border: 5px solid transparent;
+}
+
+.paynow-style-square:hover:before {
+	border-bottom-color: #4590E6;
+}
+
+@keyframes shake {
+	0%,100% { transform: rotate(0deg); }
+	25% { transform: rotate(15deg); }
+	50% { transform: rotate(-10deg); }
+}
+
+@-webkit-keyframes shake {
+	0%,100% { -webkit-transform: rotate(0deg); }
+	25% { -webkit-transform: rotate(15deg); }
+	50% { -webkit-transform: rotate(-10deg); }
+}
+
+@-moz-keyframes shake {
+	0%,100% { -moz-transform: rotate(0deg); }
+	25% { -moz-transform: rotate(15deg); }
+	50% { -moz-transform: rotate(-10deg); }
+}
+
+@-o-keyframes shake {
+	0%,100% { -o-transform: rotate(0deg); }
+	25% { -o-transform: rotate(15deg); }
+	50% { -o-transform: rotate(-10deg); }
+}
+
+
+/* [9] Misc
+======================================================*/
+
+.paynow-enable-transit {
+	-webkit-transition: all .2s;
+	-moz-transition: all .2s;
+	-o-transition: all .2s;
+	transition: all .2s;
+}
+
+#paynow-tooltip {
+	position: fixed;
+	padding: 10px;
+	font-size: 12px;
+	line-height: 1em;
+	color: #fff;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #444;
+	background-color: rgba(0,0,0,0.7);
+	z-index: 10000;
+}
+
+#paynow-tooltip:before {
+	content: "";
+	position: absolute;
+	top: -10px; 
+	left: 50%; margin-left: -5px;
+	border: 5px solid transparent;
+	border-bottom-color: #444;
+	border-bottom-color: rgba(0,0,0,0.7);
+}
+
+#paynow-tooltip {
+	visibility: hidden;
+	opacity: 0;
+	-webkit-transform: scale(0.8);
+	-moz-transform: scale(0.8);
+	-o-transform: scale(0.8);
+	transform: scale(0.8);
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s, visibility 0s linear 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s, visibility 0s linear 0.3s;
+	-o-transition: opacity 0.3s, -o-transform 0.3s, visibility 0s linear 0.3s;
+	transition: opacity 0.3s, transform 0.3s, visibility 0s linear 0.3s;
+}
+
+#paynow-tooltip.paynow-tooltip-visible {
+	visibility: visible;
+	opacity: 1;
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-o-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition-delay: 0s;
+	-moz-transition-delay: 0s;
+	-o-transition-delay: 0s;
+	transition-delay: 0s;
+}

@@ -371,3 +371,6 @@
 	-o-transition-delay: 0s;
 	transition-delay: 0s;
 }
+
+input[type="text"]{ padding: 8px 10px; line-height: 20px; }
+input:focus {box-shadow: 0px 0px 7px red;}

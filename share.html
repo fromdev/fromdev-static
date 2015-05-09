@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+
+    <title>How to Parse a JSON file using jQuery</title>
+    
+    <style>
+        body{
+            text-align: center;
+            font-family: arial;
+        }
+
+        .button{
+            margin:20px;
+            font-size:16px;
+            font-weight: bold;
+            padding:5px 10px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <a href="release/spin.txt" target="_blank">Open JSON file</a><br />
+    <input type="button" value="Get and parse JSON" class="button" />
+    <br />
+    <span id="results"></span>
+    <div id="title">Hi I am div</div>
+    <div><h2>Share on Diigo</h2>
+    <span id="Diigo"></span>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <script>
+
+        //When DOM loaded we attach click event to button
+        $(document).ready(function() {
+            
+            //after button is clicked we download the data
+            $('.button').click(function(){
+				
+                //start ajax request
+                $.ajax({
+                    url: "release/spin.txt",
+                    //force to handle it as text
+                    dataType: "text",
+                    success: function(data) {
+                        $('#Diigo').empty();
+                        var urlsWithTitles = new Array();
+                        var json = $.parseJSON(data);
+                        console.log(json);
+                        $('#results').html(json);
+                        for (var url in json) {
+                        	if (json.hasOwnProperty(url)) {
+                        		var titles = json[url];
+                        		urlsWithTitles.push({"url": url,"titles":titles});
+                        		var title = pickRandom(titles);
+                                var desc = pickRandom(titles);
+                               // $('#Diigo').append('<a href=https://www.diigo.com/post?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&desc=' + encodeURIComponent(desc) + '> ' + title + '</a></br>');
+                        	}
+                        }
+                        $('#results').html('urlsWithTitles : ' + urlsWithTitles.length);
+                        var randomObj =  pickRandom(urlsWithTitles);
+                        var randUrl = randomObj.url;
+                        var randTitle = pickRandom(randomObj.titles);
+                        var randDesc = pickRandom(randomObj.titles);
+                        $('#Diigo').append('<a href=https://www.diigo.com/post?url=' + encodeURIComponent(randUrl) + '&title=' + encodeURIComponent(randTitle) + '&desc=' + encodeURIComponent(randDesc) + '> ' + randTitle + '</a></br>');
+                    }
+                });
+            });
+            
+        });
+        function pickRandom(arr) {
+        	return arr[getRandomInt(0,arr.length)];
+        }
+        function getRandomInt(min, max) {
+  			return Math.floor(Math.random() * (max - min)) + min;
+		}
+		
+    </script>
+
+</body>
+</html>

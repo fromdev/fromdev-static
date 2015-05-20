@@ -21,26 +21,35 @@
 
 </head>
 <body>
-    <a href="release/spin.txt" target="_blank">Open JSON file</a><br />
-    <input type="button" value="Get and parse JSON" class="button" />
+    <a href="release/spin.txt" target="_blank">Variations File</a><br />
+    <input type="button" value="Show Sharing Links" class="button" />
+    <input type="button" value="Next >>" class="next" />
     <br />
     <span id="results"></span>
-    <div id="title">Hi I am div</div>
+    <div id="title"></div>
     <div><h2>Share on Diigo</h2>
     <span id="Diigo"></span>
+    </div>
+    <div><h2>Share on Digg</h2>
+    <span id="Digg"></span>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <script>
-
+		var currentIndex = 0;
+		currentIndex = getUrlParameter('count');
         //When DOM loaded we attach click event to button
         $(document).ready(function() {
-            
+            $('.next').click(function(){
+            	currentIndex++;
+				var curUrl = window.location.href ;
+				var nextUrl = formatNextUrl(curUrl,currentIndex);
+                window.location.href = nextUrl;
+            });
             //after button is clicked we download the data
             $('.button').click(function(){
-				
-                //start ajax request
+				//start ajax request
                 $.ajax({
                     url: "release/spin.txt",
                     //force to handle it as text
@@ -60,8 +69,9 @@
                                // $('#Diigo').append('<a href=https://www.diigo.com/post?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&desc=' + encodeURIComponent(desc) + '> ' + title + '</a></br>');
                         	}
                         }
-                        $('#results').html('urlsWithTitles : ' + urlsWithTitles.length);
-                        var randomObj =  pickRandom(urlsWithTitles);
+                        //$('#results').html('urlsWithTitles : ' + urlsWithTitles.length);
+                        
+                        var randomObj =  pickFromArray(urlsWithTitles,currentIndex);
                         var randUrl = randomObj.url;
                         var randTitle = pickRandom(randomObj.titles);
                         var randDesc = pickRandom(randomObj.titles);
@@ -71,12 +81,39 @@
             });
             
         });
+        function formatNextUrl(url, nextPageIdx) {
+        	if(url) {
+        	 	var ind = url.indexOf("count=");
+        	 	url = url.substring(0,ind) + "count=" + nextPageIdx;
+        	}
+        	return url;
+        }
+        function pickFromArray(arr,idx) {
+        	var val = arr[0];
+        	if(idx) {
+        		val = arr[idx];
+        	} 
+        	return val;
+        }
         function pickRandom(arr) {
         	return arr[getRandomInt(0,arr.length)];
         }
         function getRandomInt(min, max) {
   			return Math.floor(Math.random() * (max - min)) + min;
 		}
+		function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}
 		
     </script>
 

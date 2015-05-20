@@ -22,33 +22,72 @@
 </head>
 <body>
     <a href="release/spin.txt" target="_blank">Variations File</a><br />
-    <input type="button" value="Show Sharing Links" class="button" />
+    <input type="button" value="Spin Title" class="button" />
     <input type="button" value="Next >>" class="next" />
     <br />
     <span id="results"></span>
     <div id="title"></div>
-    <div><h2>Share on Diigo</h2>
-    <span id="Diigo"></span>
-    </div>
-    <div><h2>Share on Digg</h2>
-    <span id="Digg"></span>
-    </div>
+    <div id="share"></div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <script>
+    var formatNextUrl = function (url, nextPageIdx) {
+        	if(url) {
+        	 	var ind = url.indexOf("count=");
+        	 	url = url.substring(0,ind) + "count=" + nextPageIdx;
+        	}
+        	return url;
+        };
+       var pickFromArray = function (arr,idx) {
+        	var val = arr[0];
+        	if(idx) {
+        		if(idx < arr.length) {
+        			val = arr[idx];
+        		}
+        	} 
+        	return val;
+        };
+        var pickRandom = function (arr) {
+        	return arr[getRandomInt(0,arr.length)];
+        };
+        var getRandomInt = function (min, max) {
+  			return Math.floor(Math.random() * (max - min)) + min;
+		};
+		var getUrlParameter = function(sParam) {
+    		var sPageURL = window.location.search.substring(1);
+    		var sURLVariables = sPageURL.split('&');
+    		for (var i = 0; i < sURLVariables.length; i++) {
+        		var sParameterName = sURLVariables[i].split('=');
+        		if (sParameterName[0] == sParam) {
+            		return sParameterName[1];
+        		}
+    		}
+		};
 		var currentIndex = 0;
 		currentIndex = getUrlParameter('count');
-        //When DOM loaded we attach click event to button
-        $(document).ready(function() {
-            $('.next').click(function(){
-            	currentIndex++;
-				var curUrl = window.location.href ;
-				var nextUrl = formatNextUrl(curUrl,currentIndex);
-                window.location.href = nextUrl;
-            });
-            //after button is clicked we download the data
-            $('.button').click(function(){
+		var comment = function(urlTitleDesc) {
+            return '<h2>Comment</h2><div>' + urlTitleDesc.desc + '</div>';
+        };
+		var diigo = function(urlTitleDesc) {
+            return '<h2>Share on Diigo</h2><a target="_blank" href=https://www.diigo.com/post?url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&desc=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+        };
+        var digg = function(urlTitleDesc) {
+            return '<h2>Share on Digg</h2><a target="_blank"  href=http://digg.com/submit?partner=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&bodytext=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+        };
+        var linkedin = function(urlTitleDesc) {
+            return '<h2>Share on LinkedIn</h2><a target="_blank"  href=https://www.linkedin.com/shareArticle?source=&ro=false&mini=true&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+        };
+        var flipboard = function(urlTitleDesc) {
+            return '<h2>Share on Flipboard</h2><a target="_blank"  href=https://share.flipboard.com/bookmarklet/popout?v=2&ext=addthis&utm_medium=web&utm_campaign=widgets&utm_source=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+        };
+		var pickRandomUtd = function(urlsAndTitles) {
+			var randomObj =  pickFromArray(urlsAndTitles,currentIndex);
+			var randTitle = pickRandom(randomObj.titles);
+			var randDesc = pickRandom(randomObj.titles);
+			return {"url":randomObj.url,"title":randTitle,"desc":randDesc};
+		};
+		var loadData = function(){
 				//start ajax request
                 $.ajax({
                     url: "release/spin.txt",
@@ -58,62 +97,37 @@
                         $('#Diigo').empty();
                         var urlsWithTitles = new Array();
                         var json = $.parseJSON(data);
-                        console.log(json);
-                        $('#results').html(json);
+                        //console.log(json);
+                        //$('#results').html(json);
                         for (var url in json) {
                         	if (json.hasOwnProperty(url)) {
                         		var titles = json[url];
                         		urlsWithTitles.push({"url": url,"titles":titles});
-                        		var title = pickRandom(titles);
-                                var desc = pickRandom(titles);
-                               // $('#Diigo').append('<a href=https://www.diigo.com/post?url=' + encodeURIComponent(url) + '&title=' + encodeURIComponent(title) + '&desc=' + encodeURIComponent(desc) + '> ' + title + '</a></br>');
                         	}
                         }
-                        //$('#results').html('urlsWithTitles : ' + urlsWithTitles.length);
-                        
-                        var randomObj =  pickFromArray(urlsWithTitles,currentIndex);
-                        var randUrl = randomObj.url;
-                        var randTitle = pickRandom(randomObj.titles);
-                        var randDesc = pickRandom(randomObj.titles);
-                        $('#Diigo').append('<a href=https://www.diigo.com/post?url=' + encodeURIComponent(randUrl) + '&title=' + encodeURIComponent(randTitle) + '&desc=' + encodeURIComponent(randDesc) + '> ' + randTitle + '</a></br>');
+                        $('#share').append(comment(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(diigo(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(digg(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(linkedin(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(flipboard(pickRandomUtd(urlsWithTitles)));
                     }
                 });
+            };
+
+        //When DOM loaded we attach click event to button
+        $(document).ready(function() {
+        	loadData();
+            $('.next').click(function(){
+            	currentIndex++;
+				var curUrl = window.location.href ;
+				var nextUrl = formatNextUrl(curUrl,currentIndex);
+                window.location.href = nextUrl;
             });
+            //after button is clicked we download the data
+            $('.button').click(loadData);
             
         });
-        function formatNextUrl(url, nextPageIdx) {
-        	if(url) {
-        	 	var ind = url.indexOf("count=");
-        	 	url = url.substring(0,ind) + "count=" + nextPageIdx;
-        	}
-        	return url;
-        }
-        function pickFromArray(arr,idx) {
-        	var val = arr[0];
-        	if(idx) {
-        		val = arr[idx];
-        	} 
-        	return val;
-        }
-        function pickRandom(arr) {
-        	return arr[getRandomInt(0,arr.length)];
-        }
-        function getRandomInt(min, max) {
-  			return Math.floor(Math.random() * (max - min)) + min;
-		}
-		function getUrlParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
-            return sParameterName[1];
-        }
-    }
-}
+       
 		
     </script>
 

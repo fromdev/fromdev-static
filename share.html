@@ -112,6 +112,7 @@
                         		urlsWithTitles.push({"url": url,"titles":titles});
                         	}
                         }
+                        $('#share').empty();
                         $('#share').append(comment(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(diigo(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(digg(pickRandomUtd(urlsWithTitles)));

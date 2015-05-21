@@ -65,7 +65,10 @@
     		}
 		};
 		var currentIndex = 0;
-		currentIndex = getUrlParameter('count');
+		var valFromUrl = getUrlParameter('count');
+		if(valFromUrl) {
+			currentIndex = valFromUrl;
+		}
 		var comment = function(urlTitleDesc) {
             return '<h2>Comment</h2><div>' + urlTitleDesc.desc + '</div>';
         };

@@ -35,7 +35,11 @@
     var formatNextUrl = function (url, nextPageIdx) {
         	if(url) {
         	 	var ind = url.indexOf("count=");
-        	 	url = url.substring(0,ind) + "count=" + nextPageIdx;
+        	 	if(ind > -1) {
+        	 		url = url.substring(0,ind) + "count=" + nextPageIdx;
+        	 	} else {
+        	 		url = url + "count=" + nextPageIdx;
+        	 	}
         	}
         	return url;
         };

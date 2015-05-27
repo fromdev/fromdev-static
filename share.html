@@ -30,8 +30,10 @@
     <div id="share"></div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://raw.githubusercontent.com/mirzaasif/JS-StopWord/master/StopWord.js"></script>
 
     <script>
+    
     var formatNextUrl = function (url, nextPageIdx) {
         	if(url) {
         	 	var ind = url.indexOf("count=");
@@ -68,11 +70,16 @@
         		}
     		}
 		};
-		var currentIndex = 0;
-		var valFromUrl = getUrlParameter('count');
-		if(valFromUrl) {
-			currentIndex = valFromUrl;
-		}
+		
+		var getUrlParameterOrDefault = function(paramName, defaultValue) {
+			var paramVal = getUrlParameter(paramName);
+			if(paramVal) {
+				return paramVal;
+			}
+			return defaultValue;
+		};
+		var currentIndex = getUrlParameterOrDefault('count',0);
+		
 		var comment = function(urlTitleDesc) {
             return '<h2>Comment</h2><div>' + urlTitleDesc.desc + '</div>';
         };
@@ -88,20 +95,26 @@
         var flipboard = function(urlTitleDesc) {
             return '<h2>Share on Flipboard</h2><a target="_blank"  href=https://share.flipboard.com/bookmarklet/popout?v=2&ext=addthis&utm_medium=web&utm_campaign=widgets&utm_source=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
         };
+        var googleBookmark = function(urlTitleDesc) {
+            return '<h2>Share on Google Bookmark</h2><a target="_blank"  href=https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&annotation=' + encodeURIComponent(urlTitleDesc.desc) + '&labels=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+        };
+        var showTags = function(urlTitleDesc) {
+            return '<h2>Tags</h2><div>' + urlTitleDesc.desc.removeStopWords() + '</div>';
+        };
 		var pickRandomUtd = function(urlsAndTitles) {
 			var randomObj =  pickFromArray(urlsAndTitles,currentIndex);
 			var randTitle = pickRandom(randomObj.titles);
 			var randDesc = pickRandom(randomObj.titles);
 			return {"url":randomObj.url,"title":randTitle,"desc":randDesc};
 		};
+		
 		var loadData = function(){
 				//start ajax request
                 $.ajax({
-                    url: "release/spin.txt",
+                    url: getUrlParameterOrDefault("file","release/spin.txt"),
                     //force to handle it as text
                     dataType: "text",
                     success: function(data) {
-                        $('#Diigo').empty();
                         var urlsWithTitles = new Array();
                         var json = $.parseJSON(data);
                         //console.log(json);
@@ -118,6 +131,8 @@
                         $('#share').append(digg(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(linkedin(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(flipboard(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(googleBookmark(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(showTags(pickRandomUtd(urlsWithTitles)));
                     }
                 });
             };

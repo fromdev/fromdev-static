@@ -9,13 +9,30 @@
             text-align: center;
             font-family: arial;
         }
-
-        .button{
+		.button{
             margin:20px;
             font-size:16px;
             font-weight: bold;
             padding:5px 10px;
         }
+        .div-table{
+		  display:table;         
+		  width:auto;         
+		  background-color:#dfdfdf;         
+		  border:2px dotted  #dddddd;         
+		  border-spacing:5px;/*cellspacing:poor IE support for  this*/
+		}
+		.div-table-row{
+		  display:table-row;
+		  width:auto;
+		  clear:both;
+		}
+		.div-table-col{
+		  float:left;/*fix for  buggy browsers*/
+		  display:table-column;         
+		  width:700px;         
+		  background-color:#fdfdfd;  
+		}
     </style>
 
 
@@ -27,7 +44,7 @@
     <br />
     <span id="results"></span>
     <div id="title"></div>
-    <div id="share"></div>
+    <div id="share" class="div-table"></div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://raw.githubusercontent.com/mirzaasif/JS-StopWord/master/StopWord.js"></script>
@@ -79,29 +96,40 @@
 			return defaultValue;
 		};
 		var currentIndex = getUrlParameterOrDefault('count',0);
-		
+		var formatRow = function(columnsHtml) {
+			return '<div class="div-table-row">' + columnsHtml + '</div>'
+		};
+		var formatCol = function(colContent) {
+			return '<div class="div-table-col">' + colContent + '</div>'
+		};
 		var comment = function(urlTitleDesc) {
-            return '<h2>Comment</h2><div>' + urlTitleDesc.desc + '</div>';
+            return formatRow(formatCol('Comment') + formatCol(urlTitleDesc.desc));
         };
 		var diigo = function(urlTitleDesc) {
-            return '<h2>Share on Diigo</h2><a target="_blank" href=https://www.diigo.com/post?url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&desc=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+            return formatRow(formatCol('Share on Diigo')  + formatCol('<a target="_blank" href=https://www.diigo.com/post?url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&desc=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a>'));
         };
         var digg = function(urlTitleDesc) {
-            return '<h2>Share on Digg</h2><a target="_blank"  href=http://digg.com/submit?partner=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&bodytext=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+            return formatRow(formatCol('Share on Digg')  + formatCol('<a target="_blank"  href=http://digg.com/submit?partner=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&bodytext=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a>'));
         };
         var linkedin = function(urlTitleDesc) {
-            return '<h2>Share on LinkedIn</h2><a target="_blank"  href=https://www.linkedin.com/shareArticle?source=&ro=false&mini=true&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+            return formatRow(formatCol('Share on LinkedIn') + formatCol('<a target="_blank"  href=https://www.linkedin.com/shareArticle?source=&ro=false&mini=true&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a>'));
         };
         var flipboard = function(urlTitleDesc) {
-            return '<h2>Share on Flipboard</h2><a target="_blank"  href=https://share.flipboard.com/bookmarklet/popout?v=2&ext=addthis&utm_medium=web&utm_campaign=widgets&utm_source=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+            return formatRow(formatCol('Share on Flipboard') + formatCol('<a target="_blank"  href=https://share.flipboard.com/bookmarklet/popout?v=2&ext=addthis&utm_medium=web&utm_campaign=widgets&utm_source=addthis&url=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&summary=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a>'));
         };
         var googleBookmark = function(urlTitleDesc) {
-            return '<h2>Share on Google Bookmark</h2><a target="_blank"  href=https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&annotation=' + encodeURIComponent(urlTitleDesc.desc) + '&labels=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a></br>';
+            return formatRow(formatCol('Share on Google Bookmark') + formatCol('<a target="_blank"  href=https://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=' + encodeURIComponent(urlTitleDesc.url) + '&title=' + encodeURIComponent(urlTitleDesc.title) + '&annotation=' + encodeURIComponent(urlTitleDesc.desc) + '&labels=' + encodeURIComponent(urlTitleDesc.desc) + '> ' + urlTitleDesc.title + '</a>'));
+        };
+        var twitter = function(urlTitleDesc) {
+            return formatRow(formatCol('Share on Twitter') + formatCol('<a target="_blank"  href=https://twitter.com/intent/tweet?original_referer=' + encodeURIComponent(urlTitleDesc.url) + '&url=' + encodeURIComponent(urlTitleDesc.url) + '&text=' + encodeURIComponent(urlTitleDesc.title) + '> ' + urlTitleDesc.title + '</a>'));
         };
         var showTags = function(urlTitleDesc) {
-            return '<h2>Tags</h2><div>' + urlTitleDesc.desc.removeStopWords() + '</div>';
+            return formatRow(formatCol('Tags') + formatCol('<div>' + urlTitleDesc.desc.removeStopWords() + '</div>'));
         };
-		var pickRandomUtd = function(urlsAndTitles) {
+        var showCommaTags = function(urlTitleDesc) {
+            return formatRow(formatCol('Comma Separated Tags') + formatCol('<div>' + urlTitleDesc.desc.removeStopWords().split(' ').join(',') + '</div>'));
+        };
+        var pickRandomUtd = function(urlsAndTitles) {
 			var randomObj =  pickFromArray(urlsAndTitles,currentIndex);
 			var randTitle = pickRandom(randomObj.titles);
 			var randDesc = pickRandom(randomObj.titles);
@@ -127,12 +155,14 @@
                         }
                         $('#share').empty();
                         $('#share').append(comment(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(showTags(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(showCommaTags(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(diigo(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(digg(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(linkedin(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(flipboard(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(googleBookmark(pickRandomUtd(urlsWithTitles)));
-                        $('#share').append(showTags(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(twitter(pickRandomUtd(urlsWithTitles)));
                     }
                 });
             };

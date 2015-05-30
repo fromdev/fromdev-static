@@ -129,6 +129,9 @@
         var showCommaTags = function(urlTitleDesc) {
             return formatRow(formatCol('Comma Separated Tags') + formatCol('<div>' + urlTitleDesc.desc.removeStopWords().split(' ').join(',') + '</div>'));
         };
+        var directLink = function(urlTitleDesc) {
+            return formatRow(formatCol('Visit Page') + formatCol('<a target="_blank"  href="' + urlTitleDesc.url+ '"> ' + urlTitleDesc.title + '</a>'));
+        };
         var pickRandomUtd = function(urlsAndTitles) {
 			var randomObj =  pickFromArray(urlsAndTitles,currentIndex);
 			var randTitle = pickRandom(randomObj.titles);
@@ -163,6 +166,7 @@
                         $('#share').append(flipboard(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(googleBookmark(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(twitter(pickRandomUtd(urlsWithTitles)));
+                        $('#share').append(directLink(pickRandomUtd(urlsWithTitles)));
                     }
                 });
             };

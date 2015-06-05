@@ -42,6 +42,15 @@ $(window).load(function(){
         log('createTag called');
         return options.openTag + options.selectedText + options.closeTag;
     };
+    var createTagsByLine = function (options) {
+        log('createTagsByLine called');
+        var textArr = options.selectedText.split('\n');
+        var nestedHtml = '';
+        for (i = 0; i < textArr.length; i++) {
+        	nestedHtml +=options.openChildTag + textArr[i] + options.closeChildTag;
+        }
+        return options.openTag + nestedHtml + options.closeTag;
+    };
     var createHashText = function (text) {
         if (text) {
             return text.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
@@ -317,7 +326,17 @@ $(window).load(function(){
     	
 	});
 
-
+    $('#wrap-all-ul').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createTagsByLine,
+            openTag: '<ul>',
+            closeTag: '</ul>',
+            openChildTag: '<li>',
+            closeChildTag: '</li>'
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
 	
 	$('#url-list').change(function(){
     	$('#link-url').val($('#url-list option:selected').val());
@@ -415,6 +434,7 @@ $(window).load(function(){
 <button id="wrap-link">Wrap link</button>
 <button id="wrap-image">Wrap Image</button>
 <button id="wrap-amazon-image">Wrap Amazon Image</button>
+<button id="wrap-all-ul">Wrap All UL</button>
 <button id="reset">Reset</button>
 </div>
 <div class="right">

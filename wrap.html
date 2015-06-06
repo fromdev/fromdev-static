@@ -51,6 +51,23 @@ $(window).load(function(){
         }
         return options.openTag + nestedHtml + options.closeTag;
     };
+    
+    var createListItemTagsByLine = function(options) {
+    	log('createListItemTagsByLine called');
+    	var textArr = options.selectedText.split('\n');
+    	var heading = textArr[0];
+    	var url = $.trim(textArr[1]);
+    	var hashText = createHashText(heading);
+        $.extend(options,{"url":url,"hashText":hashText,"selectedText":heading});
+        
+        var nestedHtml = '<h2>' + createLink(options) + '</h2><p>';
+        for (i = 2; i < textArr.length; i++) {
+        	nestedHtml += textArr[i] + '\n';
+        }
+        nestedHtml+='</p>';
+        return nestedHtml;
+    };
+    
     var createHashText = function (text) {
         if (text) {
             return text.replace(/[^a-z0-9\s]/gi, '').replace(/[_\s]/g, '-');
@@ -62,7 +79,13 @@ $(window).load(function(){
         log('createLinkTag called');
         var hashText = createHashText(options.selectedText);
         var url = $.trim($(options.linkSelector).val());
-        if (url && url.trim().length > 0) {
+        $.extend(options,{"url":url,"hashText":hashText});
+        return createLink(options);
+    };
+    var createLink = function(options) {
+    	var url = options.url;
+    	var hashText = options.hashText;
+    	if (url && url.trim().length > 0) {
             if (validateUrl(url)) {
                 //url is good
             } else {
@@ -80,7 +103,7 @@ $(window).load(function(){
         var closeTag = '</a>';
         return openTag + options.selectedText + closeTag;
     };
-
+    
     var createImageTag = function (options) {
         log('createImageTag called');
         var hashText = createHashText(options.selectedText);
@@ -337,6 +360,22 @@ $(window).load(function(){
         });
         $('#showtext').val($('#fulltext').val());
     });
+    
+    $('#wrap-all-list-item').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createListItemTagsByLine
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
+    
+    $('#wrap-list-item').click(function () {
+        wrap({
+            elementSelector: '#fulltext',
+            creator: createListItemTagsByLine
+        });
+        $('#showtext').val($('#fulltext').val());
+    });
 	
 	$('#url-list').change(function(){
     	$('#link-url').val($('#url-list option:selected').val());
@@ -435,6 +474,8 @@ $(window).load(function(){
 <button id="wrap-image">Wrap Image</button>
 <button id="wrap-amazon-image">Wrap Amazon Image</button>
 <button id="wrap-all-ul">Wrap All UL</button>
+<button id="wrap-all-list-item">Wrap All List Item By Line</button>
+
 <button id="reset">Reset</button>
 </div>
 <div class="right">

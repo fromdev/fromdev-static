@@ -58,7 +58,7 @@ $(window).load(function(){
     	var heading = textArr[0];
     	var url = $.trim(textArr[1]);
     	var hashText = createHashText(heading);
-        $.extend(options,{"url":url,"hashText":hashText,"selectedText":heading});
+        $.extend(options,{"url":url,"hashText":hashText,"selectedText":toTitleCase(heading)});
         
         var nestedHtml = '<h2>' + createLink(options) + '</h2><p>';
         for (i = 2; i < textArr.length; i++) {

@@ -58,15 +58,64 @@
         },
         {
             "id": "11",
-            "q": "Need Help in learning Java?",
-            "a": "Visit <href='http://www.fromdev.com/2012/02/java-interview-question-answer.html'>FromDev.com</a> to discuss and get help.",
-            "category": "More"
+            "q": "Why main() in java is declared as public static void main? What if the main method is declared as private?",
+            "a": "Public - main method is called by JVM to run the method which is outside the scope of project therefore the access specifier has to be public to permit call from anywhere outside the application static - When the JVM makes are call to the main method there is not object existing for the class being called therefore it has to have static method to allow invocation from class. void - Java is platform independent language therefore if it will return some value then the value may mean different to different platforms so unlike C it can not assume a behavior of returning value to the operating system. If main method is declared as private then - Program will compile properly but at run-time it will give 'Main method not public.' error. The only difference between experienced and inexperienced software developers is that the experienced ones realize when they're making a mistake.",
+            "category": "Core Java"
         },
         {
             "id": "12",
-            "q": "Looking for more Java questions or want to discuss?",
-            "a": "Please update the questions to get latest set of questions.",
+            "q": "What are available drivers in JDBC?",
+            "a": "<b>JDBC technology drivers fit into one of four categories: </b> <ol><li> A <i>JDBC-ODBC bridge</i> provides JDBC API access via one or more ODBC drivers. Note that some ODBC native code and in many cases native database client  code must be loaded on each client machine that uses this type of driver. Hence, this kind of driver is generally most appropriate when automatic installation and downloading of a Java technology application is not important.  <br></li><li>A <i>native-API partly Java technology-enabled driver</i> converts JDBC calls into calls on the client API for Oracle, Sybase, Informix, DB2, or other DBMS. Note that, like the bridge driver, this style of driver requires that some binary code be loaded on each client machine.</li><li>A <i>net-protocol fully Java technology-enabled driver</i> translates JDBC API calls into a DBMS-independent net protocol which is then translated to a DBMS protocol by a server. This net server middleware is able to connect all of its Java technology-based clients to many different databases. The specific protocol used depends on the vendor. In general, this is the most flexible JDBC API alternative. It is likely that all vendors of this solution will provide products suitable for Intranet use. In order for these products to also support Internet access they must handle the additional requirements for security, access through firewalls, etc., that the Web imposes. Several vendors are adding JDBC technology-based drivers to their existing database middleware products.</li><li>A <i>native-protocol fully Java technology-enabled driver</i> converts JDBC technology calls into the network protocol used by DBMSs directly. This allows a direct call from the client machine to the DBMS server and is a practical solution for Intranet access. Since many of these protocols are proprietary the database vendors themselves will be the primary source for this style of driver. Several database vendors have these in progress.</li></ol>",
+            "category": "JDBC"
+        },
+        {
+            "id": "13",
+            "q": "What are the types of statements in JDBC?",
+            "a": "<p>the JDBC API has 3 Interfaces, (1. Statement, 2. PreparedStatement, 3. CallableStatement ). The key features of these are as follows:  <b>Statement</b>  <ul><li>This interface is used for executing a static SQL statement and returning the results it produces. </li><li> The object of Statement class can be created using Connection.createStatement() method. </li></ul><b>PreparedStatement </b> <ul><li>A SQL statement is pre-compiled and stored in a PreparedStatement object.</li><li>This object can then be used to efficiently execute this statement multiple times.</li><li> The object of PreparedStatement class can be created using Connection.prepareStatement() method. This extends Statement interface. </li></ul><b>CallableStatement </b> <ul><li>This interface is used to execute SQL stored procedures.</li><li>  This extends PreparedStatement interface.</li><li> The object of CallableStatement class can be created using Connection.prepareCall() method.</li></ul></p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "14",
+            "q": "What is a stored procedure? How to call stored procedure using JDBC API?",
+            "a": "<p>Stored procedure is a group of SQL statements that forms a logical unit and performs a particular task.  Stored Procedures are used to encapsulate a set of operations or queries to execute on database. Stored procedures can be compiled and executed with different parameters and results and may have any combination of input/output parameters.  Stored procedures can be called using CallableStatement class in JDBC API. Below code snippet shows how this can be achieved.  <pre name='code' class='java'>CallableStatement cs = con.prepareCall(\"{call MY_STORED_PROC_NAME}\");ResultSet rs = cs.executeQuery();</pre></p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "111",
+            "q": "Need Help in learning Java?",
+            "a": "Visit <href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java </a> page to get some guidelines on how to get started.",
+            "category": "More"
+        },
+        {
+            "id": "112",
+            "q": "Looking for more Java questions?",
+            "a": "Go to - Home - More - Update Questions - Update. This will update the questions to get latest set of questions available in this list.",
+            "category": "More"
+        },
+        {
+            "id": "113",
+            "q": "Looking for Java interview preparation books?",
+            "a": "We have created a list of best books that can help you learn java and become expert Java developer. Visit this page : <a href='http://www.fromdev.com/2011/04/5-best-core-java-books-you-must-read-as.html'>Best Java Books</a>",
+            "category": "More"
+        },
+        {
+            "id": "114",
+            "q": "Looking for programming interview preparation books?",
+            "a": "We have created a list of best books that can help you prepare for jobs at companies like Google, Apple and Microsoft. Visit this page : <a href='http://www.fromdev.com/2013/07/interview-questions-book.html'>Best Interview Preparation Books</a>",
+            "category": "More"
+        },
+        {
+            "id": "115",
+             "q": "Need to discuss any question or answer?",
+            "a": "Visit <href='http://www.fromdev.com/2012/02/java-interview-question-answer.html'>FromDev.com</a> to discuss and get help.",
+            "category": "More"
+       },
+        {
+            "id": "116",
+            "q": "Have feedback about something on this app?",
+            "a": "Your feedback is always welcome. We are constantly trying to improve this app. Can you think of a questions which is not part of this post? Please don't forget to share it with me in comments section & I will try to include it in the list. To Sent Feedback or a new question. Go to - Home - More - Feedback. and send us your feedback. ",
             "category": "More"
         }
+        
     ]
 }

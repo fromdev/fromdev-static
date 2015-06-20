@@ -189,103 +189,103 @@
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "33",
+            "q": "Why doesn't Collection extend Cloneable and Serializable?",
+            "a": "<p>\nFrom Sun FAQ Page:  Many Collection implementations (including all of the ones provided by the JDK) will have a public clone method, but it would be mistake to require it of all Collections.\n\nFor example, what does it mean to clone a Collection that's backed by a terabyte SQL database? Should the method call cause the company to requisition a new disk farm? Similar arguments hold for serializable.  \n\nIf the client doesn't know the actual type of a Collection, it's much more flexible and less error prone to have the client decide what type of Collection is desired, create an empty Collection of this type, and use the addAll method to copy the elements of the original collection into the new one. \n\n<b>Note on Some Important Terms</b>       \n<ul>\n<li>Synchronized means only one thread can modify a hash table at one point of time. Basically, it means that any thread before performing an update on a hashtable will have to acquire a lock on the object while others will wait for lock to be released. </li>\n<li>Fail-fast is relevant from the context of iterators. If an iterator has been created on a collection object and some other thread tries to modify the collection object \"structurally”, a concurrent modification exception will be thrown. It is possible for other threads though to invoke \"set\" method since it doesn’t modify the collection \"structurally”. However, if prior to calling \"set\", the collection has been modified structurally, \"IllegalArgumentException\" will be thrown. </li>\n</ul>\n</p>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "34",
+            "q": "How can we make Hashmap synchronized?",
+            "a": "\nHashMap can be synchronized by  <i>Map m = Collections.synchronizedMap(hashMap);</i>\n",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "35",
+            "q": "Where will you use Hashtable and where will you use HashMap?",
+            "a": "<h3>There Are Multiple Aspects To This Decision:</h3>\n<ul><li>The basic difference between a Hashtable and an HashMap is that, Hashtable is synchronized while HashMap is not. Thus whenever there is a possibility of multiple threads accessing the same instance, one should use Hashtable. While if not multiple threads are going to access the same instance then use HashMap. Non synchronized data structure will give better performance than the synchronized one. </li><li>If there is a possibility in future that - there can be a scenario when you may require to retain the order of objects in the Collection with key-value pair then HashMap can be a good choice. As one of HashMap's subclasses is LinkedHashMap, so in the event that you'd want predictable iteration order (which is insertion order by default), you can easily swap out the HashMap for a LinkedHashMap. This wouldn't be as easy if you were using Hashtable. Also if you have multiple thread accessing you HashMap then Collections.synchronizedMap() method can be leveraged.  Overall HashMap gives you more flexibility in terms of possible future changes.</li></ul>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "36",
+            "q": "Difference between Vector and ArrayList? What is the Vector class?",
+            "a": "<p>\nVector and ArrayList both classes are implemented using dynamically resizable arrays, providing fast random access and fast traversal. ArrayList and Vector class both implement the List interface. Both the classes are member of Java collection framework, therefore from an API perspective, these two classes are very similar. However, there are still some major differences between the two. Below are some key differences          <ul>\n<li>Vector is a legacy class which has been retrofitted to implement the List interface since Java 2 platform v1.2</li>\n<li>Vector is synchronized whereas ArrayList is not. Even though Vector class is synchronized, still when you want programs to run in multithreading environment using ArrayList with Collections.synchronizedList() is recommended over Vector.</li>\n<li> ArrayList has no default size while vector has a default size of 10.</li>\n<li>The Enumerations returned by Vector's elements method are not  fail-fast. Whereas ArraayList does not have any method returning Enumerations.</li>\n</ul>\n</p>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "37",
+            "q": "What is the Difference between Enumeration and Iterator interface?",
+            "a": "<p>\nEnumeration and Iterator are the interface available in java.util package. The functionality of Enumeration interface is duplicated by the Iterator interface. New implementations should consider using Iterator in preference to Enumeration.  Iterators differ from enumerations in following ways:  <ol>\n<li> Enumeration contains 2 methods namely hasMoreElements() & nextElement() whereas Iterator contains three methods namely hasNext(), next(),remove().</li>\n<li> Iterator adds an optional remove operation, and has shorter method names. Using remove() we can delete the objects but Enumeration interface does not support this feature.</li>\n<li> Enumeration interface is used by legacy classes. Vector.elements() & Hashtable.elements() method returns Enumeration.  Iterator is returned by all Java Collections Framework classes. java.util.Collection.iterator() method returns an instance of Iterator.</li>\n</ol>\n</p>\n",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "38",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "39",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "40",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "41",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "42",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "43",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "44",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "45",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "46",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "47",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
+            "id": "48",
             "q": "",
             "a": "",
             "category": "Collections Framework"
         },
         {
-            "id": "",
-            "q": "",
-            "a": "",
-            "category": "Collections Framework"
-        },
-        {
-            "id": "",
-            "q": "",
-            "a": "",
-            "category": "Collections Framework"
-        },
-        {
-            "id": "",
-            "q": "",
-            "a": "",
-            "category": "Collections Framework"
-        },
-        {
-            "id": "",
-            "q": "",
-            "a": "",
-            "category": "Collections Framework"
-        },
-        {
-            "id": "",
-            "q": "",
-            "a": "",
-            "category": "Collections Framework"
-        },
-        {
-            "id": "",
+            "id": "49",
             "q": "",
             "a": "",
             "category": "Collections Framework"

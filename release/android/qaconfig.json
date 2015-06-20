@@ -81,6 +81,216 @@
             "category": "JDBC"
         },
         {
+            "id": "15",
+            "q": "What is a stored procedure? How to call stored procedure using JDBC API?",
+            "a": "<p>Stored procedure is a group of SQL statements that forms a logical unit and performs a particular task.  Stored Procedures are used to encapsulate a set of operations or queries to execute on database. Stored procedures can be compiled and executed with different parameters and results and may have any combination of input/output parameters.  Stored procedures can be called using CallableStatement class in JDBC API. Below code snippet shows how this can be achieved.  <pre name='code' class='java'>CallableStatement cs = con.prepareCall(\"{call MY_STORED_PROC_NAME}\"); ResultSet rs = cs.executeQuery();</pre></p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "16",
+            "q": "What is Connection pooling? What are the advantages of using a connection pool?",
+            "a": "<p>Connection Pooling is a technique used for sharing the server resources among requested clients. It was pioneered by database vendors to allow multiple clients to share a cached set of connection objects that provides access to a database. Getting connection and disconnecting are costly operation, which affects the application performance, so we should avoid creating multiple connection during multiple database interactions. A pool contains set of Database connections which are already connected, and any client who wants to use it can take it from pool and when done with using it can be returned back to the pool. Apart from performance this also saves you resources as there may be limited database connections available for your application. </p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "17",
+            "q": "How to do database connection using JDBC thin driver ?",
+            "a": "<p>\nThis is one of the most commonly asked questions from JDBC fundamentals, and knowing all the steps of JDBC connection is important.  <pre name='code' class='java'>import java.sql.*;\nclass JDBCTest {\n  public static void main (String args []) throws Exception\n  {\n        //Load driver class\n        Class.forName (\"oracle.jdbc.driver.OracleDriver\");\n         //Create connection\n        Connection conn = DriverManager.getConnection\n             (\"jdbc:oracle:thin:@hostname:1526:testdb\", \"scott\", \"tiger\");\n                             // @machineName:port:SID,   userid,  password\n \n        Statement stmt = conn.createStatement();\n        ResultSet rs = stmt.executeQuery(\"select 'Hi' from dual\");\n        while (rs.next())\n              System.out.println (rs.getString(1));   // Print col 1 => Hi\n         stmt.close();\n  }\n}\n</pre>\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "18",
+            "q": "What does Class.forName() method do?",
+            "a": "<p>\nMethod forName() is a static method of java.lang.Class. This can be used to dynamically load a class at run-time. Class.forName() loads the class if its not already loaded. It also executes the static block of loaded class. Then this method returns an instance of the loaded class. So a call to Class.forName('MyClass') is going to do following   \n\n- Load the class MyClass.\n- Execute any static block code of MyClass.\n- Return an instance of MyClass.\n\nJDBC Driver loading using Class.forName is a good example of best use of this method. The driver loading is done like this  \n\n<pre name='code' class='java'>Class.forName(\"org.mysql.Driver\");\n</pre>\nAll JDBC Drivers have a static block that registers itself with DriverManager and DriverManager has static initializer method registerDriver() which can be called in a static blocks of Driver class. A MySQL JDBC Driver has a static initializer which looks like this:  \n\n<pre name='code' class='java'>static {\n    try {\n        java.sql.DriverManager.registerDriver(new Driver());\n    } catch (SQLException E) {\n        throw new RuntimeException(\"Can't register driver!\");\n    }\n}\n</pre>\nClass.forName() loads driver class and executes the static block and the Driver registers itself with the DriverManager.\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "19",
+            "q": "Which one will you use Statement or PreparedStatement? Or Which one to use when (Statement/PreparedStatement)? Compare PreparedStatement vs Statement.",
+            "a": "<p>\nBy Java API definitions:  <b>Statement</b> is a object used for executing a static SQL statement and returning the results it produces.   <b>PreparedStatement </b>is a SQL statement which is precompiled and stored in a PreparedStatement object. This object can then be used to efficiently execute this statement multiple times.    There are few advantages of using PreparedStatements over Statements  <ol>\n<li>Since its pre-compiled, Executing the same query multiple times in loop, binding different parameter values each time is faster. (What does pre-compiled statement means? The prepared statement(pre-compiled) concept is not specific to Java, it is a database concept. Statement precompiling means: when you execute a SQL query, database server  will prepare a execution plan before executing the actual query, this execution plan will be cached at database server for further execution.)</li>\n<li>In PreparedStatement the setDate()/setString() methods can be used to escape dates and strings properly, in a database-independent way.</li>\n<li>SQL injection attacks on a system are virtually impossible when using PreparedStatements.</li>\n</ol>\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "20",
+            "q": "What does setAutoCommit(false) do?",
+            "a": "<p>\nA JDBC connection is created in auto-commit mode by default. This means that each individual SQL statement is treated as a transaction and will be automatically committed as soon as it is executed. If you require two or more statements to be grouped into a transaction then you need to disable auto-commit mode using below command  <pre name='code' class='java'>con.setAutoCommit(false);\n</pre>\nOnce auto-commit mode is disabled, no SQL statements will be committed until you explicitly call the commit method. A Simple transaction with use of autocommit flag is demonstrated below.  <pre name='code' class='java'>con.setAutoCommit(false);\n    PreparedStatement updateStmt =\n     con.prepareStatement( \"UPDATE EMPLOYEE SET SALARY = ? WHERE EMP_NAME LIKE ?\");\n    updateStmt.setInt(1, 5000); updateSales.setString(2, \"Jack\");\n    updateStmt.executeUpdate();\n    updateStmt.setInt(1, 6000); updateSales.setString(2, \"Tom\");\n    updateStmt.executeUpdate(); \n    con.commit();\n    con.setAutoCommit(true);\n</pre>\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "21",
+            "q": "What are database warnings and How can I handle database warnings in JDBC?",
+            "a": "<p>\nWarnings are issued by database to notify user of a problem which may not be very severe. Database warnings do not stop the execution of SQL statements. In JDBC SQLWarning is an exception that provides information on database access warnings. Warnings are silently chained to the object whose method caused it to be reported.    Warnings may be retrieved from Connection, Statement, and ResultSet objects.    Handling SQLWarning from connection object  <pre name='code' class='java'>//Retrieving warning from connection object\n SQLWarning warning = conn.getWarnings();\n \n //Retrieving next warning from warning object itself\n SQLWarning nextWarning = warning.getNextWarning();\n \n //Clear all warnings reported for this Connection object. \n conn.clearWarnings();\n</pre>\nHandling SQLWarning from Statement object  <pre name='code' class='java'>//Retrieving warning from statement object\n stmt.getWarnings();\n\n //Retrieving next warning from warning object itself\n SQLWarning nextWarning = warning.getNextWarning(); \n \n //Clear all warnings reported for this Statement object. \n stmt.clearWarnings();\n</pre>\nHandling SQLWarning from ResultSet object  <pre name='code' class='java'>//Retrieving warning from resultset object\n rs.getWarnings();\n \n //Retrieving next warning from warning object itself\n SQLWarning nextWarning = warning.getNextWarning();\n \n //Clear all warnings reported for this resultset object. \n rs.clearWarnings();\n</pre>\nThe call to <b>getWarnings()</b> method in any of above way retrieves the first warning reported by calls on this object. If there is more than one  warning, subsequent warnings will be chained to the first one and can be retrieved by calling the method <b>SQLWarning.getNextWarning</b> on the warning that was retrieved previously.    A call to <b>clearWarnings()</b> method  clears all warnings reported for this object. After a call to this method, the method getWarnings  returns null until a new warning is reported for this object.    Trying to call <b>getWarning()</b> on a connection after it has been closed will cause an SQLException to be thrown. Similarly, trying to retrieve a warning on a statement after it has been closed or on a result set after it has been closed will cause an SQLException to be thrown. Note that closing a statement also closes a result set that it might have produced.\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "22",
+            "q": "What is Metadata and why should I use it?",
+            "a": "<p>\nJDBC API has 2 Metadata interfaces DatabaseMetaData & ResultSetMetaData.  The DatabaseMetaData provides Comprehensive information about the database as a whole. This interface is implemented by driver vendors to let users know the capabilities of a Database Management System (DBMS) in combination with the driver based on JDBC technology (\"JDBC driver\") that is used with it. Below is a sample code which demonstrates how we can use the DatabaseMetaData   <pre name='code' class='java'>DatabaseMetaData md = conn.getMetaData();\n System.out.println(\"Database Name: \" + md.getDatabaseProductName());\n System.out.println(\"Database Version: \" + md.getDatabaseProductVersion());\n System.out.println(\"Driver Name: \" + md.getDriverName());\n System.out.println(\"Driver Version: \" + md.getDriverVersion());\n</pre>\nThe ResultSetMetaData is an object that can be used to get information about the types and properties of the columns in a ResultSet object.   Use DatabaseMetaData to find information about your database, such as its capabilities and structure. Use ResultSetMetaData to find information about the results of an SQL query, such as size and types of columns. Below a sample code which demonstrates how we can use the ResultSetMetaData  <pre name='code' class='java'>ResultSet rs = stmt.executeQuery(\"SELECT a, b, c FROM TABLE2\");\n     ResultSetMetaData rsmd = rs.getMetaData();\n     int numberOfColumns = rsmd.getColumnCount();\n     boolean b = rsmd.isSearchable(1);\n</pre>\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "23",
+            "q": "What is RowSet? or What is the difference between RowSet and ResultSet? or Why do we need RowSet? or What are the advantages of using RowSet over ResultSet?",
+            "a": "<p>\nRowSet is a interface that adds support to the JDBC API for the JavaBeans component model. A rowset, which can be used as a JavaBeans component in a visual Bean development environment, can be created and configured at design time and executed at run time. The RowSet  interface provides a set of JavaBeans properties that allow a RowSet  instance to be configured to connect to a JDBC data source and read some data from the data source. A group of setter methods (setInt, setBytes, setString, and so on) provide a way to pass input parameters to a rowset's command property. This command is the SQL query the rowset uses when it gets its data from a relational database, which is generally the case.   Rowsets are easy to use since the RowSet interface extends the standard java.sql.ResultSet interface so it has all the methods of ResultSet. There are two clear advantages of using RowSet over ResultSet  <ul>\n<li>RowSet makes it possible to use the ResultSet object as a JavaBeans component. As a consequence, a result set can, for example, be a component in a Swing application. </li>\n<li>RowSet be used to make a ResultSet object scrollable and updatable. All RowSet objects are by default scrollable and updatable. If the driver and database being used do not support scrolling and/or updating of result sets, an application can populate a RowSet object implementation (e.g. JdbcRowSet) with the data of a ResultSet object and then operate on the RowSet object as if it were the ResultSet  object.</li>\n</ul>\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "24",
+            "q": "What is a connected RowSet? or What is the difference between connected RowSet and disconnected RowSet? or Connected vs Disconnected RowSet, which one should I use and when?",
+            "a": "<p>\n<h3>\nConnected RowSet</h3>\nA RowSet object may make a connection with a data source and maintain that connection throughout its life cycle, in which case it is called a connected rowset. A rowset may also make a connection with a data source, get data from it, and then close the connection. Such a rowset is called a disconnected rowset. A disconnected rowset may make changes to its data while it is disconnected and then send the changes back to the original source of the data, but it must reestablish a connection to do so.  <b>Example of Connected RowSet:</b>  A JdbcRowSet object is a example of connected RowSet, which means it continually maintains its connection to a database using a JDBC technology-enabled driver.  <h2>\nDisconnected RowSet</h2>\nA disconnected rowset may have a reader (a RowSetReader object) and a writer (a RowSetWriter object) associated with it. The reader may be implemented in many different ways to populate a rowset with data, including getting data from a non-relational data source. The writer can also be implemented in many different ways to propagate changes made to the rowset's data back to the underlying data source.   <b>Example of Disconnected RowSet:</b>  A CachedRowSet object is a example of disconnected rowset, which means that it makes use of a connection to its data source only briefly. It connects to its data source while it is reading data to populate itself with rows and again while it is propagating changes back to its underlying data source. The rest of the time, a CachedRowSet object is disconnected, including while its data is being modified. Being disconnected makes a RowSet  object much leaner and therefore much easier to pass to another component. For example, a disconnected RowSet object can be serialized and passed over the wire to a thin client such as a personal digital assistant (PDA).\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "25",
+            "q": "What is the benefit of having JdbcRowSet implementation? Why do we need a JdbcRowSet like wrapper around ResultSet?",
+            "a": "<p>\nThe JdbcRowSet implementation is a wrapper around a ResultSet object that has following advantages over ResultSet   <ul>\n<li> This implementation makes it possible to use the ResultSet object as a JavaBeans component. A JdbcRowSet can be used as a JavaBeans component in a visual Bean development environment, can be created and configured at design time and executed at run time. </li>\n<li>It can be used to make a ResultSet object scrollable and updatable. All RowSet objects are by default scrollable and updatable. If the driver and database being used do not support scrolling and/or updating of result sets, an application can populate a JdbcRowSet object with the data of a ResultSet object and then operate on the JdbcRowSet object as if it were the ResultSet object. </li>\n</ul>\n</p>",
+            "category": "JDBC"
+        },
+        {
+            "id": "26",
+            "q": "What is Java Collections API?",
+            "a": "Java Collections framework API is a unified architecture for representing and manipulating collections. The API contains Interfaces, Implementations &amp; Algorithm to help java programmer in everyday programming. In nutshell, this API does 6 things at high level         <ul>\n<li>Reduces programming efforts. - Increases program speed and quality.</li>\n<li>Allows interoperability among unrelated APIs. </li>\n<li> Reduces effort to learn and to use new APIs. </li>\n<li> Reduces effort to design new APIs. </li>\n<li> Encourages &amp; Fosters software reuse. </li>\n</ul>\nTo be specific, There are six collection java interfaces. The most basic interface is Collection. Three interfaces extend Collection: Set, List, and SortedSet. The other two collection interfaces, Map and SortedMap, do not extend Collection, as they represent mappings rather than true collections.",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "27",
+            "q": "What is an Iterator?",
+            "a": "Some of the collection classes provide traversal of their contents via a java.util.Iterator interface. This interface allows you to walk through a collection of objects, operating on each object in turn. Remember when using Iterators that they contain a snapshot of the collection at the time the Iterator was obtained; generally it is not advisable to modify the collection itself while traversing an Iterator.",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "28",
+            "q": "What is the difference between java.util.Iterator and java.util.ListIterator?",
+            "a": "<ul>\n<li><b>Iterator</b> : Enables you to traverse through a collection in the forward direction only, for obtaining or removing elements</li>\n<li><b>ListIterator</b> : extends Iterator, and allows bidirectional traversal of list and also allows the modification of elements.</li>\n</ul>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "29",
+            "q": "What is HashMap and Map? ",
+            "a": "<p>Map is Interface which is part of Java collections framework. This is to store Key Value pair, and Hashmap is class that implements that using hashing technique.</p>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "30",
+            "q": "Difference between HashMap and HashTable? Compare Hashtable vs HashMap?",
+            "a": "Both Hashtable and HashMap provide key-value access to data. The Hashtable is one of the original collection classes in Java (also called as legacy classes). HashMap is part of the new Collections Framework, added with Java 2, v1.2. There are several differences between HashMap and Hashtable in Java as listed below         <ul>\n<li>The HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls. (HashMap allows null values as key and value whereas Hashtable doesn’t allow nulls). </li>\n<li>HashMap does not guarantee that the order of the map will remain constant over time. But one of HashMap's subclasses is LinkedHashMap, so in the event that you'd want predictable iteration order (which is insertion order by default), you can easily swap out the HashMap for a LinkedHashMap. This wouldn't be as easy if you were using Hashtable. </li>\n<li>HashMap is non synchronized whereas Hashtable is synchronized. </li>\n<li>Iterator in the HashMap is fail-fast while the enumerator for the Hashtable isn't. So this could be a design consideration. </li>\n</ul>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "31",
+            "q": "What does synchronized means in Hashtable context?",
+            "a": "Synchronized means only one thread can modify a hash table at one point of time.  Any thread before performing an update on a hashtable will have to acquire a lock on the object while others will wait for lock to be released.",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "32",
+            "q": "What is fail-fast property?",
+            "a": "<p>At high level - Fail-fast is a property of a system or software with respect to its response to failures. A fail-fast system is designed to immediately report any failure or condition that is likely to lead to failure. Fail-fast systems are usually designed to stop normal operation rather than attempt to continue a possibly-flawed process.   \n\nWhen a problem occurs, a fail-fast system fails immediately and visibly. Failing fast is a non-intuitive technique: \"failing immediately and visibly\" sounds like it would make your software more fragile, but it actually makes it more robust. Bugs are easier to find and fix, so fewer go into production.   \n\nIn Java, Fail-fast term can be related to context of iterators. If an iterator has been created on a collection object and some other thread tries to modify the collection object \"structurally\", a concurrent modification exception will be thrown.  \n\nIt is possible for other threads though to invoke \"set\" method since it doesn't modify the collection \"structurally\".  However, if prior to calling \"set\", the collection has been modified structurally, \"IllegalArgumentException\" will be thrown.</p>",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
+            "id": "",
+            "q": "",
+            "a": "",
+            "category": "Collections Framework"
+        },
+        {
             "id": "111",
             "q": "Need Help in learning Java?",
             "a": "Visit <href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java </a> page to get some guidelines on how to get started.",

@@ -85,9 +85,7 @@ function json_quote(string) {
   }) + '"' : '"' + string + '"';
 }
 
-$(window).load(function(){
-	$("#normal").focus();
-    $("#jsonesc").focus(function () {
+var selectAll = function () {
         var $this = $(this);
         $this.select();
 
@@ -97,6 +95,11 @@ $(window).load(function(){
             $this.unbind("mouseup");
             return false;
         });
-    });
+    };
+     
+$(window).load(function(){
+	$("#normal").focus();
+    $("#jsonesc").focus(selectAll);
+    $("#normal").click(selectAll);
 });
 </script>

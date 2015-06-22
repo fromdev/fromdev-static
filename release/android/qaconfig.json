@@ -291,6 +291,216 @@
             "category": "Collections Framework"
         },
         {
+            "id": "50",
+            "q": "What is synchronization in respect to multi-threading in Java?",
+            "a": "<p>\nWith respect to multi-threading, synchronization is the capability to control the access of multiple threads to shared resources. Without synchronization, it is possible for one Java thread to modify a shared variable while another thread is in the process of using or updating same shared variable. This usually leads to erroneous behavior or program.</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "51",
+            "q": "Explain different way of using thread?",
+            "a": "<p>\nA Java thread could be implemented by using Runnable interface or by extending the Thread class. The Runnable is more advantageous, when you are going for multiple inheritance.   \n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "52",
+            "q": "What is the difference between Thread.start() & Thread.run() method?",
+            "a": "<p>\nThread.start() method (native method) of Thread class actually does the job of running the Thread.run() method in a thread. If we directly call Thread.run() method it will executed in same thread, so does not solve the purpose of creating a new thread. </p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "53",
+            "q": "Why do we need run() & start() method both. Can we achieve it with only run method?",
+            "a": "<p>\nWe need run() & start() method both because JVM needs to create a separate thread which can not be differentiated from a normal method call. So this job is done by start method native implementation which has to be explicitly called. Another advantage of having these two methods is we can have any object run as a thread if it implements Runnable interface. This is to avoid Java’s multiple inheritance problems which will make it difficult to inherit another class with Thread.\n</p>   \n",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "54",
+            "q": "What is ThreadLocal class? How can it be used?",
+            "a": "<p>\nBelow are some key points about ThreadLocal variables <ul>\n<li>A thread-local variable effectively provides a separate copy of its value for each thread that uses it.</li>\n<li>ThreadLocal instances are typically private static fields in classes that wish to associate state with a thread</li>\n<li>In case when multiple threads access a ThreadLocal instance, separate copy of Threadlocal variable is maintained for each thread.</li>\n<li>Common use is seen in DAO pattern where the DAO class can be singleton but the Database connection can be maintained separately for each thread. (Per Thread Singleton)</li>\n</ul>\nThreadLocal variable are difficult to understand and I recommend you to use best java book on concurrency : <a target=\"_blank\" rel=\"nofollow\" title=\"Java Concurrency in Practice\" name=\"Java-Concurrency-in-Practice\" href=\"http://www.amazon.com/gp/product/0321349601/ref=as_li_tf_tl?ie=UTF8&tag=core-java-books-20&linkCode=as2&camp=217145&creative=399353&creativeASIN=0321349601\" >Java Concurrency in Practice</a>\n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "55",
+            "q": "When InvalidMonitorStateException is thrown? Why?",
+            "a": "<p>\nThis exception is thrown when you try to call wait()/notify()/notifyAll() any of these methods for an Object from a point in your program where u are NOT having a lock on that object.(i.e. u r not executing any synchronized block/method of that object and still trying to call wait()/notify()/notifyAll()) wait(), notify() and notifyAll() all throw IllegalMonitorStateException. since This exception is a subclass of RuntimeException so we r not bound to catch it (although u may if u want to). and being a RuntimeException this exception is not mentioned in the signature of wait(), notify(), notifyAll() methods. </p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "56",
+            "q": "What is the difference between sleep(), suspend() and wait() ?",
+            "a": "<p>\nThread.sleep() takes the current thread to a \"Not Runnable\" state for specified amount of time. The thread holds the monitors it has acquired. For example, if a thread is running a synchronized block or method and sleep method is called then no other thread will be able to enter this block or method. The sleeping thread can wake up when some other thread calls t.interrupt on it. Note that sleep is a static method, that means it always affects the current thread (the one executing sleep method). \n\nA common mistake is trying to call t2.sleep() where t2 is a different thread; even then, it is the current thread that will sleep, not the t2 thread.  thread.suspend() is deprecated method. Its possible to send other threads into suspended state by making a suspend method call. In suspended state a thread keeps all its monitors and can not be  interrupted. This may cause deadlocks therefore it has been deprecated.  object.wait() call also takes the current thread into a \"Not Runnable\" state, just like sleep(), but with a slight change. Wait method is invoked on a lock object, not thread. \n\nHere is the sequence of operations you can think \n<ul>\n<li> A thread T1 is already running a synchronized block with a lock on object - lets say \"lockObject\"</li>\n<li>Another thread T2 comes to execute the synchronized block and find that its already acquired.</li>\n<li>Now T2 calls lockObject.wait() method for waiting on lock to be release by T1 thread.</li>\n<li> T1 thread finishes all its synchronized block work.</li>\n<li> T1 thread calls lockObject.notifyAll() to notify all waiting threads that its done using the lock.</li>\n<li> Since T2 thread is first in the queue of waiting it acquires the lock and starts processing.</li>\n</ul>\n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "57",
+            "q": "What happens when I make a static method as synchronized?",
+            "a": "<p>\nSynchronized static methods have a lock on the class \"Class\", so when a thread enters a synchronized static method, the class itself gets locked by the thread monitor and no other thread can enter any static synchronized methods on that class. This is unlike instance methods, as multiple threads can access \"same synchronized instance methods\" at same time for different instances. </p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "58",
+            "q": "Can a thread call a non-synchronized instance method of an Object when a synchronized method is being executed ?",
+            "a": "<p>\nYes, a Non  synchronized method can always be called without any problem. In fact Java does  not do any check for a non-synchronized method. The Lock object check is  performed only for synchronized methods/blocks. In case the method is not  declared synchronized Jave will call even if you are playing with shared data.  So you have to be careful while doing such thing. The decision of declaring a  method as synchronized has to be based on critical section access. If your  method does not access a critical section (shared resource or data structure) it  need not be declared synchronized.  Below is the example  which demonstrates this, The Common class has two methods  synchronizedMethod1() and  method1() MyThread class is calling both  the methods in separate threads,  </p>\n\n\n<pre name='code' class='java'>public class Common {\n\npublic synchronized void synchronizedMethod1() {\nSystem.out.println(\"synchronizedMethod1 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"synchronizedMethod1 done\");\n}\npublic void method1() {\nSystem.out.println(\"Method 1 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"Method 1 done\");\n}\n}\n</pre>\n<pre name='code' class='java'>public class MyThread extends Thread {\nprivate int id = 0;\nprivate Common common;\n\npublic MyThread(String name, int no, Common object) {\nsuper(name);\ncommon = object;\nid = no;\n}\n\npublic void run() {\nSystem.out.println(\"Running Thread\" + this.getName());\ntry {\nif (id == 0) {\ncommon.synchronizedMethod1();\n} else {\ncommon.method1();\n}\n} catch (Exception e) {\ne.printStackTrace();\n}\n}\n\npublic static void main(String[] args) {\nCommon c = new Common();\nMyThread t1 = new MyThread(\"MyThread-1\", 0, c);\nMyThread t2 = new MyThread(\"MyThread-2\", 1, c);\nt1.start();\nt2.start();\n}\n}\n</pre>\nHere is the output of the program  <pre name='code' class='bash'>Running ThreadMyThread-1\nsynchronizedMethod1 called\nRunning ThreadMyThread-2\nMethod 1 called\nsynchronizedMethod1 done\nMethod 1 done\n</pre>\nThis shows that method1() - is called even though the synchronizedMethod1() was in execution.  ",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "59",
+            "q": "Can two threads call two different synchronized instance methods of an Object?",
+            "a": "<p>\nNo. If a object has synchronized instance methods then the Object itself is used a lock object for controlling the synchronization. Therefore all other instance methods need to wait until previous method call is completed.   See the below sample code which demonstrate it very clearly. The Class Common has 2 methods called synchronizedMethod1() and synchronizedMethod2() MyThread class is calling both the methods</p>\n\n<pre name='code' class='java'>public class Common {\npublic synchronized void synchronizedMethod1() {\nSystem.out.println(\"synchronizedMethod1 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"synchronizedMethod1 done\");\n}\n\npublic synchronized void synchronizedMethod2() {\nSystem.out.println(\"synchronizedMethod2 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"synchronizedMethod2 done\");\n}\n}\n</pre>\n<pre name='code' class='java'>public class MyThread extends Thread {\nprivate int id = 0;\nprivate Common common;\n\npublic MyThread(String name, int no, Common object) {\nsuper(name);\ncommon = object;\nid = no;\n}\n\npublic void run() {\nSystem.out.println(\"Running Thread\" + this.getName());\ntry {\nif (id == 0) {\ncommon.synchronizedMethod1();\n} else {\ncommon.synchronizedMethod2();\n}\n} catch (Exception e) {\ne.printStackTrace();\n}\n}\n\npublic static void main(String[] args) {\nCommon c = new Common();\nMyThread t1 = new MyThread(\"MyThread-1\", 0, c);\nMyThread t2 = new MyThread(\"MyThread-2\", 1, c);\nt1.start();\nt2.start();\n}\n}\n</pre>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "60",
+            "q": "What is a deadlock?",
+            "a": "<p>\nDeadlock is a situation where two or more threads are blocked forever, waiting for each other. This may occur when two threads, each having a lock on one resource, attempt to acquire a lock on the other's resource. Each thread would wait indefinitely for the other to release the lock, unless one of the user processes is terminated.  In terms of Java API, thread deadlock can occur in following conditions:  <ul>\n<li>When two threads call Thread.join() on each other.</li>\n<li>When two threads use nested synchronized blocks to lock two objects and the blocks lock the same objects in different order.</li>\n</ul>\n</p>\n",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "61",
+            "q": "What is Starvation? and What is a Livelock?",
+            "a": "<p>\nStarvation and livelock are much less common a problem than deadlock, but are still problems that every designer of concurrent software is likely to encounter.  <h3>\nLiveLock</h3>\nLivelock occurs when all threads are blocked, or are otherwise unable to proceed due to unavailability of required resources, and the non-existence of any unblocked thread to make those resources available. In terms of Java API, thread livelock can occur in following conditions:  <ul>\n<li>When all the threads in a program execute Object.wait(0) on an object with zero parameter. The program is live-locked and cannot proceed until one or more threads call Object.notify() or Object.notifyAll() on the relevant objects. Because all the threads are blocked, neither call can be made.</li>\n<li>When all the threads in a program are stuck in infinite loops.</li>\n</ul>\n<h3>\nStarvation</h3>\nStarvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by \"greedy\" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.    Starvation occurs when one thread cannot access the CPU because one or more other threads are monopolizing the CPU.    In Java, thread starvation can be caused by setting thread priorities inappropriately. A lower-priority thread can be starved by higher-priority threads if the higher-priority threads do not yield control of the CPU from time to time.  </p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "62",
+            "q": "How to find a deadlock has occurred in Java? How to detect a Deadlock in Java?",
+            "a": "<p>\nEarlier versions of Java had no mechanism to handle/detect deadlock. Since JDK 1.5 there are some powerful methods added in the java.lang.management package to diagnose and detect deadlocks.    The java.lang.management.ThreadMXBean interface is management interface for the thread system of the Java virtual machine. It has two methods which can leveraged to detect deadlock in a Java application.  <ul>\n<li>findMonitorDeadlockedThreads() - This method can be used to detect cycles of threads that are in deadlock waiting to acquire object monitors. It returns an array of thread IDs that are deadlocked waiting on monitor. </li>\n<li>findDeadlockedThreads() - It returns an array of thread IDs that are deadlocked waiting on monitor or ownable synchronizers. </li>\n</ul>\n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "63",
+            "q": "What is immutable object? How does it help in writing concurrent application?",
+            "a": "<p>\nAn object is considered immutable if its state cannot change after it is constructed. Maximum reliance on immutable objects is widely accepted as a sound strategy for creating simple, reliable code.    Immutable objects are particularly useful in concurrent applications. Since they cannot change state, they cannot be corrupted by thread interference or observed in an inconsistent state. Examples of immutable objects from the JDK include String and Integer.    Immutable objects greatly simplify your multi threaded program, since they are  <ul>\n<li>Simple to construct, test, and use. </li>\n<li>Automatically thread-safe and have no synchronization issues. </li>\n</ul>\nTo create a object immutable You need to make the class final and all its member final so that once objects gets crated no one can modify its state. You can achieve same functionality by making member as non final but private and not modifying them except in constructor. </p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "64",
+            "q": "How will you take thread dump in Java? How will you analyze Thread dump?",
+            "a": "<p>\nA Thread Dump is a complete list of active threads. A java thread dump is a way of finding out what each thread in the JVM is doing at a particular point of time. This is especially useful when your java application seems to have some performance issues. Thread dump will help you to find out which thread is causing this.   There are several ways to take thread dumps from a JVM. It is highly recommended to take more than 1 thread dump and analyze the results based on it. Follow below steps to take thread dump of a java process   <ul>\n<li>Step 1 \n\nOn UNIX, Linux and Mac OSX Environment run below command:  \n\nps -el | grep java  \n\nOn Windows: \n\nPress Ctrl+Shift+Esc to open the task manager and find the PID of the java process \n\n</li>\n<li> Step 2: \n\nUse jstack command to print the Java stack traces for a given Java process PID \n\njstack [PID] \n\nMore details of jstack command can be found here : <a href=\"http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstack.html\">JSTACK Command Manual</a> \n\n</li>\n</ul>\n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "65",
+            "q": ">What is a thread leak? What does it mean in Java?",
+            "a": "<p>\nThread leak is when a application does not release references to a thread object properly. Due to this some Threads do not get garbage collected and the number of unused threads grow with time.   Thread leak can often cause serious issues on a Java application since over a period of time too many threads will be created but not released and may cause applications to respond slow or hang.   \n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "66",
+            "q": "How can I trace whether the application has a thread leak?",
+            "a": "<p>\nIf an application has thread leak then with time it will have too many unused threads. Try to find out what type of threads is leaking out. This can be done using following ways  <ul>\n<li>Give unique and descriptive names to the threads created in application. - Add log entry in all thread at various entry and exit points in threads.</li>\n<li>Change debugging config levels (debug, info, error etc) and analyze log messages.</li>\n<li>When you find the class that is leaking out threads check how new threads are instantiated and how they're closed.</li>\n<li>Make sure the thread is Guaranteed to close properly by doing following - Handling all Exceptions properly.</li>\n<li>Make sure the thread is Guaranteed to close properly by doing following <ul>\n<li>Handling all Exceptions properly.</li>\n<li>releasing all resources (e.g. connections, files etc) before it closes.</li>\n</ul>\n</li>\n</ul>\n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "67",
+            "q": "What is thread pool? Why should we use thread pools?",
+            "a": "<p>\nA thread pool is a collection of threads on which task can be scheduled. Instead of creating a new thread for each task, you can have one of the threads from the thread pool pulled out of the pool and assigned to the task. When the thread is finished with the task, it adds itself back to the pool and waits for another assignment.   One common type of thread pool is the fixed thread pool. This type of pool always has a specified number of threads running; if a thread is somehow terminated while it is still in use, it is automatically replaced with a new thread.   Below are key reasons to use a Thread Pool   <ul>\n<li> Using thread pools minimizes the JVM overhead due to thread creation. Thread objects use a significant amount of memory, and in a large-scale application, allocating and de-allocating many thread objects creates a significant memory management overhead. </li>\n<li>You have control over the maximum number of tasks that are being processed in parallel (= number of threads in the pool). </li>\n</ul>\nMost of the executor implementations in java.util.concurrent use thread pools, which consist of worker threads. This kind of thread exists separately from the Runnable and Callable tasks it executes and is often used to execute multiple tasks.    \n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "68",
+            "q": "Can we synchronize the run method? If yes then what will be the behavior?",
+            "a": "<p>\nYes, the run method of a runnable class can be synchronized.    If you make run method synchronized then the lock on runnable object will be occupied before executing the run method. In case we start multiple threads using the same runnable object in the constructor of the Thread then it would work. But until the 1st thread ends the 2nd thread cannot start and until the 2nd thread ends the next cannot start as all the threads depend on lock on same object.</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "69",
+            "q": "Can we synchronize the constructor of a Java Class?",
+            "a": "<p>\nAs per Java Language Specification, constructors cannot be synchronized because other threads cannot see the object being created before the thread creating it has finished it.   There is no practical need of a Java Objects constructor to be synchronized, since it would lock the object being constructed, which is normally not available to other threads until all constructors of the object finish.\n</p>",
+            "category": "Multi Threading"
+        },
+        {
+            "id": "70",
+            "q": "Define Serialization? What do you mean by Serialization in Java?",
+            "a": "<p>\nSerialization is a mechanism by which you can save or transfer the state of an object by converting it to a byte stream. This can be done in java by implementing Serialiazable interface.   Serializable is defined as a marker interface which needs to be implemented for transferring an object over a network or persistence of its state to a file. Since its a marker interface, it does not contain any methods. Implementation of this interface enables the conversion of object into byte stream and thus can be transferred. The object conversion is done by the JVM using its default serialization mechanism.</p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "71",
+            "q": "Why is Serialization required? What is the need to Serialize?",
+            "a": "<p>\nSerialization is required for a variety of reasons. It is required to send across the state of an object over a network by means of a socket. One can also store an object’s state in a file. Additionally, manipulation of the state of an object as streams of bytes is required. The core of Java Serialization is the Serializable interface. When Serializable interface is implemented by your class it provides an indication to the compiler that java Serialization mechanism needs to be used to serialize the object.</p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "72",
+            "q": "What is the Difference between Externalizable and Serializable Interfaces?",
+            "a": "<p>\nThis is one of top serialization questions that is asked in many big companies to test your in-depth understanding of serialization.   Serializable is a marker interface therefore you are not forced to implement any methods, however Externalizable contains two methods readExternal() and writeExternal() which must be implemented. \n\nSerializable interface provides a inbuilt serialization mechanism to you which can be in-efficient at times. However Externilizable interface is designed to give you greater control over the serialization mechanism. The two methods provide you immense opportunity to enhance the performance of specific object serialization based on application needs.  \n\nSerializable interface provides a default serialization mechanism, on the other hand, Externalizable interface instead of relying on default Java Serialization provides flexibility to control this mechanism. \n\nOne can drastically improve the application performance by implementing the Externalizable interface correctly. However there is also a chance that you may not write the best implementation, so if you are not really sure about the best way to serialize, I would suggest your stick to the default implementation using Serializable interface. </p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "73",
+            "q": "When will you use Serializable or Externalizable interface? and why?",
+            "a": "<p>\nMost of the times when you want to do a selective attribute serialization you can use Serializable interface with transient modifier for variables not to be serialized.  However, use of Externalizable interface can be really effective in cases when you have to serialize only some dynamically selected attributes of a large object. \n\nLets take an example, Some times when you have a big Java object with hundreds of attributes and you want to serialize only a dozen dynamically selected attributes to keep the state of the object you should use Externalizable interface writeExternal method to selectively serialize the chosen attributes.  \n\nIn case you have small objects and you know that most or all attributes are required to be serialized then you should be fine with using Serializable interface and use of transient variable as appropriate. </p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "74",
+            "q": "What are the ways to speed up Object Serialization? How to improve Serialization performance?",
+            "a": "<p>\nThe default Java Serialization mechanism is really useful, however it can have a really bad performance based on your application and business requirements. The serialization process performance heavily depends on the number and size of attributes you are going to serialize for an object. Below are some tips you can use for speeding up the marshaling and un-marshaling of objects during Java serialization process.  <ul>\n<li> Mark the unwanted or non Serializable attributes as transient. This is a straight forward benefit since your attributes for serialization are clearly marked and can be easily achieved using Serialzable interface itself.</li>\n<li> Save only the state of the object, not the derived attributes. Some times we keep the derived attributes as part of the object however serializing them can be costly. Therefore consider calcualting them during de-serialization process.</li>\n<li> Serialize attributes only with NON-default values. For examples, serializing a int variable with value zero is just going to take extra space however, choosing not to serialize it would save you a lot of performance. This approach can avoid some types of attributes taking unwanted space. This will require use of Externalizable interface since attribute serialization is determined at runtime based on the value of each attribute.</li>\n<li> Use Externalizable interface and implement the readExternal and writeExternal methods to dynamically identify the attributes to be serialized. Some times there can be a custom logic used for serialization of various attributes.\n</li>\n</ul>\n</p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "75",
+            "q": "What is a Serial Version UID (serialVersionUID) and why should I use it? How to generate one?",
+            "a": "<p>\nThe serialVersionUID represents your class version, and you should change it if the current version of your class is not backwards compatible with its earlier versions.   This is extract from Java API Documentation <blockquote>\nThe serialization runtime associates with each serializable class a version number, called a serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization.</blockquote>\nMost of the times, we probably do not use serialization directly. In such cases, I would suggest to generate a default serializable uid by clicking the quick fix option in eclipse. </p>\n",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "76",
+            "q": "What would happen if the SerialVersionUID of an object is not defined?",
+            "a": "<p>\nIf you don't define serialVersionUID in your serilizable class, Java compiler will make one by creating a hash code using most of your class attributes and features.   When an object gets serialized, this hash code is stamped on the object which is known as the SerialVersionUID of that object. This ID is required for the version control of an object.   SerialVersionUID can be specified in the class file also. In case, this ID is not specified by you, then Java compiler will regenerate a SerialVersionUID based on updated class and it will not be possible for the already serialized class to recover when a class field is added or modified.   Its recommended that you always declare a serialVersionUID in your Serializable classes. </p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "77",
+            "q": "Does setting the serialVersionUID class field improve Java serialization performance?",
+            "a": "<p>\nDeclaring an explicit serialVersionUID field in your classes saves some CPU time only the first time the JVM process serializes a given Class. However the gain is not significant, In case when you have not declared the serialVersionUID its value is computed by JVM once and subsequently kept in a soft cache for future use. </p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "78",
+            "q": "What are the alternatives to Serialization? If Serialization is not used, is it possible to persist or transfer an object using any other approach?",
+            "a": "<p>\nIn case, Serialization is not used, Java objects can be serialized by many ways, some of the popular methods are listed below:  <ul>\n<li>Saving object state to database, this is most common technique used by most applications. You can use ORM tools (e.g. hibernate) to save the objects in a database and read them from the database. </li>\n<li>Xml based data transfer is another popular mechanism, and a lot of XML based web services use this mechanism to transfer data over network. Also a lot of tools save XML files to persist data/configurations. </li>\n<li>JSON Data Transfer - is recently popular data transfer format. A lot of web services are being developed in JSON due to its small footprint and inherent integration with web browser due to JavaScript format.\n</li>\n</ul>\n</p>",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "79",
+            "q": "",
+            "a": "",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "80",
+            "q": "",
+            "a": "",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "81",
+            "q": "",
+            "a": "",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "82",
+            "q": "",
+            "a": "",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "83",
+            "q": "",
+            "a": "",
+            "category": "Java Serialization"
+        },
+        {
+            "id": "84",
+            "q": "",
+            "a": "",
+            "category": "Java Serialization"
+        },
+        {
             "id": "111",
             "q": "Need Help in learning Java?",
             "a": "Visit <href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java </a> page to get some guidelines on how to get started.",

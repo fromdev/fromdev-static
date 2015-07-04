@@ -18,7 +18,7 @@
             "id": "2",
             "q": "Is Java Pass by Reference or Pass by Value?",
             "a": "<p>The Java Spec says that everything in Java is pass-by-value. There is no such thing as 'pass-by-reference' in Java. The difficult thing can be to understand that Java passes 'objects as references' passed by value.    This can certainly get confusing and I would recommend reading this article from an expert: <a href='http://javadude.com/articles/passbyvalue.htm'>http://javadude.com/articles/passbyvalue.htm</a> Also read this interesting thread with example on StackOverflow : <a href='http://stackoverflow.com/questions/40480/is-java-pass-by-reference'>Java Pass By Ref or Value</a></p>",
-            "category": "Serialization"
+            "category": "Core Java"
         },
         {
             "id": "3",
@@ -465,45 +465,9 @@
             "category": "Java Serialization"
         },
         {
-            "id": "79",
-            "q": "",
-            "a": "",
-            "category": "Java Serialization"
-        },
-        {
-            "id": "80",
-            "q": "",
-            "a": "",
-            "category": "Java Serialization"
-        },
-        {
-            "id": "81",
-            "q": "",
-            "a": "",
-            "category": "Java Serialization"
-        },
-        {
-            "id": "82",
-            "q": "",
-            "a": "",
-            "category": "Java Serialization"
-        },
-        {
-            "id": "83",
-            "q": "",
-            "a": "",
-            "category": "Java Serialization"
-        },
-        {
-            "id": "84",
-            "q": "",
-            "a": "",
-            "category": "Java Serialization"
-        },
-        {
             "id": "111",
             "q": "Need Help in learning Java?",
-            "a": "Visit <href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java </a> page to get some guidelines on how to get started.",
+            "a": "Visit <a href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java </a> page to get some guidelines on how to get started.",
             "category": "More"
         },
         {
@@ -527,7 +491,7 @@
         {
             "id": "115",
              "q": "Need to discuss any question or answer?",
-            "a": "Visit <href='http://www.fromdev.com/2012/02/java-interview-question-answer.html'>FromDev.com</a> to discuss and get help.",
+            "a": "Visit <a href='http://www.fromdev.com/2012/02/java-interview-question-answer.html'>FromDev.com</a> to discuss and get help.",
             "category": "More"
        },
         {
@@ -536,6 +500,6 @@
             "a": "Your feedback is always welcome. We are constantly trying to improve this app. Can you think of a questions which is not part of this post? Please don't forget to share it with me in comments section & I will try to include it in the list. To Sent Feedback or a new question. Go to - Home - More - Feedback. and send us your feedback. ",
             "category": "More"
         }
-        
+
     ]
 }

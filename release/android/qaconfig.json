@@ -9,497 +9,580 @@
     "receiverEmail": "pima.support@gmail.com",
     "qaList": [
         {
+            "id": "12",
+            "q": "What is the difference between JRE, JDK and JVM?",
+            "a": "<h3>JRE</h3> \n<p>JRE - Java Runtime Environment is the environment in which every Java program runs. Even JVM is part of this environment. As described in Oracle documentation\n\n<blockquote> Java Runtime Environment (JRE) The Java Runtime Environment (JRE) provides the libraries, the Java Virtual Machine, and other components to run applets and applications written in the Java programming language. In addition, two key deployment technologies are part of the JRE: Java Plug-in, which enables applets to run in popular browsers; and Java Web Start, which deploys standalone applications over a network. It is also the foundation for the technologies in the Java 2 Platform, Enterprise Edition (J2EE) for enterprise software development and deployment. The JRE does not contain tools and utilities such as compilers or debuggers for developing applets and applications.</blockquote>\n\nJava Runtime Environment, is also referred to as the Java Runtime, Runtime Environment\n</p>\n\n<h3>JDK</h3>\n<p>JDK is Java Development Kit, that is mainly used by Java developers to develop java applications. This includes various tools to support basic development activities. Below is how JDK described in Oracle documentation.\n\n<blockquote>Java Development Kit (JDK) The JDK is a superset of the JRE, and contains everything that is in the JRE, plus tools such as the compilers and debuggers necessary for developing applets and applications.</blockquote>\n\nIn essence \n<ul>\n<li>JDK contains tools and documentation required to develop Java programs.</li>\n<li>JDK is required to write Java program and compile it.</li>\n<li>JDK is mainly useful for java development. </li>\n<li>JDK is not required for the End user of a software that is written in java programming language.</li>\n</ul>\n</p>\n\n<h3>JVM</h3>\n\n<p>\nJVM - Java Virtual machine is the program that runs the Java bytecodes. The JVM requires bytecodes to run. This is the main reason why we need to compile a .java file and create *.class file that contain the bytecodes understandable by the JVM. \n\nJVM is the key that makes Java portable. There are different implementations of the JVM for all major operating systems including Windows, Linux, MacOS, and more. JVM ensures you can run a java program on any of supported operating system without modifying the code.\n\n</p>",
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "13",
+            "q": "How to compare two strings in Java?",
+            "a": "<p>Java String objects can be compared using .equals() method. This method compares the content of strings.\n\nA common mistake is to use == operator for comparing String objects. This operator works fine on primitive types on java however it does only reference comparison on objects. \nTherefore using == operator may result in unexpected results. \n\n<h3>For example:</h3>\n\n<pre>\n// These two have the same value\nnew String(\"ILoveJava\").equals(\"ILoveJava\") // --> true \n\n// ... but they are not the same object\nnew String(\"ILoveJava\") == \"ILoveJava\" // --> false \n\n// ... neither are these\nnew String(\"ILoveJava\") == new String(\"ILoveJava\") // --> false \n\n// ... but these are because literals are interned by \n// the compiler and thus refer to the same object\n\"ILoveJava\" == \"ILoveJava\" // --> true \n\n// concatenation of string literals happens at compile time,\n// also resulting in the same object\n\"ILoveJava\" == \"I\" + \"LoveJava\" // --> true\n\n// but .substring() is invoked at runtime, generating distinct objects\n\"ILoveJava\" == \"!ILoveJava\".substring(1) // --> false\n\n// interned strings can also be recalled by calling .intern()\n\"ILoveJava\" == \"!ILoveJava\".substring(1).intern() // --> true\n\n</pre>\n</p>",
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "14",
+            "q": "What is NullPointerException in java, and how to fix it?",
+            "a": "<p>As described in Oracle API documentation\n\n<blockquote>\nThrown when an application attempts to use null in a case where an object is required. These include:\n<ul><li>Calling the instance method of a null object.</li><li>Accessing or modifying the field of a null object.</li><li>Taking the length of null as if it were an array.</li><li>Accessing or modifying the slots of null as if it were an array.</li><li>Throwing null as if it were a Throwable value.</li></ul>\n\nApplications should throw instances of this class to indicate other illegal uses of the null object.\n</blockquote>\n\n<h3>How to solve NullPointerException</h3>\n<p>To resolve a NullPointerException you can take following steps.\n<ul>\n<li>Read the exception stack trace to identify the line of code where exception is thrown. The java stack trace has line number for the code where any exception is thrown.</li>\n<li>Add a check for not null value such that the line does not execute when object is null.</li>\n</ul>\n\n<h3>How To Read Stack Trace</h3>\n<p>All java exception stack trace have same format that provides you plenty of information about exact code location throwing the exception. For example, see below exception stack trace</p>\n\n<pre>\nException in thread \"main\" java.lang.NullPointerException\n    at Test.main(Test.java:5)\n</pre>\n\n<b>The first line of the stack trace tells following </b>\n<p>\n<ul>\n<li>It tells the name of Java thread where the exception was thrown. This is useful in case you are running a multi threaded Java application. In this example its \"main\" thread.</li>\n<li>It tells the full name of the exception; i.e. java.lang.NullPointerException.</li>\n</ul>\n</p>\n\n<b>The second line of the stack trace tells following </b>\n<ul>\n<li>\"at Test.main\" says that it was thrown in the 'main' method of the 'Test' class.</li>\n<li>\"Test.java:5\" gives the Java filename of the class, followed by the line number where this exception was thrown.</li>\n</ul>\n</p>\n</p>\n",
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "15",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "16",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "17",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "18",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "19",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "20",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "21",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "22",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "23",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "24",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "25",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "26",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "27",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "28",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "29",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "30",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "31",
+            "q": "",
+            "a": ,
+            "category": "Core Java - Beginner"
+        },
+        {
             "id": "1",
             "q": "What is immutable object in Java? Can you change values of a immutable object?",
             "a": "A Java object is considered immutable when its state cannot change after it is created. Use of immutable objects is widely accepted as a sound strategy for creating simple, reliable code. Immutable objects are particularly useful in concurrent applications. Since they cannot change state, they cannot be corrupted by thread interference or observed in an inconsistent state. java.lang.String and java.lang.Integer classes are the Examples of immutable objects from the Java Development Kit. Immutable objects simplify your program due to following characteristics : <ul><li>Immutable objects are simple to use test and construct.</li><li>Immutable objects are automatically thread-safe.</li><li>Immutable objects do not require a copy constructor. </li><li>Immutable objects do not require an implementation of clone. </li><li>Immutable objects allow hashCode to use lazy initialization, and to cache its return value.</li><li>Immutable objects do not need to be copied defensively when used as a field. </li><li>Immutable objects are good Map keys and Set elements (Since state of these objects must not change while stored in a collection).</li><li>Immutable objects have their class invariant established once upon construction, and it never needs to be checked again.</li><li>Immutable objects always have 'failure atomicity' (a term used by Joshua Bloch) : if an immutable object throws an exception, it's never left in an undesirable or indeterminate state.</li>",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "2",
             "q": "Is Java Pass by Reference or Pass by Value?",
             "a": "<p>The Java Spec says that everything in Java is pass-by-value. There is no such thing as 'pass-by-reference' in Java. The difficult thing can be to understand that Java passes 'objects as references' passed by value.    This can certainly get confusing and I would recommend reading this article from an expert: <a href='http://javadude.com/articles/passbyvalue.htm'>http://javadude.com/articles/passbyvalue.htm</a> Also read this interesting thread with example on StackOverflow : <a href='http://stackoverflow.com/questions/40480/is-java-pass-by-reference'>Java Pass By Ref or Value</a></p>",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "3",
             "q": "How to create a immutable object in Java? Does all property of immutable object needs to be final?",
             "a": "To create a object immutable You need to make the class final and all its member final so that once objects gets crated no one can modify its state. You can achieve same functionality by making member as non final but private and not modifying them except in constructor. Also its NOT necessary to have all the properties final since you can achieve same functionality by making member as non final but private and not modifying them except in constructor. ",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "4",
             "q": "What is difference between String, StringBuffer and StringBuilder? When to use them?",
             "a": "<p>The main difference between the three most commonly used String classes as follows.   </p><ul><li>StringBuffer and StringBuilder objects are mutable whereas String class objects are immutable.</li><li>StringBuffer class implementation is synchronized while StringBuilder class is not synchronized. </li><li>Concatenation operator + is internally implemented by Java using either StringBuffer or StringBuilder. </li></ul><p>Criteria to choose among String, StringBuffer and StringBuilder</p><ul><li>If the Object value will not change in a scenario use String Class because a String object is immutable. </li><li>If the Object value can change and will only be modified from a single thread, use a StringBuilder because StringBuilder is unsynchronized(means faster). </li><li>If the Object value may change, and can be modified by multiple threads, use a StringBuffer because StringBuffer is thread safe(synchronized).</li></ul>",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "5",
             "q": "Why String class is final or immutable?",
             "a": "<p>It is very useful to have strings implemented as final or immutable objects. Below are some advantages of String Immutability in Java  </p><ul><li>Immutable objects are thread-safe. Two threads can both work on an immutable object at the same time without any possibility of conflict. </li>The quick solution is to add these flags to JVM command line when Java runtime is started: <pre class='java' name='code'>-Xms1024m -Xmx1024m</pre><li><h3>java.lang.OutOfMemoryError: PermGen space </h3></li>The solution is to add these flags to JVM command line when Java runtime is started:   <pre class='java' name='code'>-XX:+CMSClassUnloadingEnabled-XX:+CMSPermGenSweepingEnabled</pre></ol><b>Long Term Solution</b>: Increasing the Start/Max Heap size or changing Garbage Collection options may not always be a long term solution for your Out Of Memory Error problem. Best approach is to understand the memory needs of your program and ensure it uses memory wisely and does not have leaks. You can use a Java memory profiler to determine what methods in your program are allocating large number of objects and then determine if there is a way to make sure they are no longer referenced, or to not allocate them in the first place. ",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "8",
             "q": "What is the use of the finally block? Is finally block in Java guaranteed to be called? When finally block is NOT called?",
             "a": "<p>Finally is the block of code that executes always. The code in finally block will execute even if an exception is occurred. Finally block is NOT called in following conditions  </p><ul><li>If the JVM exits while the try or catch code is being executed, then the finally block may not execute. This may happen due to System.exit() call.</li><li>if the thread executing the try or catch code is interrupted or killed, the finally block may not execute even though the application as a whole continues. </li><li>If a exception is thrown in finally block and not handled then remaining code in finally block may not be executed.</li></ul>",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "9",
             "q": "Why there are two Date classes; one in java.util package and another in java.sql?",
             "a": "<p>From the JavaDoc of java.sql.Date:  </p><blockquote>A thin wrapper around a millisecond value that allows JDBC to identify this as an SQL DATE value. A milliseconds value represents the number of milliseconds that have passed since January 1, 1970 00:00:00.000 GMT.    To conform with the definition of SQL DATE, the millisecond values wrapped inside a java.sql.Date instance must be 'normalized' by setting the hours, minutes, seconds, and milliseconds to zero.</blockquote><b>Explanation</b>: A java.util.Date represents date and time of day, a java.sql.Date only represents a date (the complement of java.sql.Date is java.sql.Time, which only represents a time of day, but also extends java.util.Date).",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "10",
             "q": "What is Marker interface? How is it used in Java?",
             "a": "<p>The marker interface is a design pattern, used with languages that provide run-time type information about objects. It provides a way to associate metadata with a class where the language does not have explicit support for such metadata.    To use this pattern, a class implements a marker interface, and code that interact with instances of that class test for the existence of the interface. Whereas a typical interface specifies methods that an implementing class must support, a marker interface does not do so. The mere presence of such an interface indicates specific behavior on the part of the implementing class.   There can be some hybrid interfaces, which both act as markers and specify required methods, are possible but may prove confusing if improperly used. Java utilizes this pattern very well and the example interfaces are  </p><ul><li>java.io.Serializable - Serializability of a class is enabled by the class implementing the java.io.Serializable interface. The Java Classes that do not implement Serializable interface will not be able to serialize or deserializ their state. All subtypes of a serializable class are themselves serializable. The serialization interface has no methods or fields and serves only to identify the semantics of being serializable.</li></p>",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
             "id": "11",
             "q": "Why main() in java is declared as public static void main? What if the main method is declared as private?",
             "a": "Public - main method is called by JVM to run the method which is outside the scope of project therefore the access specifier has to be public to permit call from anywhere outside the application static - When the JVM makes are call to the main method there is not object existing for the class being called therefore it has to have static method to allow invocation from class. void - Java is platform independent language therefore if it will return some value then the value may mean different to different platforms so unlike C it can not assume a behavior of returning value to the operating system. If main method is declared as private then - Program will compile properly but at run-time it will give 'Main method not public.' error. The only difference between experienced and inexperienced software developers is that the experienced ones realize when they're making a mistake.",
-            "category": "Core Java"
+            "category": "Core Java - Experienced"
         },
         {
-            "id": "12",
+            "id": "112",
             "q": "What are available drivers in JDBC?",
             "a": "<b>JDBC technology drivers fit into one of four categories: </b> <ol><li> A <i>JDBC-ODBC bridge</i> provides JDBC API access via one or more ODBC drivers. Note that some ODBC native code and in many cases native database client  code must be loaded on each client machine that uses this type of driver. Hence, this kind of driver is generally most appropriate when automatic installation and downloading of a Java technology application is not important.  <br></li><li>A <i>native-API partly Java technology-enabled driver</i> converts JDBC calls into calls on the client API for Oracle, Sybase, Informix, DB2, or other DBMS. Note that, like the bridge driver, this style of driver requires that some binary code be loaded on each client machine.</li><li>A <i>net-protocol fully Java technology-enabled driver</i> translates JDBC API calls into a DBMS-independent net protocol which is then translated to a DBMS protocol by a server. This net server middleware is able to connect all of its Java technology-based clients to many different databases. The specific protocol used depends on the vendor. In general, this is the most flexible JDBC API alternative. It is likely that all vendors of this solution will provide products suitable for Intranet use. In order for these products to also support Internet access they must handle the additional requirements for security, access through firewalls, etc., that the Web imposes. Several vendors are adding JDBC technology-based drivers to their existing database middleware products.</li><li>A <i>native-protocol fully Java technology-enabled driver</i> converts JDBC technology calls into the network protocol used by DBMSs directly. This allows a direct call from the client machine to the DBMS server and is a practical solution for Intranet access. Since many of these protocols are proprietary the database vendors themselves will be the primary source for this style of driver. Several database vendors have these in progress.</li></ol>",
             "category": "JDBC"
         },
         {
-            "id": "13",
+            "id": "113",
             "q": "What are the types of statements in JDBC?",
             "a": "<p>the JDBC API has 3 Interfaces, (1. Statement, 2. PreparedStatement, 3. CallableStatement ). The key features of these are as follows:  <b>Statement</b>  <ul><li>This interface is used for executing a static SQL statement and returning the results it produces. </li><li> The object of Statement class can be created using Connection.createStatement() method. </li></ul><b>PreparedStatement </b> <ul><li>A SQL statement is pre-compiled and stored in a PreparedStatement object.</li><li>This object can then be used to efficiently execute this statement multiple times.</li><li> The object of PreparedStatement class can be created using Connection.prepareStatement() method. This extends Statement interface. </li></ul><b>CallableStatement </b> <ul><li>This interface is used to execute SQL stored procedures.</li><li>  This extends PreparedStatement interface.</li><li> The object of CallableStatement class can be created using Connection.prepareCall() method.</li></ul></p>",
             "category": "JDBC"
         },
         {
-            "id": "14",
+            "id": "114",
             "q": "What is a stored procedure? How to call stored procedure using JDBC API?",
             "a": "<p>Stored procedure is a group of SQL statements that forms a logical unit and performs a particular task.  Stored Procedures are used to encapsulate a set of operations or queries to execute on database. Stored procedures can be compiled and executed with different parameters and results and may have any combination of input/output parameters.  Stored procedures can be called using CallableStatement class in JDBC API. Below code snippet shows how this can be achieved.  <pre name='code' class='java'>CallableStatement cs = con.prepareCall(\"{call MY_STORED_PROC_NAME}\");ResultSet rs = cs.executeQuery();</pre></p>",
             "category": "JDBC"
         },
         {
-            "id": "15",
+            "id": "115",
             "q": "What is a stored procedure? How to call stored procedure using JDBC API?",
             "a": "<p>Stored procedure is a group of SQL statements that forms a logical unit and performs a particular task.  Stored Procedures are used to encapsulate a set of operations or queries to execute on database. Stored procedures can be compiled and executed with different parameters and results and may have any combination of input/output parameters.  Stored procedures can be called using CallableStatement class in JDBC API. Below code snippet shows how this can be achieved.  <pre name='code' class='java'>CallableStatement cs = con.prepareCall(\"{call MY_STORED_PROC_NAME}\"); ResultSet rs = cs.executeQuery();</pre></p>",
             "category": "JDBC"
         },
         {
-            "id": "16",
+            "id": "116",
             "q": "What is Connection pooling? What are the advantages of using a connection pool?",
             "a": "<p>Connection Pooling is a technique used for sharing the server resources among requested clients. It was pioneered by database vendors to allow multiple clients to share a cached set of connection objects that provides access to a database. Getting connection and disconnecting are costly operation, which affects the application performance, so we should avoid creating multiple connection during multiple database interactions. A pool contains set of Database connections which are already connected, and any client who wants to use it can take it from pool and when done with using it can be returned back to the pool. Apart from performance this also saves you resources as there may be limited database connections available for your application. </p>",
             "category": "JDBC"
         },
         {
-            "id": "17",
+            "id": "117",
             "q": "How to do database connection using JDBC thin driver ?",
             "a": "<p>\nThis is one of the most commonly asked questions from JDBC fundamentals, and knowing all the steps of JDBC connection is important.  <pre name='code' class='java'>import java.sql.*;\nclass JDBCTest {\n  public static void main (String args []) throws Exception\n  {\n        //Load driver class\n        Class.forName (\"oracle.jdbc.driver.OracleDriver\");\n         //Create connection\n        Connection conn = DriverManager.getConnection\n             (\"jdbc:oracle:thin:@hostname:1526:testdb\", \"scott\", \"tiger\");\n                             // @machineName:port:SID,   userid,  password\n \n        Statement stmt = conn.createStatement();\n        ResultSet rs = stmt.executeQuery(\"select 'Hi' from dual\");\n        while (rs.next())\n              System.out.println (rs.getString(1));   // Print col 1 => Hi\n         stmt.close();\n  }\n}\n</pre>\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "18",
+            "id": "118",
             "q": "What does Class.forName() method do?",
             "a": "<p>\nMethod forName() is a static method of java.lang.Class. This can be used to dynamically load a class at run-time. Class.forName() loads the class if its not already loaded. It also executes the static block of loaded class. Then this method returns an instance of the loaded class. So a call to Class.forName('MyClass') is going to do following   \n\n- Load the class MyClass.\n- Execute any static block code of MyClass.\n- Return an instance of MyClass.\n\nJDBC Driver loading using Class.forName is a good example of best use of this method. The driver loading is done like this  \n\n<pre name='code' class='java'>Class.forName(\"org.mysql.Driver\");\n</pre>\nAll JDBC Drivers have a static block that registers itself with DriverManager and DriverManager has static initializer method registerDriver() which can be called in a static blocks of Driver class. A MySQL JDBC Driver has a static initializer which looks like this:  \n\n<pre name='code' class='java'>static {\n    try {\n        java.sql.DriverManager.registerDriver(new Driver());\n    } catch (SQLException E) {\n        throw new RuntimeException(\"Can't register driver!\");\n    }\n}\n</pre>\nClass.forName() loads driver class and executes the static block and the Driver registers itself with the DriverManager.\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "19",
+            "id": "119",
             "q": "Which one will you use Statement or PreparedStatement? Or Which one to use when (Statement/PreparedStatement)? Compare PreparedStatement vs Statement.",
             "a": "<p>\nBy Java API definitions:  <b>Statement</b> is a object used for executing a static SQL statement and returning the results it produces.   <b>PreparedStatement </b>is a SQL statement which is precompiled and stored in a PreparedStatement object. This object can then be used to efficiently execute this statement multiple times.    There are few advantages of using PreparedStatements over Statements  <ol>\n<li>Since its pre-compiled, Executing the same query multiple times in loop, binding different parameter values each time is faster. (What does pre-compiled statement means? The prepared statement(pre-compiled) concept is not specific to Java, it is a database concept. Statement precompiling means: when you execute a SQL query, database server  will prepare a execution plan before executing the actual query, this execution plan will be cached at database server for further execution.)</li>\n<li>In PreparedStatement the setDate()/setString() methods can be used to escape dates and strings properly, in a database-independent way.</li>\n<li>SQL injection attacks on a system are virtually impossible when using PreparedStatements.</li>\n</ol>\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "20",
+            "id": "120",
             "q": "What does setAutoCommit(false) do?",
             "a": "<p>\nA JDBC connection is created in auto-commit mode by default. This means that each individual SQL statement is treated as a transaction and will be automatically committed as soon as it is executed. If you require two or more statements to be grouped into a transaction then you need to disable auto-commit mode using below command  <pre name='code' class='java'>con.setAutoCommit(false);\n</pre>\nOnce auto-commit mode is disabled, no SQL statements will be committed until you explicitly call the commit method. A Simple transaction with use of autocommit flag is demonstrated below.  <pre name='code' class='java'>con.setAutoCommit(false);\n    PreparedStatement updateStmt =\n     con.prepareStatement( \"UPDATE EMPLOYEE SET SALARY = ? WHERE EMP_NAME LIKE ?\");\n    updateStmt.setInt(1, 5000); updateSales.setString(2, \"Jack\");\n    updateStmt.executeUpdate();\n    updateStmt.setInt(1, 6000); updateSales.setString(2, \"Tom\");\n    updateStmt.executeUpdate(); \n    con.commit();\n    con.setAutoCommit(true);\n</pre>\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "21",
+            "id": "121",
             "q": "What are database warnings and How can I handle database warnings in JDBC?",
             "a": "<p>\nWarnings are issued by database to notify user of a problem which may not be very severe. Database warnings do not stop the execution of SQL statements. In JDBC SQLWarning is an exception that provides information on database access warnings. Warnings are silently chained to the object whose method caused it to be reported.    Warnings may be retrieved from Connection, Statement, and ResultSet objects.    Handling SQLWarning from connection object  <pre name='code' class='java'>//Retrieving warning from connection object\n SQLWarning warning = conn.getWarnings();\n \n //Retrieving next warning from warning object itself\n SQLWarning nextWarning = warning.getNextWarning();\n \n //Clear all warnings reported for this Connection object. \n conn.clearWarnings();\n</pre>\nHandling SQLWarning from Statement object  <pre name='code' class='java'>//Retrieving warning from statement object\n stmt.getWarnings();\n\n //Retrieving next warning from warning object itself\n SQLWarning nextWarning = warning.getNextWarning(); \n \n //Clear all warnings reported for this Statement object. \n stmt.clearWarnings();\n</pre>\nHandling SQLWarning from ResultSet object  <pre name='code' class='java'>//Retrieving warning from resultset object\n rs.getWarnings();\n \n //Retrieving next warning from warning object itself\n SQLWarning nextWarning = warning.getNextWarning();\n \n //Clear all warnings reported for this resultset object. \n rs.clearWarnings();\n</pre>\nThe call to <b>getWarnings()</b> method in any of above way retrieves the first warning reported by calls on this object. If there is more than one  warning, subsequent warnings will be chained to the first one and can be retrieved by calling the method <b>SQLWarning.getNextWarning</b> on the warning that was retrieved previously.    A call to <b>clearWarnings()</b> method  clears all warnings reported for this object. After a call to this method, the method getWarnings  returns null until a new warning is reported for this object.    Trying to call <b>getWarning()</b> on a connection after it has been closed will cause an SQLException to be thrown. Similarly, trying to retrieve a warning on a statement after it has been closed or on a result set after it has been closed will cause an SQLException to be thrown. Note that closing a statement also closes a result set that it might have produced.\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "22",
+            "id": "122",
             "q": "What is Metadata and why should I use it?",
             "a": "<p>\nJDBC API has 2 Metadata interfaces DatabaseMetaData & ResultSetMetaData.  The DatabaseMetaData provides Comprehensive information about the database as a whole. This interface is implemented by driver vendors to let users know the capabilities of a Database Management System (DBMS) in combination with the driver based on JDBC technology (\"JDBC driver\") that is used with it. Below is a sample code which demonstrates how we can use the DatabaseMetaData   <pre name='code' class='java'>DatabaseMetaData md = conn.getMetaData();\n System.out.println(\"Database Name: \" + md.getDatabaseProductName());\n System.out.println(\"Database Version: \" + md.getDatabaseProductVersion());\n System.out.println(\"Driver Name: \" + md.getDriverName());\n System.out.println(\"Driver Version: \" + md.getDriverVersion());\n</pre>\nThe ResultSetMetaData is an object that can be used to get information about the types and properties of the columns in a ResultSet object.   Use DatabaseMetaData to find information about your database, such as its capabilities and structure. Use ResultSetMetaData to find information about the results of an SQL query, such as size and types of columns. Below a sample code which demonstrates how we can use the ResultSetMetaData  <pre name='code' class='java'>ResultSet rs = stmt.executeQuery(\"SELECT a, b, c FROM TABLE2\");\n     ResultSetMetaData rsmd = rs.getMetaData();\n     int numberOfColumns = rsmd.getColumnCount();\n     boolean b = rsmd.isSearchable(1);\n</pre>\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "23",
+            "id": "123",
             "q": "What is RowSet? or What is the difference between RowSet and ResultSet? or Why do we need RowSet? or What are the advantages of using RowSet over ResultSet?",
             "a": "<p>\nRowSet is a interface that adds support to the JDBC API for the JavaBeans component model. A rowset, which can be used as a JavaBeans component in a visual Bean development environment, can be created and configured at design time and executed at run time. The RowSet  interface provides a set of JavaBeans properties that allow a RowSet  instance to be configured to connect to a JDBC data source and read some data from the data source. A group of setter methods (setInt, setBytes, setString, and so on) provide a way to pass input parameters to a rowset's command property. This command is the SQL query the rowset uses when it gets its data from a relational database, which is generally the case.   Rowsets are easy to use since the RowSet interface extends the standard java.sql.ResultSet interface so it has all the methods of ResultSet. There are two clear advantages of using RowSet over ResultSet  <ul>\n<li>RowSet makes it possible to use the ResultSet object as a JavaBeans component. As a consequence, a result set can, for example, be a component in a Swing application. </li>\n<li>RowSet be used to make a ResultSet object scrollable and updatable. All RowSet objects are by default scrollable and updatable. If the driver and database being used do not support scrolling and/or updating of result sets, an application can populate a RowSet object implementation (e.g. JdbcRowSet) with the data of a ResultSet object and then operate on the RowSet object as if it were the ResultSet  object.</li>\n</ul>\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "24",
+            "id": "124",
             "q": "What is a connected RowSet? or What is the difference between connected RowSet and disconnected RowSet? or Connected vs Disconnected RowSet, which one should I use and when?",
             "a": "<p>\n<h3>\nConnected RowSet</h3>\nA RowSet object may make a connection with a data source and maintain that connection throughout its life cycle, in which case it is called a connected rowset. A rowset may also make a connection with a data source, get data from it, and then close the connection. Such a rowset is called a disconnected rowset. A disconnected rowset may make changes to its data while it is disconnected and then send the changes back to the original source of the data, but it must reestablish a connection to do so.  <b>Example of Connected RowSet:</b>  A JdbcRowSet object is a example of connected RowSet, which means it continually maintains its connection to a database using a JDBC technology-enabled driver.  <h2>\nDisconnected RowSet</h2>\nA disconnected rowset may have a reader (a RowSetReader object) and a writer (a RowSetWriter object) associated with it. The reader may be implemented in many different ways to populate a rowset with data, including getting data from a non-relational data source. The writer can also be implemented in many different ways to propagate changes made to the rowset's data back to the underlying data source.   <b>Example of Disconnected RowSet:</b>  A CachedRowSet object is a example of disconnected rowset, which means that it makes use of a connection to its data source only briefly. It connects to its data source while it is reading data to populate itself with rows and again while it is propagating changes back to its underlying data source. The rest of the time, a CachedRowSet object is disconnected, including while its data is being modified. Being disconnected makes a RowSet  object much leaner and therefore much easier to pass to another component. For example, a disconnected RowSet object can be serialized and passed over the wire to a thin client such as a personal digital assistant (PDA).\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "25",
+            "id": "125",
             "q": "What is the benefit of having JdbcRowSet implementation? Why do we need a JdbcRowSet like wrapper around ResultSet?",
             "a": "<p>\nThe JdbcRowSet implementation is a wrapper around a ResultSet object that has following advantages over ResultSet   <ul>\n<li> This implementation makes it possible to use the ResultSet object as a JavaBeans component. A JdbcRowSet can be used as a JavaBeans component in a visual Bean development environment, can be created and configured at design time and executed at run time. </li>\n<li>It can be used to make a ResultSet object scrollable and updatable. All RowSet objects are by default scrollable and updatable. If the driver and database being used do not support scrolling and/or updating of result sets, an application can populate a JdbcRowSet object with the data of a ResultSet object and then operate on the JdbcRowSet object as if it were the ResultSet object. </li>\n</ul>\n</p>",
             "category": "JDBC"
         },
         {
-            "id": "26",
+            "id": "226",
             "q": "What is Java Collections API?",
             "a": "Java Collections framework API is a unified architecture for representing and manipulating collections. The API contains Interfaces, Implementations &amp; Algorithm to help java programmer in everyday programming. In nutshell, this API does 6 things at high level         <ul>\n<li>Reduces programming efforts. - Increases program speed and quality.</li>\n<li>Allows interoperability among unrelated APIs. </li>\n<li> Reduces effort to learn and to use new APIs. </li>\n<li> Reduces effort to design new APIs. </li>\n<li> Encourages &amp; Fosters software reuse. </li>\n</ul>\nTo be specific, There are six collection java interfaces. The most basic interface is Collection. Three interfaces extend Collection: Set, List, and SortedSet. The other two collection interfaces, Map and SortedMap, do not extend Collection, as they represent mappings rather than true collections.",
             "category": "Collections Framework"
         },
         {
-            "id": "27",
+            "id": "227",
             "q": "What is an Iterator?",
             "a": "Some of the collection classes provide traversal of their contents via a java.util.Iterator interface. This interface allows you to walk through a collection of objects, operating on each object in turn. Remember when using Iterators that they contain a snapshot of the collection at the time the Iterator was obtained; generally it is not advisable to modify the collection itself while traversing an Iterator.",
             "category": "Collections Framework"
         },
         {
-            "id": "28",
+            "id": "228",
             "q": "What is the difference between java.util.Iterator and java.util.ListIterator?",
             "a": "<ul>\n<li><b>Iterator</b> : Enables you to traverse through a collection in the forward direction only, for obtaining or removing elements</li>\n<li><b>ListIterator</b> : extends Iterator, and allows bidirectional traversal of list and also allows the modification of elements.</li>\n</ul>",
             "category": "Collections Framework"
         },
         {
-            "id": "29",
+            "id": "229",
             "q": "What is HashMap and Map? ",
             "a": "<p>Map is Interface which is part of Java collections framework. This is to store Key Value pair, and Hashmap is class that implements that using hashing technique.</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "30",
+            "id": "230",
             "q": "Difference between HashMap and HashTable? Compare Hashtable vs HashMap?",
             "a": "Both Hashtable and HashMap provide key-value access to data. The Hashtable is one of the original collection classes in Java (also called as legacy classes). HashMap is part of the new Collections Framework, added with Java 2, v1.2. There are several differences between HashMap and Hashtable in Java as listed below         <ul>\n<li>The HashMap class is roughly equivalent to Hashtable, except that it is unsynchronized and permits nulls. (HashMap allows null values as key and value whereas Hashtable doesn’t allow nulls). </li>\n<li>HashMap does not guarantee that the order of the map will remain constant over time. But one of HashMap's subclasses is LinkedHashMap, so in the event that you'd want predictable iteration order (which is insertion order by default), you can easily swap out the HashMap for a LinkedHashMap. This wouldn't be as easy if you were using Hashtable. </li>\n<li>HashMap is non synchronized whereas Hashtable is synchronized. </li>\n<li>Iterator in the HashMap is fail-fast while the enumerator for the Hashtable isn't. So this could be a design consideration. </li>\n</ul>",
             "category": "Collections Framework"
         },
         {
-            "id": "31",
+            "id": "231",
             "q": "What does synchronized means in Hashtable context?",
             "a": "Synchronized means only one thread can modify a hash table at one point of time.  Any thread before performing an update on a hashtable will have to acquire a lock on the object while others will wait for lock to be released.",
             "category": "Collections Framework"
         },
         {
-            "id": "32",
+            "id": "232",
             "q": "What is fail-fast property?",
             "a": "<p>At high level - Fail-fast is a property of a system or software with respect to its response to failures. A fail-fast system is designed to immediately report any failure or condition that is likely to lead to failure. Fail-fast systems are usually designed to stop normal operation rather than attempt to continue a possibly-flawed process.   \n\nWhen a problem occurs, a fail-fast system fails immediately and visibly. Failing fast is a non-intuitive technique: \"failing immediately and visibly\" sounds like it would make your software more fragile, but it actually makes it more robust. Bugs are easier to find and fix, so fewer go into production.   \n\nIn Java, Fail-fast term can be related to context of iterators. If an iterator has been created on a collection object and some other thread tries to modify the collection object \"structurally\", a concurrent modification exception will be thrown.  \n\nIt is possible for other threads though to invoke \"set\" method since it doesn't modify the collection \"structurally\".  However, if prior to calling \"set\", the collection has been modified structurally, \"IllegalArgumentException\" will be thrown.</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "33",
+            "id": "233",
             "q": "Why doesn't Collection extend Cloneable and Serializable?",
             "a": "<p>\nFrom Sun FAQ Page:  Many Collection implementations (including all of the ones provided by the JDK) will have a public clone method, but it would be mistake to require it of all Collections.\n\nFor example, what does it mean to clone a Collection that's backed by a terabyte SQL database? Should the method call cause the company to requisition a new disk farm? Similar arguments hold for serializable.  \n\nIf the client doesn't know the actual type of a Collection, it's much more flexible and less error prone to have the client decide what type of Collection is desired, create an empty Collection of this type, and use the addAll method to copy the elements of the original collection into the new one. \n\n<b>Note on Some Important Terms</b>       \n<ul>\n<li>Synchronized means only one thread can modify a hash table at one point of time. Basically, it means that any thread before performing an update on a hashtable will have to acquire a lock on the object while others will wait for lock to be released. </li>\n<li>Fail-fast is relevant from the context of iterators. If an iterator has been created on a collection object and some other thread tries to modify the collection object \"structurally”, a concurrent modification exception will be thrown. It is possible for other threads though to invoke \"set\" method since it doesn’t modify the collection \"structurally”. However, if prior to calling \"set\", the collection has been modified structurally, \"IllegalArgumentException\" will be thrown. </li>\n</ul>\n</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "34",
+            "id": "234",
             "q": "How can we make Hashmap synchronized?",
             "a": "\nHashMap can be synchronized by  <i>Map m = Collections.synchronizedMap(hashMap);</i>\n",
             "category": "Collections Framework"
         },
         {
-            "id": "35",
+            "id": "235",
             "q": "Where will you use Hashtable and where will you use HashMap?",
             "a": "<h3>There Are Multiple Aspects To This Decision:</h3>\n<ul><li>The basic difference between a Hashtable and an HashMap is that, Hashtable is synchronized while HashMap is not. Thus whenever there is a possibility of multiple threads accessing the same instance, one should use Hashtable. While if not multiple threads are going to access the same instance then use HashMap. Non synchronized data structure will give better performance than the synchronized one. </li><li>If there is a possibility in future that - there can be a scenario when you may require to retain the order of objects in the Collection with key-value pair then HashMap can be a good choice. As one of HashMap's subclasses is LinkedHashMap, so in the event that you'd want predictable iteration order (which is insertion order by default), you can easily swap out the HashMap for a LinkedHashMap. This wouldn't be as easy if you were using Hashtable. Also if you have multiple thread accessing you HashMap then Collections.synchronizedMap() method can be leveraged.  Overall HashMap gives you more flexibility in terms of possible future changes.</li></ul>",
             "category": "Collections Framework"
         },
         {
-            "id": "36",
+            "id": "236",
             "q": "Difference between Vector and ArrayList? What is the Vector class?",
             "a": "<p>\nVector and ArrayList both classes are implemented using dynamically resizable arrays, providing fast random access and fast traversal. ArrayList and Vector class both implement the List interface. Both the classes are member of Java collection framework, therefore from an API perspective, these two classes are very similar. However, there are still some major differences between the two. Below are some key differences          <ul>\n<li>Vector is a legacy class which has been retrofitted to implement the List interface since Java 2 platform v1.2</li>\n<li>Vector is synchronized whereas ArrayList is not. Even though Vector class is synchronized, still when you want programs to run in multithreading environment using ArrayList with Collections.synchronizedList() is recommended over Vector.</li>\n<li> ArrayList has no default size while vector has a default size of 10.</li>\n<li>The Enumerations returned by Vector's elements method are not  fail-fast. Whereas ArraayList does not have any method returning Enumerations.</li>\n</ul>\n</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "37",
+            "id": "237",
             "q": "What is the Difference between Enumeration and Iterator interface?",
             "a": "<p>\nEnumeration and Iterator are the interface available in java.util package. The functionality of Enumeration interface is duplicated by the Iterator interface. New implementations should consider using Iterator in preference to Enumeration.  Iterators differ from enumerations in following ways:  <ol>\n<li> Enumeration contains 2 methods namely hasMoreElements() & nextElement() whereas Iterator contains three methods namely hasNext(), next(),remove().</li>\n<li> Iterator adds an optional remove operation, and has shorter method names. Using remove() we can delete the objects but Enumeration interface does not support this feature.</li>\n<li> Enumeration interface is used by legacy classes. Vector.elements() & Hashtable.elements() method returns Enumeration.  Iterator is returned by all Java Collections Framework classes. java.util.Collection.iterator() method returns an instance of Iterator.</li>\n</ol>\n</p>\n",
             "category": "Collections Framework"
         },
         {
-            "id": "38",
+            "id": "238",
             "q": "Why Java Vector class is considered obsolete or unofficially deprecated? or Why should I always use ArrayList over Vector?",
             "a": "<p>\nYou should use ArrayList over Vector because you should default to non-synchronized access. Vector synchronizes each individual method. That's almost never what you want to do. Generally you want to synchronize a whole sequence of operations.  \n\nSynchronizing individual operations is both less safe (if you iterate over a Vector, for instance,  you still need to take out a lock to avoid anyone else changing the collection at the same time)  but also slower (why take out a lock repeatedly when once will be enough)?  Of course, it also has the overhead of locking even when you don't need to. It's a very flawed approach to have synchronized access as default.  \n\nYou can always decorate a collection using Collections.synchronizedList -  the fact that Vector combines both the \"resized array\" collection implementation with the  \"synchronize every operation\" bit is another example of poor design;  the decoration approach gives cleaner separation of concerns.  \n\nVector also has a few legacy methods around enumeration and element retrieval which are different than the List interface,  and developers (especially those who learned Java before 1.2) can tend to use them if they are in the code.  Although Enumerations are faster, they don't check if the collection was modified during iteration, which can cause issues,  and given that Vector might be chosen for its syncronization - with the attendant access from multiple threads, this makes it a particularly pernicious problem.  \n\nUsage of these methods also couples a lot of code to Vector, such that it won't be easy to replace it with a different List implementation.  Despite all above reasons Sun may never officially deprecate Vector class. (Read details <a href=\"http://bugs.java.com/bugdatabase/view_bug.do?bug_id=6201870\">Deprecate Hashtable and Vector</a>)\n</p>\n",
             "category": "Collections Framework"
         },
         {
-            "id": "39",
+            "id": "239",
             "q": "What is an enumeration?",
             "a": "An enumeration is an interface containing methods for accessing the underlying data structure from which the enumeration is obtained. It is a construct which collection classes return when you request a collection of all the objects stored in the collection. It allows sequential access to all the elements stored in the collection.",
             "category": "Collections Framework"
         },
         {
-            "id": "40",
+            "id": "240",
             "q": "What is the difference between Enumeration and Iterator?",
             "a": "The functionality of Enumeration interface is duplicated by the Iterator interface. Iterator has a remove() method while Enumeration doesn't. Enumeration acts as Read-only interface, because it has the methods only to traverse and fetch the objects, where as using Iterator we can manipulate the objects also like adding and removing the objects.  So Enumeration is used when ever we want to make Collection objects as Read-only.",
             "category": "Collections Framework"
         },
         {
-            "id": "41",
+            "id": "241",
             "q": "Where will you use Vector and where will you use ArrayList?",
             "a": "The basic difference between a Vector and an ArrayList is that, vector is synchronized while ArrayList is not. Thus whenever there is a possibility of multiple threads accessing the same instance, one should use Vector. While if not multiple threads are going to access the same instance then use ArrayList. Non synchronized data structure will give better performance than the synchronized one.",
             "category": "Collections Framework"
         },
         {
-            "id": "42",
+            "id": "242",
             "q": "What is the importance of hashCode() and equals() methods? How they are used in Java?",
             "a": "<p>\nThe hashCode() method returns a hash code value for the object. This method is supported for the benefit of hashtables such as those provided by java.util.Hashtable or java.util.HashMap.  \n\nThe general contract of hashCode is:   Whenever it is invoked on the same object more than once during an execution of a Java application, the hashCode method must consistently return the same integer, provided no information used in equals comparisons on the object is modified. This integer need not remain consistent from one execution of an application to another execution of the same application.   \n\nIf two objects are equal according to the equals(Object) method, then calling the hashCode method on each of the two objects must produce the same integer result.  \n\nIt is not required that if two objects are unequal according to the equals(java.lang.Object) method, then calling the hashCode method on each of the two objects must produce distinct integer results. However, the programmer should be aware that producing distinct integer results for unequal objects may improve the performance of hashtables. \n\nAs much as is reasonably practical, the hashCode method defined by class Object does return distinct integers for distinct objects.  The equals(Object obj) method indicates whether some other object is \"equal to\" this one.  \n</p>\n<h3>The equals Method</h3>\n<p>\nThe equals method implements an equivalence relation on non-null object references:   \n\nIt is reflexive: for any non-null reference value x, x.equals(x) should return true.   \nIt is symmetric: for any non-null reference values x and y, x.equals(y) should return true if and only if y.equals(x) returns true.   \nIt is transitive: for any non-null reference values x, y, and z, if x.equals(y) returns true and y.equals(z) returns true, then x.equals(z) should return true.   \nIt is consistent: for any non-null reference values x and y, multiple invocations of x.equals(y) consistently return true or consistently return false, provided no information used in equals comparisons on the objects is modified.  \n\nFor any non-null reference value x, x.equals(null) should return false.  The equals method for class Object implements the most discriminating possible equivalence relation on objects; that is, for any non-null reference values x and y, this method returns true if and only if x and y refer to the same object (x == y has the value true).  Note that it is generally necessary to override the hashCode method whenever this method is overridden, so as to maintain the general contract for the hashCode method, which states that equal objects must have equal hash codes.  \n</p>\n<h3>A practical Example of hashcode() and equals(): </h3><p> This can be applied to classes that need to be stored in Set collections. Sets use equals() to enforce non-duplicates, and HashSet uses hashCode() as a first-cut test for equality. Technically hashCode() isn't necessary then since equals() will always be used in the end, but providing a meaningful hashCode() will improve performance for very large sets or objects that take a long time to compare using equals().</p>\n\n</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "43",
+            "id": "243",
             "q": "What is the difference between Sorting performance of Arrays.sort() vs Collections.sort() ? Which one is faster? Which one to use and when?",
             "a": "<p>\nMany developers are concerned about the performance difference between java.util.Array.sort() java.util.Collections.sort() methods.   Both methods have same algorithm the only difference is type of input to them.  Collections.sort() has a input as List so it does a translation of List to array and vice versa which is an additional step while sorting. \n\nSo this should be used when you are trying to sort a list.  Arrays.sort is for arrays so the sorting is done directly on the array. So clearly it should be used when you have a array available with you and you want to sort it.\n</p>\n",
             "category": "Collections Framework"
         },
         {
-            "id": "44",
+            "id": "244",
             "q": "What is java.util.concurrent BlockingQueue? How it can be used?",
             "a": "<p>\nJava has implementation of BlockingQueue available since Java 1.5. Blocking Queue interface extends collection interface, which provides you power of collections inside a queue. Blocking Queue is a type of Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element. \n\nA typical usage example would be based on a producer-consumer scenario. Note that a BlockingQueue can safely be used with multiple producers and multiple consumers.  An ArrayBlockingQueue is a implementation of blocking queue with an array used to store the queued objects. The head of the queue is that element that has been on the queue the longest time. \n\nThe tail of the queue is that element that has been on the queue the shortest time. New elements are inserted at the tail of the queue, and the queue retrieval operations obtain elements at the head of the queue.  \n\nArrayBlockingQueue requires you to specify the capacity of queue at the object construction time itself. Once created, the capacity cannot be increased.  This is a classic \"bounded buffer\" (fixed size buffer), in which a fixed-sized array holds elements inserted by producers and extracted by consumers. Attempts to put an element to a full queue will result in the put operation blocking; attempts to retrieve an element from an empty queue will be blocked.\n</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "45",
+            "id": "245",
             "q": "Set and List interface extend Collection, so Why doesn't Map interface extend Collection?",
             "a": "<p>\nThough the Map interface is part of collections framework, it does not extend collection interface. This is by design, and the answer to this questions is best described in Sun's FAQ Page:  This was by design. We feel that mappings are not collections and collections are not mappings. Thus, it makes little sense for Map to extend the Collection interface (or vice versa).  \n\nIf a Map is a Collection, what are the elements? The only reasonable answer is \"Key-value pairs\", but this provides a very limited (and not particularly useful) Map abstraction. You can't ask what value a given key maps to, nor can you delete the entry for a given key without knowing what value it maps to.   \n\nCollection could be made to extend Map, but this raises the question: what are the keys? There's no really satisfactory answer, and forcing one leads to an unnatural interface.   Maps can be viewed as Collections (of keys, values, or pairs), and this fact is reflected in the three \"Collection view operations\" on Maps (keySet, entrySet, and values).\n\nWhile it is, in principle, possible to view a List as a Map mapping indices to elements, this has the nasty property that deleting an element from the List changes the Key associated with every element before the deleted element. That's why we don't have a map view operation on Lists.\n</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "46",
+            "id": "246",
             "q": "Which implementation of the List interface provides for the fastest insertion of a new element into the middle of the list?",
             "a": "\nList interface has three main implementation classes \n\n<p><ul><li>Vector</li><li>ArrayList </li><li>LinkedList</li></ul>\n\nArrayList and Vector both use an array to store the elements of the list. When an element is inserted into the middle of the list the elements that follow the insertion point must be shifted to make room for the new element. \n\nThe LinkedList is implemented using a doubly linked list; an insertion requires only the updating of the links at the point of insertion. Therefore, the LinkedList allows for fast insertions and deletions.</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "47",
+            "id": "247",
             "q": "What is the difference between ArrayList and LinkedList? (ArrayList vs LinkedList.)",
             "a": "<p>\njava.util.ArrayList and java.util.LinkedList are two Collections classes used for storing lists of object references  <b>Here are some key differences:</b>       <ul>\n<li> ArrayList uses primitive object array for storing objects   whereas LinkedList is made up of a chain of nodes. Each node stores an element and the pointer to the next node. A singly linked list only has pointers to next. A doubly linked list has a pointer to the next and the previous element. This makes walking the list backward easier.</li>\n<li>ArrayList implements the RandomAccess interface, and LinkedList does not. The commonly used ArrayList implementation uses primitive Object array for internal storage. Therefore an ArrayList is much faster than a LinkedList for random access, that is, when accessing arbitrary list elements using the get method.   Note that the get method is implemented for LinkedLists, but it requires a sequential scan from the front or back of the list.  This scan is very slow. For a LinkedList, there's no fast way to access the Nth element of the list.</li>\n<li>Adding and deleting at the start and middle of the ArrayList is slow, because all the later elements have to be copied forward or backward. (Using System.arrayCopy())  Whereas Linked lists are faster for inserts and deletes anywhere in the list, since all you do is update a few next and previous pointers of a node.</li>\n<li>Each element of a linked list (especially a doubly linked list) uses a bit more memory than its equivalent in array list, due to the need for next and previous pointers.</li>\n<li> ArrayList may also have a performance issue when the internal array fills up. The arrayList has to create a new array and copy all the elements there.  The ArrayList has a growth algorithm of (n*3)/2+1, meaning that each time the buffer is too small it will create a new one of size (n*3)/2+1 where n is the number of elements of the current buffer.  Hence if we can guess the number of elements that we are going to have, then it makes sense to create a arraylist with that capacity during object creation (using construtor new ArrayList(capacity)).  Whereas LinkedLists should not have such capacity issues.</li>\n</ul>\n</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "48",
+            "id": "248",
             "q": "Where will you use ArrayList and Where will you use LinkedList? Or Which one to use when (ArrayList / LinkedList).",
             "a": "<p>\nBelow is a snippet from SUN's site.  \n\n<blockquote>The Java SDK contains 2 implementations of the List interface - ArrayList and LinkedList. If you frequently add elements to the beginning of the List or iterate over the List to delete elements from its interior, you should consider using LinkedList.  These operations require constant-time in a LinkedList and linear-time in an ArrayList. But you pay a big price in performance.  Positional access requires linear-time in a LinkedList and constant-time in an ArrayList.</blockquote>\n</p>\n",
             "category": "Collections Framework"
         },
         {
-            "id": "49",
+            "id": "249",
             "q": "What is performance of various Java collection implementations/algorithms? What is Big 'O' notation for each of them ?",
             "a": "<p>Each java collection implementation class have different performance for different methods, which makes them suitable for different programming needs.  \n<h2>Performance of Map interface implementations</h2>\n<h3>\nHashtable</h3>\nAn instance of Hashtable has two parameters that affect its performance: initial capacity and load factor. The capacity is the number of buckets in the hash table, and the initial capacity is simply the capacity at the time the hash table is created. Note that the hash table is open: in the case of a \"hash collision\", a single bucket stores multiple entries, which must be searched sequentially. The load factor is a measure of how full the hash table is allowed to get before its capacity is automatically increased. The initial capacity and load factor parameters are merely hints to the implementation. The exact details as to when and whether the rehash method is invoked are implementation-dependent.  <h3>\nHashMap </h3>\nThis implementation provides constant-time [ Big O Notation is O(1) ] performance for the basic operations (get and put), assuming the hash function disperses the elements properly among the buckets. Iteration over collection views requires time proportional to the \"capacity\" of the HashMap instance (the number of buckets) plus its size (the number of key-value mappings).  Thus, it's very important not to set the initial capacity too high (or the load factor too low) if iteration performance is important.   <h3>\nTreeMap</h3>\nThe TreeMap implementation provides guaranteed log(n) [ Big O Notation is O(log N) ] time cost for the containsKey, get, put and remove operations.  <h3>\nLinkedHashMap</h3>\nA linked hash map has two parameters that affect its performance: initial capacity and load factor. They are defined precisely as for HashMap. Note, however, that the penalty for choosing an excessively high value for initial capacity is less severe for this class than for HashMap, as iteration times for this class are unaffected by capacity.\n\n<h2>Performance of Set interface implementations</h2>\n\n<h3>HashSet</h3>\nThe HashSet class offers constant-time [ Big O Notation is O(1) ] performance for the basic operations (add, remove, contains and size), assuming the hash function disperses the elements properly among the buckets. Iterating over this set requires time proportional to the sum of the HashSet instance's size (the number of elements) plus the \"capacity\" of the backing HashMap instance (the number of buckets). Thus, it's very important not to set the initial capacity too high (or the load factor too low) if iteration performance is important.   <h3>\nTreeSet</h3>\nThe TreeSet implementation provides guaranteed log(n) time cost for the basic operations (add, remove and contains).    <h3>\nLinkedHashSet</h3>\nA linked hash set has two parameters that affect its performance: initial capacity and load factor. They are defined precisely as for HashSet. Note, however, that the penalty for choosing an excessively high value for initial capacity is less severe for this class than for HashSet, as iteration times for this class are unaffected by capacity.\n<h2>\nPerformance of List interface implementations</h2>\n<h3>\nLinkedList</h3>\n- Performance of get and remove methods is linear time [ Big O Notation is O(n) ]  - Performance of add and Iterator.remove methods is  constant-time [ Big O Notation is  O(1) ]         <h3>\nArrayList</h3>\n- The size, isEmpty, get, set, iterator, and listIterator operations run in constant time. [ Big O Notation is  O(1) ]  - The add operation runs in amortized constant time [ Big O Notation is  O(1) ] , but in worst case (since the array must be resized and copied) adding n elements requires linear time [ Big O Notation is O(n) ]  - Performance of remove method is linear time [ Big O Notation is O(n) ]  - All of the other operations run in linear time [ Big O Notation is O(n) ]. The constant factor is low compared to that for the LinkedList implementation.</p>",
             "category": "Collections Framework"
         },
         {
-            "id": "50",
+            "id": "350",
             "q": "What is synchronization in respect to multi-threading in Java?",
             "a": "<p>\nWith respect to multi-threading, synchronization is the capability to control the access of multiple threads to shared resources. Without synchronization, it is possible for one Java thread to modify a shared variable while another thread is in the process of using or updating same shared variable. This usually leads to erroneous behavior or program.</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "51",
+            "id": "351",
             "q": "Explain different way of using thread?",
             "a": "<p>\nA Java thread could be implemented by using Runnable interface or by extending the Thread class. The Runnable is more advantageous, when you are going for multiple inheritance.   \n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "52",
+            "id": "352",
             "q": "What is the difference between Thread.start() & Thread.run() method?",
             "a": "<p>\nThread.start() method (native method) of Thread class actually does the job of running the Thread.run() method in a thread. If we directly call Thread.run() method it will executed in same thread, so does not solve the purpose of creating a new thread. </p>",
             "category": "Multi Threading"
         },
         {
-            "id": "53",
+            "id": "353",
             "q": "Why do we need run() & start() method both. Can we achieve it with only run method?",
             "a": "<p>\nWe need run() & start() method both because JVM needs to create a separate thread which can not be differentiated from a normal method call. So this job is done by start method native implementation which has to be explicitly called. Another advantage of having these two methods is we can have any object run as a thread if it implements Runnable interface. This is to avoid Java’s multiple inheritance problems which will make it difficult to inherit another class with Thread.\n</p>   \n",
             "category": "Multi Threading"
         },
         {
-            "id": "54",
+            "id": "354",
             "q": "What is ThreadLocal class? How can it be used?",
             "a": "<p>\nBelow are some key points about ThreadLocal variables <ul>\n<li>A thread-local variable effectively provides a separate copy of its value for each thread that uses it.</li>\n<li>ThreadLocal instances are typically private static fields in classes that wish to associate state with a thread</li>\n<li>In case when multiple threads access a ThreadLocal instance, separate copy of Threadlocal variable is maintained for each thread.</li>\n<li>Common use is seen in DAO pattern where the DAO class can be singleton but the Database connection can be maintained separately for each thread. (Per Thread Singleton)</li>\n</ul>\nThreadLocal variable are difficult to understand and I recommend you to use best java book on concurrency : <a target=\"_blank\" rel=\"nofollow\" title=\"Java Concurrency in Practice\" name=\"Java-Concurrency-in-Practice\" href=\"http://www.amazon.com/gp/product/0321349601/ref=as_li_tf_tl?ie=UTF8&tag=core-java-books-20&linkCode=as2&camp=217145&creative=399353&creativeASIN=0321349601\" >Java Concurrency in Practice</a>\n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "55",
+            "id": "355",
             "q": "When InvalidMonitorStateException is thrown? Why?",
             "a": "<p>\nThis exception is thrown when you try to call wait()/notify()/notifyAll() any of these methods for an Object from a point in your program where u are NOT having a lock on that object.(i.e. u r not executing any synchronized block/method of that object and still trying to call wait()/notify()/notifyAll()) wait(), notify() and notifyAll() all throw IllegalMonitorStateException. since This exception is a subclass of RuntimeException so we r not bound to catch it (although u may if u want to). and being a RuntimeException this exception is not mentioned in the signature of wait(), notify(), notifyAll() methods. </p>",
             "category": "Multi Threading"
         },
         {
-            "id": "56",
+            "id": "356",
             "q": "What is the difference between sleep(), suspend() and wait() ?",
             "a": "<p>\nThread.sleep() takes the current thread to a \"Not Runnable\" state for specified amount of time. The thread holds the monitors it has acquired. For example, if a thread is running a synchronized block or method and sleep method is called then no other thread will be able to enter this block or method. The sleeping thread can wake up when some other thread calls t.interrupt on it. Note that sleep is a static method, that means it always affects the current thread (the one executing sleep method). \n\nA common mistake is trying to call t2.sleep() where t2 is a different thread; even then, it is the current thread that will sleep, not the t2 thread.  thread.suspend() is deprecated method. Its possible to send other threads into suspended state by making a suspend method call. In suspended state a thread keeps all its monitors and can not be  interrupted. This may cause deadlocks therefore it has been deprecated.  object.wait() call also takes the current thread into a \"Not Runnable\" state, just like sleep(), but with a slight change. Wait method is invoked on a lock object, not thread. \n\nHere is the sequence of operations you can think \n<ul>\n<li> A thread T1 is already running a synchronized block with a lock on object - lets say \"lockObject\"</li>\n<li>Another thread T2 comes to execute the synchronized block and find that its already acquired.</li>\n<li>Now T2 calls lockObject.wait() method for waiting on lock to be release by T1 thread.</li>\n<li> T1 thread finishes all its synchronized block work.</li>\n<li> T1 thread calls lockObject.notifyAll() to notify all waiting threads that its done using the lock.</li>\n<li> Since T2 thread is first in the queue of waiting it acquires the lock and starts processing.</li>\n</ul>\n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "57",
+            "id": "357",
             "q": "What happens when I make a static method as synchronized?",
             "a": "<p>\nSynchronized static methods have a lock on the class \"Class\", so when a thread enters a synchronized static method, the class itself gets locked by the thread monitor and no other thread can enter any static synchronized methods on that class. This is unlike instance methods, as multiple threads can access \"same synchronized instance methods\" at same time for different instances. </p>",
             "category": "Multi Threading"
         },
         {
-            "id": "58",
+            "id": "358",
             "q": "Can a thread call a non-synchronized instance method of an Object when a synchronized method is being executed ?",
             "a": "<p>\nYes, a Non  synchronized method can always be called without any problem. In fact Java does  not do any check for a non-synchronized method. The Lock object check is  performed only for synchronized methods/blocks. In case the method is not  declared synchronized Jave will call even if you are playing with shared data.  So you have to be careful while doing such thing. The decision of declaring a  method as synchronized has to be based on critical section access. If your  method does not access a critical section (shared resource or data structure) it  need not be declared synchronized.  Below is the example  which demonstrates this, The Common class has two methods  synchronizedMethod1() and  method1() MyThread class is calling both  the methods in separate threads,  </p>\n\n\n<pre name='code' class='java'>public class Common {\n\npublic synchronized void synchronizedMethod1() {\nSystem.out.println(\"synchronizedMethod1 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"synchronizedMethod1 done\");\n}\npublic void method1() {\nSystem.out.println(\"Method 1 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"Method 1 done\");\n}\n}\n</pre>\n<pre name='code' class='java'>public class MyThread extends Thread {\nprivate int id = 0;\nprivate Common common;\n\npublic MyThread(String name, int no, Common object) {\nsuper(name);\ncommon = object;\nid = no;\n}\n\npublic void run() {\nSystem.out.println(\"Running Thread\" + this.getName());\ntry {\nif (id == 0) {\ncommon.synchronizedMethod1();\n} else {\ncommon.method1();\n}\n} catch (Exception e) {\ne.printStackTrace();\n}\n}\n\npublic static void main(String[] args) {\nCommon c = new Common();\nMyThread t1 = new MyThread(\"MyThread-1\", 0, c);\nMyThread t2 = new MyThread(\"MyThread-2\", 1, c);\nt1.start();\nt2.start();\n}\n}\n</pre>\nHere is the output of the program  <pre name='code' class='bash'>Running ThreadMyThread-1\nsynchronizedMethod1 called\nRunning ThreadMyThread-2\nMethod 1 called\nsynchronizedMethod1 done\nMethod 1 done\n</pre>\nThis shows that method1() - is called even though the synchronizedMethod1() was in execution.  ",
             "category": "Multi Threading"
         },
         {
-            "id": "59",
+            "id": "359",
             "q": "Can two threads call two different synchronized instance methods of an Object?",
             "a": "<p>\nNo. If a object has synchronized instance methods then the Object itself is used a lock object for controlling the synchronization. Therefore all other instance methods need to wait until previous method call is completed.   See the below sample code which demonstrate it very clearly. The Class Common has 2 methods called synchronizedMethod1() and synchronizedMethod2() MyThread class is calling both the methods</p>\n\n<pre name='code' class='java'>public class Common {\npublic synchronized void synchronizedMethod1() {\nSystem.out.println(\"synchronizedMethod1 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"synchronizedMethod1 done\");\n}\n\npublic synchronized void synchronizedMethod2() {\nSystem.out.println(\"synchronizedMethod2 called\");\ntry {\nThread.sleep(1000);\n} catch (InterruptedException e) {\ne.printStackTrace();\n}\nSystem.out.println(\"synchronizedMethod2 done\");\n}\n}\n</pre>\n<pre name='code' class='java'>public class MyThread extends Thread {\nprivate int id = 0;\nprivate Common common;\n\npublic MyThread(String name, int no, Common object) {\nsuper(name);\ncommon = object;\nid = no;\n}\n\npublic void run() {\nSystem.out.println(\"Running Thread\" + this.getName());\ntry {\nif (id == 0) {\ncommon.synchronizedMethod1();\n} else {\ncommon.synchronizedMethod2();\n}\n} catch (Exception e) {\ne.printStackTrace();\n}\n}\n\npublic static void main(String[] args) {\nCommon c = new Common();\nMyThread t1 = new MyThread(\"MyThread-1\", 0, c);\nMyThread t2 = new MyThread(\"MyThread-2\", 1, c);\nt1.start();\nt2.start();\n}\n}\n</pre>",
             "category": "Multi Threading"
         },
         {
-            "id": "60",
+            "id": "360",
             "q": "What is a deadlock?",
             "a": "<p>\nDeadlock is a situation where two or more threads are blocked forever, waiting for each other. This may occur when two threads, each having a lock on one resource, attempt to acquire a lock on the other's resource. Each thread would wait indefinitely for the other to release the lock, unless one of the user processes is terminated.  In terms of Java API, thread deadlock can occur in following conditions:  <ul>\n<li>When two threads call Thread.join() on each other.</li>\n<li>When two threads use nested synchronized blocks to lock two objects and the blocks lock the same objects in different order.</li>\n</ul>\n</p>\n",
             "category": "Multi Threading"
         },
         {
-            "id": "61",
+            "id": "361",
             "q": "What is Starvation? and What is a Livelock?",
             "a": "<p>\nStarvation and livelock are much less common a problem than deadlock, but are still problems that every designer of concurrent software is likely to encounter.  <h3>\nLiveLock</h3>\nLivelock occurs when all threads are blocked, or are otherwise unable to proceed due to unavailability of required resources, and the non-existence of any unblocked thread to make those resources available. In terms of Java API, thread livelock can occur in following conditions:  <ul>\n<li>When all the threads in a program execute Object.wait(0) on an object with zero parameter. The program is live-locked and cannot proceed until one or more threads call Object.notify() or Object.notifyAll() on the relevant objects. Because all the threads are blocked, neither call can be made.</li>\n<li>When all the threads in a program are stuck in infinite loops.</li>\n</ul>\n<h3>\nStarvation</h3>\nStarvation describes a situation where a thread is unable to gain regular access to shared resources and is unable to make progress. This happens when shared resources are made unavailable for long periods by \"greedy\" threads. For example, suppose an object provides a synchronized method that often takes a long time to return. If one thread invokes this method frequently, other threads that also need frequent synchronized access to the same object will often be blocked.    Starvation occurs when one thread cannot access the CPU because one or more other threads are monopolizing the CPU.    In Java, thread starvation can be caused by setting thread priorities inappropriately. A lower-priority thread can be starved by higher-priority threads if the higher-priority threads do not yield control of the CPU from time to time.  </p>",
             "category": "Multi Threading"
         },
         {
-            "id": "62",
+            "id": "362",
             "q": "How to find a deadlock has occurred in Java? How to detect a Deadlock in Java?",
             "a": "<p>\nEarlier versions of Java had no mechanism to handle/detect deadlock. Since JDK 1.5 there are some powerful methods added in the java.lang.management package to diagnose and detect deadlocks.    The java.lang.management.ThreadMXBean interface is management interface for the thread system of the Java virtual machine. It has two methods which can leveraged to detect deadlock in a Java application.  <ul>\n<li>findMonitorDeadlockedThreads() - This method can be used to detect cycles of threads that are in deadlock waiting to acquire object monitors. It returns an array of thread IDs that are deadlocked waiting on monitor. </li>\n<li>findDeadlockedThreads() - It returns an array of thread IDs that are deadlocked waiting on monitor or ownable synchronizers. </li>\n</ul>\n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "63",
+            "id": "363",
             "q": "What is immutable object? How does it help in writing concurrent application?",
             "a": "<p>\nAn object is considered immutable if its state cannot change after it is constructed. Maximum reliance on immutable objects is widely accepted as a sound strategy for creating simple, reliable code.    Immutable objects are particularly useful in concurrent applications. Since they cannot change state, they cannot be corrupted by thread interference or observed in an inconsistent state. Examples of immutable objects from the JDK include String and Integer.    Immutable objects greatly simplify your multi threaded program, since they are  <ul>\n<li>Simple to construct, test, and use. </li>\n<li>Automatically thread-safe and have no synchronization issues. </li>\n</ul>\nTo create a object immutable You need to make the class final and all its member final so that once objects gets crated no one can modify its state. You can achieve same functionality by making member as non final but private and not modifying them except in constructor. </p>",
             "category": "Multi Threading"
         },
         {
-            "id": "64",
+            "id": "364",
             "q": "How will you take thread dump in Java? How will you analyze Thread dump?",
             "a": "<p>\nA Thread Dump is a complete list of active threads. A java thread dump is a way of finding out what each thread in the JVM is doing at a particular point of time. This is especially useful when your java application seems to have some performance issues. Thread dump will help you to find out which thread is causing this.   There are several ways to take thread dumps from a JVM. It is highly recommended to take more than 1 thread dump and analyze the results based on it. Follow below steps to take thread dump of a java process   <ul>\n<li>Step 1 \n\nOn UNIX, Linux and Mac OSX Environment run below command:  \n\nps -el | grep java  \n\nOn Windows: \n\nPress Ctrl+Shift+Esc to open the task manager and find the PID of the java process \n\n</li>\n<li> Step 2: \n\nUse jstack command to print the Java stack traces for a given Java process PID \n\njstack [PID] \n\nMore details of jstack command can be found here : <a href=\"http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstack.html\">JSTACK Command Manual</a> \n\n</li>\n</ul>\n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "65",
+            "id": "365",
             "q": ">What is a thread leak? What does it mean in Java?",
             "a": "<p>\nThread leak is when a application does not release references to a thread object properly. Due to this some Threads do not get garbage collected and the number of unused threads grow with time.   Thread leak can often cause serious issues on a Java application since over a period of time too many threads will be created but not released and may cause applications to respond slow or hang.   \n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "66",
+            "id": "366",
             "q": "How can I trace whether the application has a thread leak?",
             "a": "<p>\nIf an application has thread leak then with time it will have too many unused threads. Try to find out what type of threads is leaking out. This can be done using following ways  <ul>\n<li>Give unique and descriptive names to the threads created in application. - Add log entry in all thread at various entry and exit points in threads.</li>\n<li>Change debugging config levels (debug, info, error etc) and analyze log messages.</li>\n<li>When you find the class that is leaking out threads check how new threads are instantiated and how they're closed.</li>\n<li>Make sure the thread is Guaranteed to close properly by doing following - Handling all Exceptions properly.</li>\n<li>Make sure the thread is Guaranteed to close properly by doing following <ul>\n<li>Handling all Exceptions properly.</li>\n<li>releasing all resources (e.g. connections, files etc) before it closes.</li>\n</ul>\n</li>\n</ul>\n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "67",
+            "id": "367",
             "q": "What is thread pool? Why should we use thread pools?",
             "a": "<p>\nA thread pool is a collection of threads on which task can be scheduled. Instead of creating a new thread for each task, you can have one of the threads from the thread pool pulled out of the pool and assigned to the task. When the thread is finished with the task, it adds itself back to the pool and waits for another assignment.   One common type of thread pool is the fixed thread pool. This type of pool always has a specified number of threads running; if a thread is somehow terminated while it is still in use, it is automatically replaced with a new thread.   Below are key reasons to use a Thread Pool   <ul>\n<li> Using thread pools minimizes the JVM overhead due to thread creation. Thread objects use a significant amount of memory, and in a large-scale application, allocating and de-allocating many thread objects creates a significant memory management overhead. </li>\n<li>You have control over the maximum number of tasks that are being processed in parallel (= number of threads in the pool). </li>\n</ul>\nMost of the executor implementations in java.util.concurrent use thread pools, which consist of worker threads. This kind of thread exists separately from the Runnable and Callable tasks it executes and is often used to execute multiple tasks.    \n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "68",
+            "id": "368",
             "q": "Can we synchronize the run method? If yes then what will be the behavior?",
             "a": "<p>\nYes, the run method of a runnable class can be synchronized.    If you make run method synchronized then the lock on runnable object will be occupied before executing the run method. In case we start multiple threads using the same runnable object in the constructor of the Thread then it would work. But until the 1st thread ends the 2nd thread cannot start and until the 2nd thread ends the next cannot start as all the threads depend on lock on same object.</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "69",
+            "id": "369",
             "q": "Can we synchronize the constructor of a Java Class?",
             "a": "<p>\nAs per Java Language Specification, constructors cannot be synchronized because other threads cannot see the object being created before the thread creating it has finished it.   There is no practical need of a Java Objects constructor to be synchronized, since it would lock the object being constructed, which is normally not available to other threads until all constructors of the object finish.\n</p>",
             "category": "Multi Threading"
         },
         {
-            "id": "70",
+            "id": "470",
             "q": "Define Serialization? What do you mean by Serialization in Java?",
             "a": "<p>\nSerialization is a mechanism by which you can save or transfer the state of an object by converting it to a byte stream. This can be done in java by implementing Serialiazable interface.   Serializable is defined as a marker interface which needs to be implemented for transferring an object over a network or persistence of its state to a file. Since its a marker interface, it does not contain any methods. Implementation of this interface enables the conversion of object into byte stream and thus can be transferred. The object conversion is done by the JVM using its default serialization mechanism.</p>",
             "category": "Java Serialization"
         },
         {
-            "id": "71",
+            "id": "471",
             "q": "Why is Serialization required? What is the need to Serialize?",
             "a": "<p>\nSerialization is required for a variety of reasons. It is required to send across the state of an object over a network by means of a socket. One can also store an object’s state in a file. Additionally, manipulation of the state of an object as streams of bytes is required. The core of Java Serialization is the Serializable interface. When Serializable interface is implemented by your class it provides an indication to the compiler that java Serialization mechanism needs to be used to serialize the object.</p>",
             "category": "Java Serialization"
         },
         {
-            "id": "72",
+            "id": "472",
             "q": "What is the Difference between Externalizable and Serializable Interfaces?",
             "a": "<p>\nThis is one of top serialization questions that is asked in many big companies to test your in-depth understanding of serialization.   Serializable is a marker interface therefore you are not forced to implement any methods, however Externalizable contains two methods readExternal() and writeExternal() which must be implemented. \n\nSerializable interface provides a inbuilt serialization mechanism to you which can be in-efficient at times. However Externilizable interface is designed to give you greater control over the serialization mechanism. The two methods provide you immense opportunity to enhance the performance of specific object serialization based on application needs.  \n\nSerializable interface provides a default serialization mechanism, on the other hand, Externalizable interface instead of relying on default Java Serialization provides flexibility to control this mechanism. \n\nOne can drastically improve the application performance by implementing the Externalizable interface correctly. However there is also a chance that you may not write the best implementation, so if you are not really sure about the best way to serialize, I would suggest your stick to the default implementation using Serializable interface. </p>",
             "category": "Java Serialization"
         },
         {
-            "id": "73",
+            "id": "473",
             "q": "When will you use Serializable or Externalizable interface? and why?",
             "a": "<p>\nMost of the times when you want to do a selective attribute serialization you can use Serializable interface with transient modifier for variables not to be serialized.  However, use of Externalizable interface can be really effective in cases when you have to serialize only some dynamically selected attributes of a large object. \n\nLets take an example, Some times when you have a big Java object with hundreds of attributes and you want to serialize only a dozen dynamically selected attributes to keep the state of the object you should use Externalizable interface writeExternal method to selectively serialize the chosen attributes.  \n\nIn case you have small objects and you know that most or all attributes are required to be serialized then you should be fine with using Serializable interface and use of transient variable as appropriate. </p>",
             "category": "Java Serialization"
         },
         {
-            "id": "74",
+            "id": "474",
             "q": "What are the ways to speed up Object Serialization? How to improve Serialization performance?",
             "a": "<p>\nThe default Java Serialization mechanism is really useful, however it can have a really bad performance based on your application and business requirements. The serialization process performance heavily depends on the number and size of attributes you are going to serialize for an object. Below are some tips you can use for speeding up the marshaling and un-marshaling of objects during Java serialization process.  <ul>\n<li> Mark the unwanted or non Serializable attributes as transient. This is a straight forward benefit since your attributes for serialization are clearly marked and can be easily achieved using Serialzable interface itself.</li>\n<li> Save only the state of the object, not the derived attributes. Some times we keep the derived attributes as part of the object however serializing them can be costly. Therefore consider calcualting them during de-serialization process.</li>\n<li> Serialize attributes only with NON-default values. For examples, serializing a int variable with value zero is just going to take extra space however, choosing not to serialize it would save you a lot of performance. This approach can avoid some types of attributes taking unwanted space. This will require use of Externalizable interface since attribute serialization is determined at runtime based on the value of each attribute.</li>\n<li> Use Externalizable interface and implement the readExternal and writeExternal methods to dynamically identify the attributes to be serialized. Some times there can be a custom logic used for serialization of various attributes.\n</li>\n</ul>\n</p>",
             "category": "Java Serialization"
         },
         {
-            "id": "75",
+            "id": "475",
             "q": "What is a Serial Version UID (serialVersionUID) and why should I use it? How to generate one?",
             "a": "<p>\nThe serialVersionUID represents your class version, and you should change it if the current version of your class is not backwards compatible with its earlier versions.   This is extract from Java API Documentation <blockquote>\nThe serialization runtime associates with each serializable class a version number, called a serialVersionUID, which is used during deserialization to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization.</blockquote>\nMost of the times, we probably do not use serialization directly. In such cases, I would suggest to generate a default serializable uid by clicking the quick fix option in eclipse. </p>\n",
             "category": "Java Serialization"
         },
         {
-            "id": "76",
+            "id": "476",
             "q": "What would happen if the SerialVersionUID of an object is not defined?",
             "a": "<p>\nIf you don't define serialVersionUID in your serilizable class, Java compiler will make one by creating a hash code using most of your class attributes and features.   When an object gets serialized, this hash code is stamped on the object which is known as the SerialVersionUID of that object. This ID is required for the version control of an object.   SerialVersionUID can be specified in the class file also. In case, this ID is not specified by you, then Java compiler will regenerate a SerialVersionUID based on updated class and it will not be possible for the already serialized class to recover when a class field is added or modified.   Its recommended that you always declare a serialVersionUID in your Serializable classes. </p>",
             "category": "Java Serialization"
         },
         {
-            "id": "77",
+            "id": "477",
             "q": "Does setting the serialVersionUID class field improve Java serialization performance?",
             "a": "<p>\nDeclaring an explicit serialVersionUID field in your classes saves some CPU time only the first time the JVM process serializes a given Class. However the gain is not significant, In case when you have not declared the serialVersionUID its value is computed by JVM once and subsequently kept in a soft cache for future use. </p>",
             "category": "Java Serialization"
         },
         {
-            "id": "78",
+            "id": "478",
             "q": "What are the alternatives to Serialization? If Serialization is not used, is it possible to persist or transfer an object using any other approach?",
             "a": "<p>\nIn case, Serialization is not used, Java objects can be serialized by many ways, some of the popular methods are listed below:  <ul>\n<li>Saving object state to database, this is most common technique used by most applications. You can use ORM tools (e.g. hibernate) to save the objects in a database and read them from the database. </li>\n<li>Xml based data transfer is another popular mechanism, and a lot of XML based web services use this mechanism to transfer data over network. Also a lot of tools save XML files to persist data/configurations. </li>\n<li>JSON Data Transfer - is recently popular data transfer format. A lot of web services are being developed in JSON due to its small footprint and inherent integration with web browser due to JavaScript format.\n</li>\n</ul>\n</p>",
             "category": "Java Serialization"
-        },
-        {
-            "id": "111",
-            "q": "Need Help in learning Java?",
-            "a": "Visit <a href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java </a> page to get some guidelines on how to get started.",
-            "category": "More"
-        },
-        {
-            "id": "112",
-            "q": "Looking for more Java questions?",
-            "a": "Go to - Home - More - Update Questions - Update. This will update the questions to get latest set of questions available in this list.",
-            "category": "More"
-        },
-        {
-            "id": "113",
-            "q": "Looking for Java interview preparation books?",
-            "a": "We have created a list of best books that can help you learn java and become expert Java developer. Visit this page : <a href='http://www.fromdev.com/2011/04/5-best-core-java-books-you-must-read-as.html'>Best Java Books</a>",
-            "category": "More"
-        },
-        {
-            "id": "114",
-            "q": "Looking for programming interview preparation books?",
-            "a": "We have created a list of best books that can help you prepare for jobs at companies like Google, Apple and Microsoft. Visit this page : <a href='http://www.fromdev.com/2013/07/interview-questions-book.html'>Best Interview Preparation Books</a>",
-            "category": "More"
-        },
-        {
-            "id": "115",
-             "q": "Need to discuss any question or answer?",
-            "a": "Visit <a href='http://www.fromdev.com/2012/02/java-interview-question-answer.html'>FromDev.com</a> to discuss and get help.",
-            "category": "More"
-       },
-        {
-            "id": "116",
-            "q": "Have feedback about something on this app?",
-            "a": "Your feedback is always welcome. We are constantly trying to improve this app. Can you think of a questions which is not part of this post? Please don't forget to share it with me in comments section & I will try to include it in the list. To Sent Feedback or a new question. Go to - Home - More - Feedback. and send us your feedback. ",
-            "category": "More"
         }
-
     ]
 }

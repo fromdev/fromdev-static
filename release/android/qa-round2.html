@@ -1,0 +1,133 @@
+What is ArrayBlockingQueue in Java?
+
+<p>java.util.ArrayBlockingQueue is a fixed size queue implementation of java with FIFO (first in first out) sorting. Details of this implementation are below as per the Oracle API docs. 
+
+<blockquote>A bounded blocking queue backed by an array. This queue orders elements FIFO (first-in-first-out). The head of the queue is that element that has been on the queue the longest time. The tail of the queue is that element that has been on the queue the shortest time. New elements are inserted at the tail of the queue, and the queue retrieval operations obtain elements at the head of the queue.
+This is a classic "bounded buffer", in which a fixed-sized array holds elements inserted by producers and extracted by consumers. Once created, the capacity cannot be changed. Attempts to put an element into a full queue will result in the operation blocking; attempts to take an element from an empty queue will similarly block.
+
+This class supports an optional fairness policy for ordering waiting producer and consumer threads. By default, this ordering is not guaranteed. However, a queue constructed with fairness set to true grants threads access in FIFO order. Fairness generally decreases throughput but reduces variability and avoids starvation.
+
+This class and its iterator implement all of the optional methods of the Collection and Iterator interfaces.
+
+This class is a member of the Java Collections Framework.</blockquote>
+</p>
+
+What is  Priority Queue in Java?
+
+<p> java.util.PriorityQueue is described like below in Oracle API docs.
+
+<blockquote>An unbounded priority queue based on a priority heap. The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used. A priority queue does not permit null elements. A priority queue relying on natural ordering also does not permit insertion of non-comparable objects (doing so may result in ClassCastException).</blockquote>
+
+It requires O(log(n)) time for its enqueing and dequeing operations.
+
+The PriorityQueue iterator does not keep the elements in order; you'll  have to remove the elements (un-queue) to iterate over its elements in order.
+
+The Java PriorityQueue is not thread-safe. Multiple threads should not access a PriorityQueue instance concurrently if any of the threads modifies the queue. Instead, use the thread-safe PriorityBlockingQueue class.
+
+If you are looking for fixed size queue, java.util.ArrayBlockingQueue is a better choice.
+</p>
+
+What is Java 8 default method?
+
+<p>Java 8 has support for default methods in interface. Java 8 interfaces can define default methods that can contain implementations.
+A sample of default method is shown below.
+
+<code>
+public interface TestI {
+  default void m1(){
+    System.out.println("hello interface default method");
+  } 
+}
+</code>
+</p>
+
+What is the difference between Comparable and Comparator interface ? 
+<h3>Comparable</h3>
+<p>java.lang.Comparable interface has one method compareTo(). This method is used to do sorting of objects. Any custom java object can implement this interface and write compareTo method to do sorting.
+The compareTo method can return int (negative, zero or positive) to indicate the object is less than, equals or greater then the other object.
+</p>
+<h3>Comparator</h3>
+<p>java.util.Comparator interface has one method compare(). This method is used to do sorting of two objects. 
+The compare method can return int (negative, zero or positive) to indicate the first object is less than, equals or greater then the second object.
+</p>
+<h3>Key Difference </h3>
+<p>Comparable interface must be implemented by the class to be allow sorting. In case the class can not implement the interface, (this is common in case of third party library objects.)</p>
+
+What is the difference between processes and threads? 
+<p>A process is an execution of a program. Thread is a single execution path within a process. A process may contain many threads. A Thread is also called a lightweight process.
+
+In case of java, when we run a java program - it runs as a process in the operating system. Every java program contains at least one thread called "main". We can create multiple threads in java by using java.lang.Thread class.
+</p>
+
+What is the difference between an Interface and an Abstract class? 
+
+<h3>Interface</h3>
+<p>Java supports interface to achieve polymorphism. A Java interface can have only method signature. We can not implement methods in an Interface.
+All methods and variable in a Java interface are public. </p>
+<h3>Abstract Class</h3>
+<p><b>Per Oracle docs:</b>
+
+<blockquote>An abstract class is a class that is declared abstract—it may or may not include abstract methods. Abstract classes cannot be instantiated, but they can be subclassed.</blockquote></p>
+
+<h3>Key Differences in Interface and Abstract class</h3>
+<p>
+<ul><li>All methods in an interface are abstract. As of Java 8, Interfaces can also have default methods. Default methods are defined using default keyword. </li><li>An abstract class can contain both abstract and methods with implementation.</li><li>A Java class can implement many Interfaces, however it can extend only one abstract class.</li><li>Classes implementing interface must implement all methods, otherwise must be declared abstract.</li><li>Classes implementing an abstract class must implement only the abstract methods, otherwise must be declared abstract.</li><li>All variables declared in an Interface are "public", on the other hand abstract class may contain private, protected, default and public variables.</li><li>All variables declared in an Interface are "final", on the other hand abstract class may contain all types of variable including final and non final variables.</li></ul></p>
+
+
+Is multiple inheritance supported in Java?
+
+<p>Java does not support multiple inheritance of classes. We can only extend one class. 
+
+Java supports inheritance of multiple interfaces that needs to be implemented by inheriting class.</p>
+
+<h2>What is Autoboxing and Unboxing in Java?</h2>
+
+<h3>Autoboxing</h3>
+<p>Autoboxing is the a feature in java that does automatic conversion of primitive types to their corresponding object wrapper classes. The JVM does auto boxing for following. </p>
+
+<h3>Unboxing</h3>
+<p>Unboxing is the reverse process of converting object types to primitives. 
+
+Below table show how Autoboxing and unboxing will happen.
+</p>
+
+<table>
+	<thead>
+	<tr>
+		<th>Primitive type</th>
+		<th>Boxed Type</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>int</td>
+		<td>java.lang.Integer</td>
+	</tr>
+	<tr>
+		<td>double<br></td>
+		<td>java.lang.Double</td>
+	</tr>
+	<tr>
+		<td>float&nbsp;</td>
+		<td>java.lang.Float<br></td>
+	</tr>
+	<tr>
+		<td>long</td>
+		<td>java.lang.Long<br></td>
+	</tr>
+	<tr>
+		<td>boolean<br></td>
+		<td>java.lang.Boolean<br></td>
+	</tr>
+	<tr>
+		<td>short<br></td>
+		<td>java.lang.Short<br></td>
+	</tr>
+	<tr>
+		<td>byte</td>
+		<td>java.lang.Byte</td>
+	</tr>
+	<tbody>
+</table>
+
+

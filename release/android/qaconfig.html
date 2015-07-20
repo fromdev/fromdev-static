@@ -1,0 +1,32 @@
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>HTML Wrap Util for Editing Content</title>
+  
+<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+<script>
+$(window).load(function(){
+	$.getJSON('qaconfig.json?nocache=' + (new Date()).getTime(), function(data){
+		$.each(data.qaList, function(i,f){
+			var tblRow = "<tr>" + "<td>" + i + "</td>" + "<td>" + f.id + "</td>" + "<td>" + f.q + "</td>" + "<td>" + f.a + "</td><td>" + f.category + "</td></tr>";
+			$(tblRow).appendTo("#maintbody");
+		});
+	});
+});
+</script>
+
+</head>
+<body>
+<table id= "userdata" border="2">
+  		<thead>
+  			<th>SN</th>
+            <th>Id</th>
+            <th>Question</th>
+            <th>Answer</th>
+            <th>Category</th>
+        </thead>
+      	<tbody id="maintbody">
+    	</tbody>
+   </table>
+
+</body>
+</html>

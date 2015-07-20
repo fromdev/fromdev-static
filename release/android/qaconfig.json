@@ -1,6 +1,6 @@
 {
     "appName": "Java Interview Questions and Answers",
-    "version": "2.5",
+    "version": "2.6",
     "aboutTitle": "About Us",
     "aboutDesc": "<p>Java Interview Question Answer App is created for learning Java concepts with interview perspective. This app is contributed by <a href='http://www.fromdev.com'>Fromdev.com</a>. </p>\n\n<h2>About Fromdev.com</h2>\n<p>FromDev is a fast growing digital weblog that constantly publishes quality articles about interesting tutorials, noteworthy programming resources, online tips and tricks. You can find practical and useful information for modern web developers and anyone interested in the web industry. To discuss questions and answers please visit <a href='http://www.fromdev.com'>Fromdev.com</a>.</p>\n\n<h2>About This App</h2>\n<p>This app has power of <b>Java community</b>, since all the questions are <b>contributed by Java developers like you</b>. The Java questions and answers list on this application <b>keeps growing with help and suggestions</b> from users like you. We have an in app update questions feature (required internet to download) that can download latest set of questions and answers without upgrading the app. \n\nWe have created this FREE app (also ads free) for the benefit of community therefore please help us reach it more people by doing any of the following \n\n<ul>\n<li>If you like the app please rate us on app store and share with your friends.</li>\n<li><b>Contribute more</b> questions and answers using <a href=\"http://www.fromdev.com/p/suggest-question-for-java.html\">suggest a question page</a>. We will add your name to the list of contributors in next section. </li>\n<li><b>Provide feedback</b> to improve the app. To help us improve and fix problems in the app please use feedback screen to send us details or use our <a href=\"http://www.fromdev.com/p/get-in-touch-there-is-nothing-better.html\">online feedback form</a>.</li>\n</ul>\n\n</p>\n<h2>Contributors</h2>\n<p><ul><li>Sachin Joshi</li></ul></p>\n\n<h2>Useful Resources</h2>\n<p>Below are some helpful resources for Java developers\n<ul><li>\n<h3>Need Help in learning Java?</h3>\n<p>Visit <a href='http://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html'>how to learn Java</a> page to get some guidelines on how to get started.</p>\n</li>\n<li>\n<h3>Looking for more Java questions?</h3>\n<p>Go to - Home - More - Update Questions - Update. This will update the questions to get latest set of questions available in this list.</p>\n</li>\n<li>\n<h3>Looking for Java interview preparation books?</h3>\n<p>We have created a list of best books that can help you learn java and become expert Java developer. Visit this page : <a href='http://www.fromdev.com/2011/04/5-best-core-java-books-you-must-read-as.html'>Best Java Books</a></p>\n</p>\n</li>\n<li>\n<h3>Looking for programming interview preparation books?</h3>\n<p>We have created a list of best books that can help you prepare for jobs at companies like Google, Apple and Microsoft. Visit this page : <a href='http://www.fromdev.com/2013/07/interview-questions-book.html'>Best Interview Preparation Books</a></p>\n</li>\n<li>\n<h3>Need to discuss any question or answer?</h3>\n<p>Visit <a href='http://www.fromdev.com/2012/02/java-interview-question-answer.html'>Java interview</a> page on FromDev.com to discuss and get help.</p>\n</li>\n</ul>\n</p>",
     "timestamp": "1234567",
@@ -139,6 +139,30 @@
             "q": "<h3>What is final method in Java? How can I use it?</h3>",
             "a": "<p>A final method in java can not be overridden by its subclasses. This can be an important feature when you want to ensure the method behavior is not changed by subclasses.\n\nYou can choose to keep some methods final thereby having control on what is overridden by extending classes and what is unchanged.\n\nBelow is a sample final method\n\n<pre>\n\tpublic final void method1(){}\n</pre>\n</p>",
             "category": "Core Java - Beginner"
+        },
+        {
+            "id": "25",
+            "q": "<h3>What is Autoboxing and Unboxing in Java?</h3>",
+            "a": "<h3>Autoboxing</h3>\n<p>Autoboxing is the a feature in java that does automatic conversion of primitive types to their corresponding object wrapper classes. The JVM does auto boxing for following. </p>\n\n<h3>Unboxing</h3>\n<p>Unboxing is the reverse process of converting object types to primitives. \n\nBelow table show how Autoboxing and unboxing will happen.\n</p>\n\n<table>\n\t<thead>\n\t<tr>\n\t\t<th>Primitive type</th>\n\t\t<th>Boxed Type</th>\n\t</tr>\n\t</thead>\n\t<tbody>\n\t<tr>\n\t\t<td>int</td>\n\t\t<td>java.lang.Integer</td>\n\t</tr>\n\t<tr>\n\t\t<td>double<br></td>\n\t\t<td>java.lang.Double</td>\n\t</tr>\n\t<tr>\n\t\t<td>float&nbsp;</td>\n\t\t<td>java.lang.Float<br></td>\n\t</tr>\n\t<tr>\n\t\t<td>long</td>\n\t\t<td>java.lang.Long<br></td>\n\t</tr>\n\t<tr>\n\t\t<td>boolean<br></td>\n\t\t<td>java.lang.Boolean<br></td>\n\t</tr>\n\t<tr>\n\t\t<td>short<br></td>\n\t\t<td>java.lang.Short<br></td>\n\t</tr>\n\t<tr>\n\t\t<td>byte</td>\n\t\t<td>java.lang.Byte</td>\n\t</tr>\n\t<tbody>\n</table>",
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "26",
+            "q": "<h3>Is multiple inheritance supported in Java?</h3>",
+            "a": "<p>Java does not support multiple inheritance of classes. We can only extend one class. \n\nJava supports inheritance of multiple interfaces that needs to be implemented by inheriting class.</p>\n",
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "27",
+            "q": "<h3>What is the difference between an Interface and an Abstract class?</h3>",
+            "a": "<h3>Interface</h3>\n<p>Java supports interface to achieve polymorphism. A Java interface can have only method signature. We can not implement methods in an Interface.\nAll methods and variable in a Java interface are public. </p>\n<h3>Abstract Class</h3>\n<p><b>Per Oracle docs:</b>\n\n<blockquote>An abstract class is a class that is declared abstract—it may or may not include abstract methods. Abstract classes cannot be instantiated, but they can be subclassed.</blockquote></p>\n\n<h3>Key Differences in Interface and Abstract class</h3>\n<p>\n<ul><li>All methods in an interface are abstract. As of Java 8, Interfaces can also have default methods. Default methods are defined using default keyword. </li><li>An abstract class can contain both abstract and methods with implementation.</li><li>A Java class can implement many Interfaces, however it can extend only one abstract class.</li><li>Classes implementing interface must implement all methods, otherwise must be declared abstract.</li><li>Classes implementing an abstract class must implement only the abstract methods, otherwise must be declared abstract.</li><li>All variables declared in an Interface are \"public\", on the other hand abstract class may contain private, protected, default and public variables.</li><li>All variables declared in an Interface are \"final\", on the other hand abstract class may contain all types of variable including final and non final variables.</li></ul></p>\n",
+            "category": "Core Java - Beginner"
+        },
+        {
+            "id": "28",
+            "q": "<h3>What is Java 8 default method?</h3>",
+            "a": "<p>Java 8 has support for default methods in interface. Java 8 interfaces can define default methods that can contain implementations.\nA sample of default method is shown below.\n\n<code>\npublic interface TestI {\n  default void m1(){\n    System.out.println(\"hello interface default method\");\n  } \n}\n</code>\n</p>",
+            "category": "Core Java - Experienced"
         },
         {
             "id": "112",
@@ -363,6 +387,18 @@
             "category": "Collections Framework - Experienced"
         },
         {
+            "id": "250",
+            "q": "<h3>What is the difference between Comparable and Comparator interface ?</h3>",
+            "a": "<h3>Comparable</h3>\n<p>java.lang.Comparable interface has one method compareTo(). This method is used to do sorting of objects. Any custom java object can implement this interface and write compareTo method to do sorting.\nThe compareTo method can return int (negative, zero or positive) to indicate the object is less than, equals or greater then the other object.\n</p>\n<h3>Comparator</h3>\n<p>java.util.Comparator interface has one method compare(). This method is used to do sorting of two objects. \nThe compare method can return int (negative, zero or positive) to indicate the first object is less than, equals or greater then the second object.\n</p>\n<h3>Key Difference </h3>\n<p>Comparable interface must be implemented by the class to be allow sorting. In case the class can not implement the interface, (this is common in case of third party library objects.)</p>\n",
+            "category": "Collections Framework - Beginner"
+        },
+        {
+            "id": "251",
+            "q": "<h3>What is  Priority Queue in Java?</h3>",
+            "a": "<p> java.util.PriorityQueue is a queue implementation of java, where sorting order in queue is controlled by a Comparator. This is described like below in Oracle API docs.\n\n<blockquote>An unbounded priority queue based on a priority heap. The elements of the priority queue are ordered according to their natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used. A priority queue does not permit null elements. A priority queue relying on natural ordering also does not permit insertion of non-comparable objects (doing so may result in ClassCastException).</blockquote>\n\nIt requires O(log(n)) time for its enqueing and dequeing operations.\n\nThe PriorityQueue iterator does not keep the elements in order; you'll  have to remove the elements (un-queue) to iterate over its elements in order.\n\nThe Java PriorityQueue is not thread-safe. Multiple threads should not access a PriorityQueue instance concurrently if any of the threads modifies the queue. Instead, use the thread-safe PriorityBlockingQueue class.\n\nIf you are looking for fixed size queue, java.util.ArrayBlockingQueue is a better choice.\n</p>",
+            "category": "Collections Framework - Experienced"
+        },
+        {
             "id": "350",
             "q": "<h3>What is synchronization in respect to multi-threading in Java?</h3>",
             "a": "<p>\nWith respect to multi-threading, synchronization is the capability to control the access of multiple threads to shared resources. Without synchronization, it is possible for one Java thread to modify a shared variable while another thread is in the process of using or updating same shared variable. This usually leads to erroneous behavior or program.</p>",
@@ -481,6 +517,12 @@
             "q": "<h3>Can we synchronize the constructor of a Java Class?</h3>",
             "a": "<p>\nAs per Java Language Specification, constructors cannot be synchronized because other threads cannot see the object being created before the thread creating it has finished it.   There is no practical need of a Java Objects constructor to be synchronized, since it would lock the object being constructed, which is normally not available to other threads until all constructors of the object finish.\n</p>",
             "category": "Multi Threading - Experienced"
+        },
+        {
+            "id": "370",
+            "q": "<h3>What is the difference between processes and threads?</h3>",
+            "a": "<p>A process is an execution of a program. Thread is a single execution path within a process. A process may contain many threads. A Thread is also called a lightweight process.\n\nIn case of java, when we run a java program - it runs as a process in the operating system. Every java program contains at least one thread called \"main\". We can create multiple threads in java by using java.lang.Thread class.\n</p>",
+            "category": "Multi Threading - Beginner"
         },
         {
             "id": "470",

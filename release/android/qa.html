@@ -1,0 +1,385 @@
+
+What is final method in Java? How can I use it?
+<p>A final method in java can not be overridden by its subclasses. This can be an important feature when you want to ensure the method behavior is not changed by subclasses.
+
+You can choose to keep some methods final thereby having control on what is overridden by extending classes and what is unchanged.
+
+Below is a sample final method
+
+<pre>
+	public final void method1(){}
+</pre>
+</p>
+
+
+What is final variable in Java? 
+
+<p>Final variable in java are used to define constants and objects that are not required to be changed.
+You can define it using final keyword.
+
+<pre>
+	public final int ten = 10;
+</pre>
+
+Since, final variables can not be modified once created it must be initialized while declaring or inside the class constructor where its declared.
+Trying to set value to a final variable anywhere else will result in compilation error.
+
+</p>
+<h3>Which one of these is a valid keyword in Java?</h3> 
+<ul><li>delete</li><li>next</li><li>main</li><li>exit </li><li>null</li></ul>
+
+<p>None of them are valid Java keywords. Many other languages has these keywords however Java does not have them.</p>
+
+<p>
+Warnings are issued by database to notify user of a problem which may not be very severe. 
+
+<ul><li>Database warnings do not stop the execution of SQL statements. </li><li>In JDBC SQLWarning is an exception that provides information on database access warnings. </li><li>Warnings are silently chained to the object whose method caused it to be reported.</li><li>Warnings may be retrieved from Connection, Statement, and ResultSet objects.</li></ul>
+</p>
+
+<h4>Handling SQLWarning from connection object </h4> 
+
+<pre name="code" class="java">
+ //Retrieving warning from connection object
+ SQLWarning warning = conn.getWarnings();
+ 
+ //Retrieving next warning from warning object itself
+ SQLWarning nextWarning = warning.getNextWarning();
+ 
+ //Clear all warnings reported for this Connection object. 
+ conn.clearWarnings();
+</pre>
+Handling SQLWarning from Statement object  <pre name="code" class="java">//Retrieving warning from statement object
+ stmt.getWarnings();
+
+ //Retrieving next warning from warning object itself
+ SQLWarning nextWarning = warning.getNextWarning(); 
+ 
+ //Clear all warnings reported for this Statement object. 
+ stmt.clearWarnings();
+</pre>
+
+<h4>Handling SQLWarning from ResultSet object  </h4>
+
+<pre name="code" class="java">
+ //Retrieving warning from resultset object
+ rs.getWarnings();
+ 
+ //Retrieving next warning from warning object itself
+ SQLWarning nextWarning = warning.getNextWarning();
+ 
+ //Clear all warnings reported for this resultset object. 
+ rs.clearWarnings();
+</pre>
+<p>
+The call to <b>getWarnings()</b> method in any of above way retrieves the first warning reported by calls on this object. 
+
+If there is more than one  warning, subsequent warnings will be chained to the first one and can be retrieved by calling the method <b>SQLWarning.getNextWarning</b> on the warning that was retrieved previously. 
+</p>
+<p>A call to <b>clearWarnings()</b> method  clears all warnings reported for this object. After a call to this method, the method getWarnings  returns null until a new warning is reported for this object.    
+
+Trying to call <b>getWarning()</b> on a connection after it has been closed will cause an SQLException to be thrown. 
+</p>
+<p>Similarly, trying to retrieve a warning on a statement after it has been closed or on a result set after it has been closed will cause an SQLException to be thrown. 
+
+Note that closing a statement also closes a result set that it might have produced.
+</p>
+
+
+How to convert a String to Date Object in Java?
+
+<p>
+To convert a String value into a java.util.Date object you can use SimpleDateFormat class, a simple example is shown below.
+
+<pre>
+String s = "January 1, 2015";
+DateFormat sdf = new SimpleDateFormat("MMMM d, yyyy", Locale.ENGLISH);
+Date date = sdf.parse(s);
+System.out.println(date); // Thu Jan 01 00:00:00 GMT 2015
+</pre>
+</p>
+
+How to split a string in Java?
+<p>
+You can use String.split method to split any string in java. This method accepts regular expression and can be used to split based on any pattern. Below example can split string by ","
+
+<pre>
+String s = "a,b,c";
+String [] splitStrings = s.split(","); // This will return a string array with 3 values 
+System.out.println(splitStrings[0]); // this value is "a"
+System.out.println(splitStrings[1]); // this value is "b"
+System.out.println(splitStrings[2]); // this value is "c"
+</pre>
+
+</p>
+
+<p>
+<p>This Error is thrown when the Java Virtual Machine cannot allocate an object because it is out of memory, and no more memory could be made available by the garbage collector.   
+
+<b>Note:</b> Its an Error (extends java.lang.Error) not Exception.    Two important types of OutOfMemoryError are often encountered  
+</p>
+
+<ol><li><h4>java.lang.OutOfMemoryError: Java heap space </h4>
+The quick solution is to add these flags to JVM command line when Java runtime is started: <pre class="java" name="code">-Xms1024m -Xmx1024m 
+</pre>
+</li>
+<li><h4>java.lang.OutOfMemoryError: PermGen space </h4>
+The solution is to add these flags to JVM command line when Java runtime is started:   
+<pre class="java" name="code">-XX:+CMSClassUnloadingEnabled-XX:+CMSPermGenSweepingEnabled</pre>
+</li>
+</ol>
+
+</p>
+
+
+<p>It is very useful to have strings implemented as final or immutable objects. Below are some advantages of String Immutability in Java  </p>
+<ul><li>Immutable objects are thread-safe. Two threads can both work on an immutable object at the same time without any possibility of conflict. </li>
+<li>Security: the system can pass on sensitive bits of read-only information without worrying that it will be altered</li>
+<li> You can share duplicates by pointing them to a single instance. </li>
+<li>You can create substrings without copying. You just create a pointer into an existing base String guaranteed never to change. Immutability is the secret that makes Java substring implementation very fast.</li>
+<li>Immutable objects are good fit for becoming Hashtable keys. If you change the value of any object that is used as a hash table key without removing it and re-adding it you will lose the object mapping.</li>
+<li>Since String is immutable, inside each String is a char[] exactly the correct length. Unlike a StringBuilder there is no need for padding to allow for growth. </li>
+<li>If String were not final, you could create a subclass and have two strings that look alike when "seen as Strings", but that are actually different.</li>
+</ul>
+
+Why Java is platform independent?
+
+Java programs can be executed on any operating system 
+
+What is the difference between public, default, protected, and private access specifiers in Java?
+<p>Java access specifiers control the visibility of a variable in various levels. Below table provides details of all the types of specifiers and their visibility.
+
+<table style="border:solid 1px grey;">
+  <tr>
+    <th>Modifier</th>
+    <th>Class</th>
+    <th>Package</th>
+    <th>Subclass</th>
+    <th>Everyone</th>
+  </tr>
+  <tr>
+    <td>public</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>protected</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>Default (No Modifier)</td>
+    <td>Yes</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>private</td>
+    <td>Yes</td>
+    <td>No</td>
+    <td>No</td>
+    <td>No</td>
+  </tr>
+</table>
+
+</p>
+
+
+How to get the size of remote file without downloading it in Java?
+
+<p>You can use java.io.HttpURLConnection class to retrieve the "content-length" field of a remote file. This technique will work as long as the server is setting the content length in HTTP header. 
+
+You may still find some servers that may not work therefore a value of -1 from this method will mean that size is not available and the only way to know the size of the file will be to download it fully.
+
+
+<pre>
+	public static Long getRemoteFileSize(String url) {
+		Long contentLength = -1l;
+		HttpURLConnection ucon = null;
+		try {
+			final URL uri = new URL(url);
+			ucon = (HttpURLConnection) uri.openConnection();
+			ucon.connect();
+			String contentLengthStr = ucon.getHeaderField("content-length");
+			contentLength = Long.parseLong(contentLengthStr);
+		} catch (final IOException e) {
+			e.printStackTrace();
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} finally {
+			if (ucon != null) {
+				try {
+					InputStream in = ucon.getInputStream();
+					in.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				ucon.disconnect();
+			}
+		}
+		return contentLength;
+	}
+</pre>
+</p>
+
+
+<p>
+By default behavior, printing a java array just prints the reference value. It does not print all the elements of array. For example below code 
+
+<pre>
+int[] intArr = new int[] {1, 2, 3, 4, 5};
+System.out.println(intArr);     // This will print something like '[I@1234abc1'
+</pre>
+
+Therefore, when you require to print all elements you can use java.util.Arrays.toString() method as shown below.
+
+<pre>
+System.out.println(Arrays.toString(intArr));     // This will print '[1,2,3,4,5]'
+</pre>
+
+</p>
+
+<p>A Java thread could be implemented in two ways.  
+
+<ul><li>You can extend the java.lang.Thread class and override the run method. </li><li>You can implement java.lang.Runnable. This approach is more preferred since, when you are going for multiple inheritance you can use only one class as super class, however interfaces can be as many as you need.  </p></li></ul>
+
+
+<p>To generate a random number in range you can use a java method like below 
+
+<pre>
+/**
+ * Returns a pseudo-random number between min and max, inclusive.
+ * The difference between min and max can be at most
+ * <code>Integer.MAX_VALUE - 1</code>.
+ *
+ * @param min Minimum value
+ * @param max Maximum value.  Must be greater than min.
+ * @return Integer between min and max, inclusive.
+ * @see java.util.Random#nextInt(int)
+ */
+public static int randInt(int min, int max) {
+
+    // NOTE: Usually this should be a field rather than a method
+    // variable so that it is not re-seeded every call.
+    Random rand = new Random();
+
+    // nextInt is normally exclusive of the top value,
+    // so add 1 to make it inclusive
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+    return randomNum;
+}
+</pre>
+</p>
+
+<p>As described in Oracle API documentation
+
+<blockquote>
+Thrown when an application attempts to use null in a case where an object is required. These include:
+<ul><li>Calling the instance method of a null object.</li><li>Accessing or modifying the field of a null object.</li><li>Taking the length of null as if it were an array.</li><li>Accessing or modifying the slots of null as if it were an array.</li><li>Throwing null as if it were a Throwable value.</li></ul>
+
+Applications should throw instances of this class to indicate other illegal uses of the null object.
+</blockquote>
+
+<h3>How to solve NullPointerException</h3>
+<p>To resolve a NullPointerException you can take following steps.
+<ul>
+<li>Read the exception stack trace to identify the line of code where exception is thrown. The java stack trace has line number for the code where any exception is thrown.</li>
+<li>Add a check for not null value such that the line does not execute when object is null.</li>
+</ul>
+
+<h3>How To Read Stack Trace</h3>
+<p>All java exception stack trace have same format that provides you plenty of information about exact code location throwing the exception. For example, see below exception stack trace</p>
+
+<pre>
+Exception in thread "main" java.lang.NullPointerException
+    at Test.main(Test.java:5)
+</pre>
+
+<b>The first line of the stack trace tells following </b>
+<p>
+<ul>
+<li>It tells the name of Java thread where the exception was thrown. This is useful in case you are running a multi threaded Java application. In this example its "main" thread.</li>
+<li>It tells the full name of the exception; i.e. java.lang.NullPointerException.</li>
+</ul>
+</p>
+
+<b>The second line of the stack trace tells following </b>
+<ul>
+<li>"at Test.main" says that it was thrown in the 'main' method of the 'Test' class.</li>
+<li>"Test.java:5" gives the Java filename of the class, followed by the line number where this exception was thrown.</li>
+</ul>
+</p>
+</p>
+
+
+
+
+<p>Java String objects can be compared using .equals() method. This method compares the content of strings.
+
+A common mistake is to use == operator for comparing String objects. This operator works fine on primitive types on java however it does only reference comparison on objects. 
+Therefore using == operator may result in unexpected results. 
+
+<h3>For example:</h3>
+
+<pre>
+// These two have the same value
+new String("ILoveJava").equals("ILoveJava") // --> true 
+
+// ... but they are not the same object
+new String("ILoveJava") == "ILoveJava" // --> false 
+
+// ... neither are these
+new String("ILoveJava") == new String("ILoveJava") // --> false 
+
+// ... but these are because literals are interned by 
+// the compiler and thus refer to the same object
+"ILoveJava" == "ILoveJava" // --> true 
+
+// concatenation of string literals happens at compile time,
+// also resulting in the same object
+"ILoveJava" == "I" + "LoveJava" // --> true
+
+// but .substring() is invoked at runtime, generating distinct objects
+"ILoveJava" == "!ILoveJava".substring(1) // --> false
+
+// interned strings can also be recalled by calling .intern()
+"ILoveJava" == "!ILoveJava".substring(1).intern() // --> true
+
+</pre>
+</p>
+
+<h3>JRE</h3> 
+<p>JRE - Java Runtime Environment is the environment in which every Java program runs. Even JVM is part of this environment. As described in Oracle documentation
+
+<blockquote> Java Runtime Environment (JRE) The Java Runtime Environment (JRE) provides the libraries, the Java Virtual Machine, and other components to run applets and applications written in the Java programming language. In addition, two key deployment technologies are part of the JRE: Java Plug-in, which enables applets to run in popular browsers; and Java Web Start, which deploys standalone applications over a network. It is also the foundation for the technologies in the Java 2 Platform, Enterprise Edition (J2EE) for enterprise software development and deployment. The JRE does not contain tools and utilities such as compilers or debuggers for developing applets and applications.</blockquote>
+
+Java Runtime Environment, is also referred to as the Java Runtime, Runtime Environment
+</p>
+
+<h3>JDK</h3>
+<p>JDK is Java Development Kit, that is mainly used by Java developers to develop java applications. This includes various tools to support basic development activities. Below is how JDK described in Oracle documentation.
+
+<blockquote>Java Development Kit (JDK) The JDK is a superset of the JRE, and contains everything that is in the JRE, plus tools such as the compilers and debuggers necessary for developing applets and applications.</blockquote>
+
+In essence 
+<ul>
+<li>JDK contains tools and documentation required to develop Java programs.</li>
+<li>JDK is required to write Java program and compile it.</li>
+<li>JDK is mainly useful for java development. </li>
+<li>JDK is not required for the End user of a software that is written in java programming language.</li>
+</ul>
+</p>
+
+<h3>JVM</h3>
+
+<p>
+JVM - Java Virtual machine is the program that runs the Java bytecodes. The JVM requires bytecodes to run. This is the main reason why we need to compile a .java file and create *.class file that contain the bytecodes understandable by the JVM. 
+
+JVM is the key that makes Java portable. There are different implementations of the JVM for all major operating systems including Windows, Linux, MacOS, and more. JVM ensures you can run a java program on any of supported operating system without modifying the code.
+
+</p>

@@ -34,18 +34,6 @@
 		  background-color:#fdfdfd;  
 		}
     </style>
-
-
-</head>
-<body>
-    <a href="release/spin.txt" target="_blank">Variations File</a><br />
-    <input type="button" value="Spin Title" class="button" />
-    <input type="button" value="Next >>" class="next" />
-    <br />
-    <span id="results"></span>
-    <div id="title"></div>
-    <div id="share" class="div-table"></div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="javascripts/stopwords.js"></script>
 
@@ -96,6 +84,7 @@
 			return defaultValue;
 		};
 		var currentIndex = getUrlParameterOrDefault('count',0);
+		var lastItemIndex = currentIndex;
 		var formatRow = function(columnsHtml) {
 			return '<div class="div-table-row">' + columnsHtml + '</div>'
 		};
@@ -156,6 +145,7 @@
                         		urlsWithTitles.push({"url": url,"titles":titles});
                         	}
                         }
+                        lastItemIndex = urlsWithTitles.length - 1;
                         $('#share').empty();
                         $('#share').append(comment(pickRandomUtd(urlsWithTitles)));
                         $('#share').append(showTags(pickRandomUtd(urlsWithTitles)));
@@ -180,13 +170,27 @@
 				var nextUrl = formatNextUrl(curUrl,currentIndex);
                 window.location.href = nextUrl;
             });
+            $('.last').click(function(){
+            	currentIndex = lastItemIndex;
+				var curUrl = window.location.href ;
+				var nextUrl = formatNextUrl(curUrl,currentIndex);
+                window.location.href = nextUrl;
+            });
             //after button is clicked we download the data
             $('.button').click(loadData);
             
-        });
-       
-		
+        });       		
     </script>
+    </head>
+<body>
+    <a href="release/spin.txt" target="_blank">Variations File</a><br />
+    <input type="button" value="Spin Title" class="button" />
+    <input type="button" value="Next >>" class="next" />
+    <input type="button" value="Last >>|" class="last" />
+    <br />
+    <span id="results"></span>
+    <div id="title"></div>
+    <div id="share" class="div-table"></div>
     <div><h2>Other sites to share</h2>
 <ul>
 <li><a href="https://geekli.st">https://geekli.st</a></li>

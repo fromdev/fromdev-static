@@ -1,3 +1,20 @@
+<p>The transient keyword in Java is used to indicate that a field should not be serialized.
+
+<blockquote>Variables may be marked transient to indicate that they are not part of the persistent state of an object.</blockquote>
+
+<h3>When to use transient variables</h3>
+<p>Its useful in context of Java serialization. When a object contains more than one variables, all of them are serialized during serialization process.
+You can choose to exclude a specific variable in serialization by declaring it transient.
+
+You can declare a variable transient as shown below.
+
+<pre>
+transient String s;
+</pre>
+</p>
+
+</p>
+
 
 What is final method in Java? How can I use it?
 <p>A final method in java can not be overridden by its subclasses. This can be an important feature when you want to ensure the method behavior is not changed by subclasses.

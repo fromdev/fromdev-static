@@ -1,3 +1,90 @@
+
+
+
+Why Java uses Classpath parameter or environment variables?
+
+<p>In a Java class import statements are used to access other classes. You also do a wild card import like org.fromdev.* on your java file.<br>
+In such cases, It will become very impractical/slow for the Java Virtual Machine to search for classes in every file/folder on a machine, therefore you can provide the Java Virtual Machine with a list of places to look. This is done by putting folder and jar files on your classpath.<br>
+<br>
+Environment variables in general are a set of dynamic name value pair that can be used by processes to decide the behavior based on a system. These are supported by all modern operating systems. <br>
+<br>
+The CLASSPATH variable is a Java way to tell the possible locations of user classes or jar files for a Java application. Since each user/computer may choose to have classes in different location its best to have custom locations configured in Classpath variable. <br>
+<br>
+In case you have not set the classpath environment variable, the default value is used as the "." (current directory). That means, the current directory is searched. <br>
+<br>
+</p>
+
+When does Java read values of Classpath environment variable?
+
+<p>Java uses the CLASSPATH environment variable to read the classes and libraries from file system. This variable is used by all JDK Tools and Extension including Java Compiler (javac) and JRE(java) use this variable to locate the dependent user classes and jar files to perform specific tasks.  <br>
+<br>
+Java Compiler uses it to locate the dependent user classes and jar files to compile Java source files. <br>
+<br>
+Java Run-time Environment (JRE) uses the classpath variable to identify the location of files to be loaded for the run-time dependencies (e.g. classes and jar files) of java program. <br>
+</p>
+
+How to set Java Classpath on Windows, Unix, Linux and Mac?
+<p>
+<h3>Setting CLASSPATH on Windows XP</h3>
+<p>Follow below steps on Windows XP to set Java CLASSPATH
+
+<ul><li>Right-click My Computer, and then click Properties.</li>
+<li>Click the Advanced tab.</li>
+<li>Click Environment variables.</li>
+<li>Click one the following options, for either a user or a system variable</li>
+<li>Click New to add a new variable name and value.</li>
+<li>Enter Variable name as CLASSPATH</li>
+<li>enter all directories and jar files separated by semicolon. (e.g. c:\dir1;c:\dir2;c:\dir3\abc.jar)</li>
+</ul>
+</p>
+
+<h3>Setting CLASSPATH on Windows 7</h3>
+<p>
+<ul><li>Click Start</li>
+<li>Then right-click on Computer,</li>
+<li>select Properties</li>
+<li>click Select Advanced System Settings tab.</li>
+<li>click the Environment Variables button.</li>
+</ul>
+
+</p>
+
+<h3>Setting CLASSPATH on Unix, Linux and Mac</h3>
+<p>Use export command to set the CLASSPATH environment variable in your system.
+
+<blockquote>
+export CLASSPATH=/path/to/dir1:/path/to/dir2:path/to/abc.jar
+</blockquote> 
+</p>
+
+</p>
+
+
+How do I check the CLASSPATH variable is set in my machine?
+
+<h3>Checking CLASSPATH on Windows</h3>
+<p>
+To check CLASSPATH variable is set on Microsoft <b>Windows</b> , run  following command on command prompt 
+
+<blockquote>C:&gt; echo %CLASSPATH% </blockquote>
+
+
+If CLASSPATH variable is not set you will see %CLASSPATH% on windows system.
+</p>
+
+<h3>Checking CLASSPATH on Unix, Linux or Mac </h3>
+<p>
+To check CLASSPATH variable is set on Unix/Linux/Mac run  following command on shell 
+
+<blockquote>$ echo $CLASSPATH</blockquote>
+
+
+If CLASSPATH variable is not set you will see CLASSPATH: Undefined variable error on Unix/Linux/Mac systems.
+</p>
+-------
+
+
+
 <p>The transient keyword in Java is used to indicate that a field should not be serialized.
 
 <blockquote>Variables may be marked transient to indicate that they are not part of the persistent state of an object.</blockquote>
@@ -12,7 +99,6 @@ You can declare a variable transient as shown below.
 transient String s;
 </pre>
 </p>
-
 </p>
 
 

@@ -583,6 +583,96 @@
             "q": "<h3>What is a transient variable? When should we use it?</h3>",
             "a": "<p>The transient keyword in Java is used to indicate that a field should not be serialized.\n\n<blockquote>Variables may be marked transient to indicate that they are not part of the persistent state of an object.</blockquote>\n\n<h3>When to use transient variables</h3>\n<p>Its useful in context of Java serialization. When a object contains more than one variables, all of them are serialized during serialization process.\nYou can choose to exclude a specific variable in serialization by declaring it transient.\n\nYou can declare a variable transient as shown below.\n\n<pre>\ntransient String s;\n</pre>\n</p>\n</p>",
             "category": "Java Serialization - Beginner"
+        },
+        {
+            "id": "501",
+            "q": "<h3>Why Java uses Classpath parameter or environment variables?</h3>",
+            "a": "<p>In a Java class import statements are used to access other classes. You also do a wild card import like org.fromdev.* on your java file.<br>\nIn such cases, It will become very impractical/slow for the Java Virtual Machine to search for classes in every file/folder on a machine, therefore you can provide the Java Virtual Machine with a list of places to look. This is done by putting folder and jar files on your classpath.<br>\n<br>\nEnvironment variables in general are a set of dynamic name value pair that can be used by processes to decide the behavior based on a system. These are supported by all modern operating systems. <br>\n<br>\nThe CLASSPATH variable is a Java way to tell the possible locations of user classes or jar files for a Java application. Since each user/computer may choose to have classes in different location its best to have custom locations configured in Classpath variable. <br>\n<br>\nIn case you have not set the classpath environment variable, the default value is used as the \".\" (current directory). That means, the current directory is searched. <br>\n<br>\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "502",
+            "q": "<h3>When does Java read values of Classpath environment variable?</h3>",
+            "a": "<p>Java uses the CLASSPATH environment variable to read the classes and libraries from file system. This variable is used by all JDK Tools and Extension including Java Compiler (javac) and JRE(java) use this variable to locate the dependent user classes and jar files to perform specific tasks.  <br>\n<br>\nJava Compiler uses it to locate the dependent user classes and jar files to compile Java source files. <br>\n<br>\nJava Run-time Environment (JRE) uses the classpath variable to identify the location of files to be loaded for the run-time dependencies (e.g. classes and jar files) of java program. <br>\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "503",
+            "q": "<h3>How to set Java Classpath on Windows, Unix, Linux and Mac?</h3>",
+            "a": "<p>\n<h3>Setting CLASSPATH on Windows XP</h3>\n<p>Follow below steps on Windows XP to set Java CLASSPATH\n\n<ul><li>Right-click My Computer, and then click Properties.</li>\n<li>Click the Advanced tab.</li>\n<li>Click Environment variables.</li>\n<li>Click one the following options, for either a user or a system variable</li>\n<li>Click New to add a new variable name and value.</li>\n<li>Enter Variable name as CLASSPATH</li>\n<li>enter all directories and jar files separated by semicolon. (e.g. c:\\dir1;c:\\dir2;c:\\dir3\\abc.jar)</li>\n</ul>\n</p>\n\n<h3>Setting CLASSPATH on Windows 7</h3>\n<p>\n<ul><li>Click Start</li>\n<li>Then right-click on Computer,</li>\n<li>select Properties</li>\n<li>click Select Advanced System Settings tab.</li>\n<li>click the Environment Variables button.</li>\n</ul>\n\n</p>\n\n<h3>Setting CLASSPATH on Unix, Linux and Mac</h3>\n<p>Use export command to set the CLASSPATH environment variable in your system.\n\n<blockquote>\nexport CLASSPATH=/path/to/dir1:/path/to/dir2:path/to/abc.jar\n</blockquote> \n</p>\n\n</p>\n",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "504",
+            "q": "<h3>How do I check the CLASSPATH variable is set in my machine?</h3>",
+            "a": "<h3>Checking CLASSPATH on Windows</h3>\n<p>\nTo check CLASSPATH variable is set on Microsoft <b>Windows</b> , run  following command on command prompt \n\n<blockquote>C:&gt; echo %CLASSPATH% </blockquote>\n\n\nIf CLASSPATH variable is not set you will see %CLASSPATH% on windows system.\n</p>\n\n<h3>Checking CLASSPATH on Unix, Linux or Mac </h3>\n<p>\nTo check CLASSPATH variable is set on Unix/Linux/Mac run  following command on shell \n\n<blockquote>$ echo $CLASSPATH</blockquote>\n\n\nIf CLASSPATH variable is not set you will see CLASSPATH: Undefined variable error on Unix/Linux/Mac systems.\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "505",
+            "q": "<h3>How to set Multiple Jar Files in Java Classpath</h3>",
+            "a": "<p>\nJava versions Older then Java 6 does not support wildcard characters.  Setting Multiple jars using wildcard in Java classpath are allowed in Java 6 and later versions. \n\nFor example, to specify all jar files in a directory \"lib\" the classpath entry should look like this \n\nlib/*\n\nThe wildcard entry (*) in classpath  value will match only jar files NOT class files. To match both class files and JAR files in a same directory lib, you need to specify both values as shown below\n\n<h3>\nSetting Multiple Jars in Classpath on Windows</h3>\nWindows environment variable values are separated by semicolon, therefore you classpath entry would look like this\n\nlib/*;lib \n\n<h3>\nSetting Multiple Jars in Classpath on Unix, Linux or Mac</h3>\nUnix environment variable values are separated by colon, therefore you classpath entry would look like this\n\nlib/*:lib\n\n<h3>\nOlder version of Java</h3>\nIn older version of Java(older than Java 6), each jar file needs to be specified in the classpath. It can be a tedious and erroneous task if you are using many third party libraries. \n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "506",
+            "q": "<h3>What is the difference between NoClassDefFoundError and ClassNotFoundException? When NoClassDefFoundError and ClassNotFoundException are thrown?</h3>",
+            "a": "<p>\n\n\nNoClassDefFoundError and ClassNotFoundException are very closely related and often confused with each other by many developers. Below is the description of each from the Java API Specifications\n\n<h3>\nClassNotFoundException</h3>\n\n<blockquote>\nThrown when an application tries to load in a class through its string name using:\n<ul>\n<li>The forName method in class Class.</li>\n<li>The findSystemClass method in class ClassLoader.</li>\n<li>The loadClass method in class ClassLoader.</li>\n</ul>\nbut the definition of the class with the specified name could not be found due to following reasons\n<ul>\n<li>The specified name class does not exist.</li>\n<li>The specified name class is not in the classpath</li>\n<li>The specified name class is not visible to the classloader.</li>\n</ul>\n</blockquote>\n\n<h3>\nNoClassDefFoundError</h3>\n<blockquote>\nThrown if the Java Virtual Machine or a ClassLoader instance tries to load in the definition of a class (as part of a normal method call or as part of creating a new instance using the new expression) and no definition of the class could be found.\n\nThe searched-for class definition existed when the currently executing class was compiled, but the definition can no longer be found.\n</blockquote>\n\n<h3>\nKey Differences </h3>\n<ul>\n<li>The NoClassDefFoundError is thrown when the source was successfully compiled, but during runtime, the required class files were not found. This may be a case when some dependency jar files were not included or not in classpath.\n\nA ClassNotFoundException is thrown when the reported class is not found by the ClassLoader or not visible to the Classloader. \n\n</li>\n<li>Another important distinction between these two is, NoClassDefFoundError is a sub class of java.lang.Error and the ClassNotFoundException is a subclass of java.lang.Exception.\n\n</li>\n<li>NoClassDefFoundError is a critical error for JVM since its having problems finding a class it expected to find. \n\nOn the other hand, the ClassNotFoundException is an Exception. Use of reflection api can be error-prone and  there is no compile-time check to validate reflection call is loading right classes, so there can be situations when some classes may not be found.\n\n</li>\n</ul>\n<h3>\nSome scenario when ClassNotFoundException  may occur</h3>\n\n<b>Scenario 1 (Use of reflection)</b> - You will see ClassNotFoundException  when you are using reflection to load classes at runtime, and the class you are trying to load does not exist or not in classpath.\n\n<b>Scenario 2 (Multiple Classloaders being used)</b> - You will see ClassNotFoundException when a class is being loaded from another class which was already loaded in a parent classloader and the class from the child classloader is not visible.\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "507",
+            "q": "<h3>How can we include Jar within a Jar in java classpath?</h3>",
+            "a": "<p>\nThere is no easy way to do this in current java versions. There are 2 alternatives to deal with this problem using third party libraries\n\n<h3>\nUse Jar class loader library</h3>\nThe <a href=\" http://www.jdotsoft.com/JarClassLoader.php\">JarClassLoader library</a> provides you the feature of loading resources from a top JAR and from JARs inside the top JAR.\n\n<h3>\nExplode and combine into one jar </h3>\nInstead of trying to bundle jar file inside jar you can explode all required jars and re-bundle them as one jar using following two libraries \n<ul>\n<li>The first is <a href=\"http://one-jar.sourceforge.net/\">One-Jar</a>, which uses a special classloader to allow the nesting of jars. </li>\n<li>The second is <a href=\"http://classworlds.codehaus.org/uberjar.html\">UberJar</a>, (or <a href=\"http://maven.apache.org/plugins/maven-shade-plugin/\">Maven Shade Plugin</a>), which explodes the included libraries and puts all the classes in the top-level jar.</li>\n</ul>\n\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "508",
+            "q": "<h3>How to read a file from CLASSPATH in java?</h3>",
+            "a": "<p>\nThis can be done in two simple ways \n\n<h3>\nUsing ClassLoader.getResourceAsStream</h3>\n\nThis method can be used to load any file from CLASSPATH \n\n<pre name=\"code\" class=\"Java\">InputStream in =this.getClass().getClassLoader().getResourceAsStream(\"MyFile.txt\");\n</pre>\n\n<h3>\nUsing Class.getResourceAsStream</h3>\n\nThis method can be used to load files using relative path to the package of the class \n\n<pre name=\"code\" class=\"Java\">InputStream in =this.getClass().getResourceAsStream(\"SomeTextFile.txt\");\n</pre>\n\nThis method can also be used to load any files from CLASSPATH by prefixing a \"/\" \n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "509",
+            "q": "<h3>How to find which jar file is being used by Java run-time?</h3>",
+            "a": "<p>\n<h3>\nOn Windows </h3>\n\nYou need use below windows program <a href=\"http://technet.microsoft.com/en-us/sysinternals/bb896653.aspx\">Process Explorer</a> that lets you see which files are open for a particular process or program\n\n\n<h3>\nOn Unix, Linux or Mac </h3>\n\nIt can be done using lsof command. lsof is one of my favorite and <a href=\"http://www.fromdev.com/2008/12/debugging-java-on-unixlinux-my-favorite.html\">useful java debugging commands on Unix</a>. Below is the syntax for using this command - \n<pre name=\"code\" class=\"Bash\">lsof -p [pid]\n</pre>\n\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "510",
+            "q": "<h3>How to find the load location of a Java class file at run-time?</h3>",
+            "a": "<p>\nThere are two ways to find it\n<h3>\nUsing Classloader</h3>\nBelow code snippet can be used to find the location of java class com.fromdev.MyClass\nthis.getClass().getClassLoader().getResource(\"com/fromdev/MyClass.class\")\n<h3>\nUsing Protection Domain</h3>\nWe can use this to find the exact location a jar file containing the class JVM is using\n\nclazz.getProtectionDomain().getCodeSource().getLocation()\n\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "511",
+            "q": "<h3>How Java handles Two classes with same name in classpath?</h3>",
+            "a": "<p>\n\nIf I have two classes with same name say MyClass.java in two different jar in my classpath which one will be picked up by JVM , is there anyway I can suggest JVM to pick a specific one ? \n\nJava interpreter loads classes based on the order they are specified in the CLASSPATH variable. \n\nFor example, lets say this is your classpath variable value \n\n<blockquote>\nC:\\Project\\Dir1;C:\\Project\\Dir2</blockquote>\n\nThe Java interpreter will first look for MyClass class in the directory C:\\Project\\Dir1. Only if it doesn't find it in that directory it will look in the C:\\Project\\Dir2 directory.\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "512",
+            "q": "<h3>How to Add A Jar File To Java Load Path At Run Time</h3>",
+            "a": "<p>\nThis can done by use of URLClassloader. A sample implementation of this code is shown below\n\n<pre name=\"code\" class=\"Java\">import java.net.URL;\nimport java.net.URLClassLoader;\n\npublic class SimpleJarLoader {\n\n public static void main(String args[]) {\n  if (args.length < 2) {\n   System.out.println(\"Usage: [Class name] [Jar Path]\");\n   return;\n  }\n  try {\n   System.out.println(\"Trying to load the class...\");\n   Class.forName(args[0]);\n  } catch (Exception ex) {\n   System.out.println(\"Not able to load class...\" + args[0]);\n  }\n\n  try {\n   String url = \"jar:file:/\" + args[1] + \"!/\";\n   URL urls[] = { new URL(url) };\n   URLClassLoader cl = new URLClassLoader(urls,\n     SimpleJarLoader.class.getClassLoader());\n   System.out.println(\"Looking into jar... \" + url);\n   cl.loadClass(args[0]);\n   System.out.println(\"Woohoo....I found it\");\n  } catch (Exception ex) {\n   System.out.println(\"Oops...Still cant find the jar\");\n   ex.printStackTrace();\n  }\n }\n}\n</pre>\nYou can run this code by below command. (Make sure to use forward slash \"/\" as directory separator.)\n\n<blockquote>\njava SimpleJarLoader org.springframework.core.SpringVersion C:/spring.jar</blockquote>\nThe output is like this\n\n<pre name=\"code\" class=\"Bash\">Trying to load the class...\nNot able to load class...org.springframework.core.SpringVersion\nLooking into jar... jar:file:/C:/spring.jar!/\nWoohoo....I found it\n</pre>\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "513",
+            "q": "<h3>Why calling System.setProperty() does not affect the classpath at run-time?</h3>",
+            "a": "<p>\nYou can easily set any system properties in java using System.setPropoerty method, However it may not have  any effect in case of CLASSPATH property. This is mainly because the Java system class loader is initialized very early in the JVM startup sequence. The class loader copies the classpath into its own data structures, and the classpath property is not read again. Therefore changing it after its already copied does not affect anything.\n\nThere are mainly two reasons for this - First most important reason is security. You do not want a malicious code change the classpath at runtime and load some unwanted classes.\n\nSecond reason is performance, since reading the classpath every-time its needed may not be efficient.\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "514",
+            "q": "<h3>How to Add A Jar File To Java System Classpath  At Run-time?</h3>",
+            "a": "<p>\nThis can be done by using a simple reflection API hack as demonstrated in below sample code. This example assumes you have a file \"c:/Sample.txt\" that is not already in class path and at run-time c:/ is added the System classpath and then Sample.txt is made available.\n\n<pre name=\"code\" class=\"Java\">import java.io.File;\nimport java.io.InputStream;\nimport java.lang.reflect.Method;\nimport java.net.URL;\nimport java.net.URLClassLoader;\n\npublic class HackJavaClasspath {\n\n public static void addURL(URL url) throws Exception {\n  URLClassLoader cl = (URLClassLoader) ClassLoader\n    .getSystemClassLoader();\n  Class clazz = URLClassLoader.class;\n\n  Method method = clazz.getDeclaredMethod(\"addURL\",\n    new Class[] { URL.class });\n  method.setAccessible(true);\n  method.invoke(cl, new Object[] { url });\n }\n\n public static void main(String[] args) throws Exception {\n  //Add c: to the classpath\n  addURL(new File(\"c:/\").toURI().toURL());\n  //Now load the file from new location\n  InputStream in = Thread.currentThread().getContextClassLoader()\n    .getResourceAsStream(\"Sample.txt\");\n  System.out.println(in.available());\n\n }\n}\n</pre>\nRunning this java class prints the number of bytes available. This indicates the file is available for further processing.\n\n</p>",
+            "category": "Java Classpath - Beginner"
+        },
+        {
+            "id": "515",
+            "q": "<h3>How to get a list of resources from a directory in Java classpath?</h3>",
+            "a": "<p>\nYou can use <a href=\"http://code.google.com/p/reflections/\">Reflections library</a> for doing this. \n\nReflections is a open source Java library. It scans Java classpath and  indexes it with metadata. This library allows  you to query the classpath at runtime and can be very handy for many run-time reflection code needs.\n</p>",
+            "category": "Java Classpath - Beginner"
         }
     ]
 }

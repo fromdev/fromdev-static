@@ -1,1 +1,11 @@
 http://www.lifehappens.org/feed/
+http://www.propertycasualty360.com/?f=rss
+http://www.insurancejournal.com/rss/news/
+http://www.iii.org/insuranceindustryblog/?feed=rss2
+http://feeds.feedburner.com/WorkersCompKitBlog
+http://www.joepaduda.com/feed/
+http://www.insureinfoblog.com/feed/
+http://specialtyinsurance.typepad.com/specialty_insurance_blog/atom.xml
+http://feeds.feedburner.com/DeclarationsAndExclusions
+http://insurancewriter.com/blog/
+http://feeds.feedburner.com/TidyInsurance

@@ -53,11 +53,21 @@
         log('createTag called');
         return options.openTag + options.selectedText + options.closeTag;
     };
-    
-    var createAuthorBio = function(text) {
-    	return createTag({
-    		openTag: '<div class="related-index">',
-    		selectedText: text,
-        	closeTag: '</div>'
-    	});
-    };
+    var isNoFollow = function(link) {
+		return link.indexOf('twitter') !== -1;
+	};
+	var formatAuthorBio = function(e) {
+		var spanTxt = "";
+		e.children().each(function(){
+			var  $this = $(this);
+			if($this.is("span")) {
+				spanTxt += $this.text();
+			}
+			if($this.is("a")){
+				var url = $this.attr('href');
+				var linkText = $this.text().trim();
+				spanTxt += createNoFollowLink({'selectedText':linkText,'hashText':createHashText(linkText),'url':url, 'nofollow':isNoFollow(url)});
+			}
+		});
+		return '<div class="related-index">' + spanTxt + '</div>';	
+	};

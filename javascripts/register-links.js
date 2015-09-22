@@ -5,6 +5,6 @@ addToLinks([
 'LinkListItem.html',
 'summary.html',
 'wrap.html',
-'json-escape.html',
+'JsonEscape.html',
 'AuthorBio.html'
 ]);

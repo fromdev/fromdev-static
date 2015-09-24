@@ -9,3 +9,6 @@ http://vanillajava.blogspot.com/feeds/posts/default
 http://feeds.feedburner.com/JavaCodeGeeks
 http://feeds.dzone.com/java
 http://spring.io/blog/category/engineering.atom
+http://beginnersbook.com/feed/
+http://feeds.feedburner.com/JavaByNatarajSir
+http://feeds.feedburner.com/Java67

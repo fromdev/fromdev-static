@@ -1,0 +1,7 @@
+http://feeds.feedburner.com/Javarevisited
+http://javapapers.com/feed/
+http://www.programcreek.com/feed/
+http://www.mkyong.com/feed/
+https://javax0.wordpress.com/feed/
+http://howtodoinjava.com/feed/
+http://www.fromdev.com/feeds/posts/default/-/Java

@@ -5,3 +5,7 @@ http://www.mkyong.com/feed/
 https://javax0.wordpress.com/feed/
 http://howtodoinjava.com/feed/
 http://www.fromdev.com/feeds/posts/default/-/Java
+http://vanillajava.blogspot.com/feeds/posts/default
+http://feeds.feedburner.com/JavaCodeGeeks
+http://feeds.dzone.com/java
+http://spring.io/blog/category/engineering.atom

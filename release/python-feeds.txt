@@ -1,0 +1,7 @@
+http://practicepython.blogspot.com/feeds/posts/default
+http://feeds.feedburner.com/LifeIsShort-YouNeedPython
+http://feeds.feedburner.com/PythonSoftwareFoundationNews
+http://wescpy.blogspot.com/feeds/posts/default
+http://www.pydanny.com/feeds/all.atom.xml
+https://realpython.com/atom.xml
+http://www.fromdev.com/feeds/posts/default/-/Python

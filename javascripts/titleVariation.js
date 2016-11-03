@@ -31,7 +31,7 @@ var showArray = function(arr) {
   //arr = shuffle(arr);
   var $resultText = $("#result");
 
-  $resultText.val('var templates = [\n');
+  $resultText.val('var titles = [\n');
   var separator = "";
   for (var title in arr) {
     $resultText.val($resultText.val() + separator);

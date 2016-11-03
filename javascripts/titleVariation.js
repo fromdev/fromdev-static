@@ -74,6 +74,10 @@ $(document).ready(function() {
     log('len = ' + targets.length);
     var titleArray = generateTitlesRandom(targets, topics);
     showArray(titleArray);
+    var $singleTitle = $("#singleTitle");
+    if($singleTitle) {
+      .val(titleArray[getRandomInt(0, titleArray.length - 1)]);
+    }
   });
   $("#result").selectOnFocus();
 });

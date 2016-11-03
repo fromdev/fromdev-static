@@ -257,7 +257,7 @@ textarea {
 	padding: 5px;
 	border: 3px solid #dfdfdf;
 }
-#topic, #target {
+#topic, #target, #singleTitle {
     width: 50%;
     height: 50px;
 }

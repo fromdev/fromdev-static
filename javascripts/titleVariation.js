@@ -31,7 +31,7 @@ var showArray = function(arr) {
   //arr = shuffle(arr);
   var $resultText = $("#result");
 
-  $resultText.val('');
+  $resultText.val('var templates = [\n');
   var separator = "";
   for (var title in arr) {
     $resultText.val($resultText.val() + separator);
@@ -40,8 +40,7 @@ var showArray = function(arr) {
     $resultText.val($resultText.val() + '"');
     separator = ",\n";
   }
-  log('arrval = ' + arr);
-
+ $resultText.val($resultText.val() + '\n];');
 };
 
 

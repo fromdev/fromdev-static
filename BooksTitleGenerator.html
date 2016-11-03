@@ -35,8 +35,10 @@
       </header>
       <section>
        <h1>Books Title Generator</h1>
-        <textarea name="title" placeholder="Book Title"></textarea>
-         <textarea name="target" placeholder="Book Target"></textarea>
+        <textarea id="topic" placeholder="Enter topics separated by new line">Java</textarea>
+        <textarea id="target" placeholder="Enter targets separated by new line">Beginner</textarea>
+        <textarea id="result"></textarea>
+        <button id="submit" name="submit">Suggest Titles</button>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/fromdev">fromdev</a></p>
@@ -44,6 +46,29 @@
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="javascripts/jquery.selectOnFocus.js"></script>
+    <script>
+      
+var templates = [
+  "Best TOPIC Books for TARGET",
+  "Best TOPIC Book for TARGET",
+  "Top TOPIC Book for TARGET",
+  "Top TOPIC Book for TARGET",
+  "Recommended TOPIC Books for TARGET",
+  "Recommended TOPIC Book for TARGET",
+  "Best Books To Learn TOPIC for TARGET",
+  "Good TOPIC Books for TARGET",
+  "Good TOPIC Book for TARGET",
+  "Learn TOPIC Books for TARGET",
+  "Learn TOPIC Book for TARGET",
+  "TOPIC Books for TARGET",
+  "TOPIC Book for TARGET",
+  "Best TARGET TOPIC Book",
+  "TOPIC for TARGET Book",
+  "TARGET TOPIC Books"
+];
+    </script>
+    <script async src="javascripts/titleVariation.js?v=1"></script>
   </body>
 </html>

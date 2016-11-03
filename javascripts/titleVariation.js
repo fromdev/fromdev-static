@@ -76,7 +76,7 @@ $(document).ready(function() {
     showArray(titleArray);
     var $singleTitle = $("#singleTitle");
     if($singleTitle) {
-      .val(titleArray[getRandomInt(0, titleArray.length - 1)]);
+      $singleTitle.val(titleArray[getRandomInt(0, titleArray.length - 1)]);
     }
   });
   $("#result").selectOnFocus();

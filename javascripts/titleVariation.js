@@ -65,6 +65,8 @@ var generateTitlesRandom = function(targets, topics) {
   return titleArray;
 };
 
+var $singleTitle = $("#singleTitle");
+
 $(document).ready(function() {
   $("#submit").click(function() {
     var targets = ["iPhone", "iOS", "iPad"];
@@ -74,10 +76,13 @@ $(document).ready(function() {
     log('len = ' + targets.length);
     var titleArray = generateTitlesRandom(targets, topics);
     showArray(titleArray);
-    var $singleTitle = $("#singleTitle");
+    
     if($singleTitle) {
       $singleTitle.val(titleArray[getRandomInt(0, titleArray.length - 1)]);
     }
   });
   $("#result").selectOnFocus();
+  if($singleTitle) {
+    $singleTitle.selectOnFocus();
+  }
 });

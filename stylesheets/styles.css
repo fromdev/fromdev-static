@@ -253,3 +253,11 @@ footer {
     color:#444;
   }
 }
+#topic, #target {
+    width: 50%;
+    height: 50px;
+}
+#result {
+    width: 100%;
+    height: 100px;
+}

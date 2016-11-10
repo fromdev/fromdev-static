@@ -1,7 +1,7 @@
-----
- -title: Jekyll Markdown Test Page
- -layout: default
- ----
+---
+title: This is my title
+layout: post
+--- 
 <!doctype html>
 <html>
   <head>

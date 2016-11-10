@@ -1,14 +1,3 @@
----
-title: Jekyll Markdown Test Page
-layout: default
----
-
-# Jekyll Markdown Test Page
-
-{{page.title}}
-
-{% include header.html %}
-
 <!doctype html>
 <html>
   <head>

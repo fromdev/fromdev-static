@@ -1,4 +1,7 @@
-<!doctype html>
+---
+title: This is my title
+layout: post
+--- 
 <html>
   <head>
     <meta charset="utf-8">
@@ -14,24 +17,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <header>
-        <h1>Fromdev Static Tools</h1>
-        <p>The web based static tools for daily use</p>
-
-        <p class="view"><a href="https://github.com/fromdev/fromdev-static">View the Project on GitHub <small>fromdev/fromdev-static</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/fromdev/fromdev-static/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/fromdev/fromdev-static/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/fromdev/fromdev-static">View On <strong>GitHub</strong></a></li>
-        </ul>
-         <ul>
-          <li><a href="http://fromdev.github.io/fromdev-static/">Visit<strong>HOME</strong></a></li>
-          <li><a href="http://fromdev.github.io/fromdev-static/wrap.html">HTML <strong>WRAP</strong></a></li>
-          <li><a href="http://fromdev.github.io/fromdev-static/meta.html">Stats <strong>META</strong></a></li>
-        </ul>
-      </header>
+      {% include header.html %}
       <section>
        <h1>Sites That Have Analyzed fromdev.com In Different Dimensions</h1>
 <p>List of amazing websites on web that have auto analyzed fromdev.com domain. The results may not be as astonishing though. Most of them have done a decent job of extracting data about domain and common stats that may relate to google and other search traffic.</p>

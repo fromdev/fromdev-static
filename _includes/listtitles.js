@@ -1,0 +1,22 @@
+var templates = [
+"List of Best TOPIC for TARGET",
+"Useful Resources for TOPIC for TARGET",
+"Top Resources for TOPIC for TARGET",
+"Use these TOPIC to be successful TARGET",
+"Recommended TOPIC for TARGET",
+"List of Recommended TOPIC for TARGET",
+"Top TOPIC for TARGET",
+"Good TOPIC for TARGET",
+"Useful TOPIC for TARGET",
+"TOPIC to help TARGET",
+"Big List of TOPIC for TARGET",
+"I found these TOPIC for TARGET",
+"Awesome TOPIC for TARGET",
+"Best TARGET TOPIC ",
+"TOPIC for TARGET",
+"TARGET TOPIC Favorites",
+"Best TARGET TOPIC ",
+"TOPIC for TARGET",
+"TARGET TOPIC Favorites",
+"List of Best TOPIC for TARGET"
+]

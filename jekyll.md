@@ -5,4 +5,4 @@ layout: default
 
 # Jekyll Markdown Test Page
 
-{% include index.html %}
+{{name}}

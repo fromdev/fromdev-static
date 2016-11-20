@@ -64,10 +64,7 @@ layout: post
 <li><b>Some more general information about fromdev.com domain including location and maps</b><a rel="nofollow" target="_blank" title="Pageadviser" name="Pageadviser" href="http://pageadviser.com/www.fromdev.com.html" >Pageadviser</a>  </li>
         </ol>
       </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/fromdev">fromdev</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+         {% include footer.html %}
     </div>
     <script src="javascripts/scale.fix.js"></script>
     

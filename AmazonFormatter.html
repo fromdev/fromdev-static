@@ -80,9 +80,10 @@ $(document).ready(function(){
 	        success:jsonCallback
 	    });
 	};
-
+	var rawImageURL;
 	var jsonCallback = function (data) {
 	    console.log('success: ' + data.url);
+	    rawImageURL = data.url;
 	    var imageLink = wrapItem({
             elementSelector: '#title',
             linkSelector: '#asin',
@@ -111,7 +112,7 @@ $(document).ready(function(){
         	var html = imageLink + authorText + review;
         	$('#showtext').val( html);
         	$('#preview').html(html);
-		$('#imageURL').val(imageLink);
+		$('#imageURL').val(rawImageURL);
         }
 	};
  	

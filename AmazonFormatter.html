@@ -38,6 +38,7 @@ layout: post
         </div>
         <div class="right">
         <textarea id="showtext"></textarea>
+	<input type="text" id="imageURL">
         </div >
         </div>
         <div id="preview" style="margin:5px;">Preview Area</div>
@@ -110,6 +111,7 @@ $(document).ready(function(){
         	var html = imageLink + authorText + review;
         	$('#showtext').val( html);
         	$('#preview').html(html);
+		$('#imageURL').val(imageLink);
         }
 	};
  	

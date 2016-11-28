@@ -6,7 +6,7 @@ layout: post
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Format HTML For An Amazon Product By ASIN</title>
+    <title>Create Amazon CDN Image URL from ASIN</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css?v=1">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
@@ -19,19 +19,19 @@ layout: post
     <div class="wrapper">
        {% include header.html %}
       <section>
-       <h1>Format HTML For An Amazon Product By ASIN</h1>
+       <h1>Create Amazon CDN Image URL from ASIN</h1>
         <form id="form">
         <div class="container">
         <ul class='index'></ul>
         <p> <h2>Book Review</h2></p>
         <p> Use this page to format amazon book review related articles only.</p>
         <div class="left">
-        <input type="text" id="asin" value="" placeholder="Enter Amazon ASIN Number" required>
+        <input type="text" id="asin" value="" placeholder="Enter Amazon ASIN Number" required="required" autofocus>
         <input type="text" id="amazon-tag" value="top-books-cs-20" style="display:none;" required>
         </div>
         <div class="center">
         <div id="log"></div>
-        <button type="submit" id="wrap">Create HTML</button>
+        <button type="submit" id="wrap">Create Image URL</button>
         </div>
         <div class="right">
 	<input type="text" id="imageURL">

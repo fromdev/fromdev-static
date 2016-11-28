@@ -80,6 +80,7 @@ $(document).ready(function(){
 	    console.log('success: ' + data.url);
  	if(data.url) {
         	$('#imageURL').val(data.url);
+		$('#preview').html('<img src="' + data.url + '"/>')
         }
 	};
  	

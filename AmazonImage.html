@@ -78,7 +78,7 @@ $(document).ready(function(){
 	};
 	var jsonCallback = function (data) {
 	    console.log('success: ' + data.url);
- 	if(imageLink) {
+ 	if(data.url) {
         	$('#imageURL').val(data.url);
         }
 	};

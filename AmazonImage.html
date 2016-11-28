@@ -1,0 +1,131 @@
+---
+title: This is my title
+layout: post
+---
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Format HTML For An Amazon Product By ASIN</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css?v=1">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+       {% include header.html %}
+      <section>
+       <h1>Format HTML For An Amazon Product By ASIN</h1>
+        <form id="form">
+        <div class="container">
+        <ul class='index'></ul>
+        <p> <h2>Book Review</h2></p>
+        <p> Use this page to format amazon book review related articles only.</p>
+        <div class="left">
+        <input type="text" id="title" value="" placeholder="Enter Book Title" required>
+        <input type="text" id="author" value="" placeholder="Enter Book Author Name(s)" required>
+        <input type="text" id="asin" value="" placeholder="Enter Amazon ASIN Number" required>
+        <input type="text" id="amazon-tag" value="top-books-cs-20" style="display:none;" required>
+        <textarea id="fulltext" value="" placeholder="Enter the Review Content Here" required></textarea>
+        </div>
+        <div class="center">
+        <div id="log"></div>
+        <button type="submit" id="wrap">Create HTML</button>
+        </div>
+        <div class="right">
+        <textarea id="showtext"></textarea>
+	<input type="text" id="imageURL">
+        </div >
+        </div>
+        <div id="preview" style="margin:5px;">Preview Area</div>
+        </form>
+      </section>
+          {% include footer.html %}
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js" type="text/javascript"></script>
+    <script src="javascripts/jquery.selectOnFocus.js"></script>
+    <script src="javascripts/wrap.js" type="text/javascript"></script> 
+    <script type="text/javascript">//&lt;![CDATA[ 
+$(document).ready(function(){   
+
+
+
+  	$('#form').submit(function(){
+  		var $this = $(this);
+		$this.validate(); 		
+		return false;
+  	});
+
+    var getRemote = function () {
+	   // var baseUrl = 'http://localhost:8888/redirectedurl?';
+		var baseUrl = 'http://redirectedurl.appspot.com/redirectedurl?';
+		var asin = $('#asin').val().trim().replace(/[_\s]/g, '');
+		console.log('asin ' + asin);
+		var imageUrl = 'http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=' + asin + '&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1';
+	    console.log(imageUrl);
+	    $.ajax({
+	        type: "GET",
+	        dataType: "jsonp",
+	        jsonpCallback: 'jsonCallback',
+	        url: baseUrl + 'url=' + encodeURIComponent(imageUrl),
+	        contentType: "application/json; charset=utf-8",
+	        async: false,
+	        error:jsonCallback,
+	        success:jsonCallback
+	    });
+	};
+	var rawImageURL;
+	var jsonCallback = function (data) {
+	    console.log('success: ' + data.url);
+	    rawImageURL = data.url;
+	    var imageLink = wrapItem({
+            elementSelector: '#title',
+            linkSelector: '#asin',
+            tagSelector:'#amazon-tag',
+            creator: createAmazonImageTag,
+            useAllText: true,
+            finalImageUrl: data.url
+        });
+ 
+ 		var authorText = wrapItem({
+            elementSelector: '#author',
+            creator: createTag,
+            openTag: '<p><strong>(By: ',
+            closeTag: ' )</strong></p>',
+            useAllText: true
+        });
+               
+        var review = wrapItem({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<p>',
+            closeTag: '</p>',
+            useAllText: true
+        });
+        if(imageLink && authorText && review) {
+        	var html = imageLink + authorText + review;
+        	$('#showtext').val( html);
+        	$('#preview').html(html);
+		$('#imageURL').val(rawImageURL);
+        }
+	};
+ 	
+    $('#wrap').click(function () {
+    
+		getRemote();
+
+    });
+    
+    $("#showtext").selectOnFocus();
+
+});//]]&gt;  
+
+</script>
+  </body>
+</html>

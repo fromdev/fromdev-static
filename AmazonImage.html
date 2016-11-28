@@ -26,18 +26,14 @@ layout: post
         <p> <h2>Book Review</h2></p>
         <p> Use this page to format amazon book review related articles only.</p>
         <div class="left">
-        <input type="text" id="title" value="" placeholder="Enter Book Title" required>
-        <input type="text" id="author" value="" placeholder="Enter Book Author Name(s)" required>
         <input type="text" id="asin" value="" placeholder="Enter Amazon ASIN Number" required>
         <input type="text" id="amazon-tag" value="top-books-cs-20" style="display:none;" required>
-        <textarea id="fulltext" value="" placeholder="Enter the Review Content Here" required></textarea>
         </div>
         <div class="center">
         <div id="log"></div>
         <button type="submit" id="wrap">Create HTML</button>
         </div>
         <div class="right">
-        <textarea id="showtext"></textarea>
 	<input type="text" id="imageURL">
         </div >
         </div>
@@ -80,39 +76,10 @@ $(document).ready(function(){
 	        success:jsonCallback
 	    });
 	};
-	var rawImageURL;
 	var jsonCallback = function (data) {
 	    console.log('success: ' + data.url);
-	    rawImageURL = data.url;
-	    var imageLink = wrapItem({
-            elementSelector: '#title',
-            linkSelector: '#asin',
-            tagSelector:'#amazon-tag',
-            creator: createAmazonImageTag,
-            useAllText: true,
-            finalImageUrl: data.url
-        });
- 
- 		var authorText = wrapItem({
-            elementSelector: '#author',
-            creator: createTag,
-            openTag: '<p><strong>(By: ',
-            closeTag: ' )</strong></p>',
-            useAllText: true
-        });
-               
-        var review = wrapItem({
-            elementSelector: '#fulltext',
-            creator: createTag,
-            openTag: '<p>',
-            closeTag: '</p>',
-            useAllText: true
-        });
-        if(imageLink && authorText && review) {
-        	var html = imageLink + authorText + review;
-        	$('#showtext').val( html);
-        	$('#preview').html(html);
-		$('#imageURL').val(rawImageURL);
+ 	if(imageLink) {
+        	$('#imageURL').val(data.url);
         }
 	};
  	
@@ -120,9 +87,8 @@ $(document).ready(function(){
     
 		getRemote();
 
-    });
-    
-    $("#showtext").selectOnFocus();
+    });    
+    $('#imageURL').selectOnFocus;
 
 });//]]&gt;  
 

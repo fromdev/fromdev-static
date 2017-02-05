@@ -1,0 +1,38 @@
+---
+title: This is my title
+layout: post
+--- 
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twitter Add To List Reply Recommendation Generator</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css?v=1">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+       {% include header.html %}
+      <section>
+       <h1>Apps Title Generator</h1>
+        <textarea id="topic" placeholder="Enter HASHTAGS">#Tutorial</textarea>
+        <textarea id="target" placeholder="Enter target user">@FromDev</textarea>
+        <textarea id="targetUrls" placeholder="Enter targetUrls separated by new line">http://bit.ly/Javatuts</textarea>
+        <textarea id="result"></textarea>
+        <textarea id="singleTitle"></textarea>
+        <button id="submit" name="submit">Suggest Titles</button>
+      </section>
+          {% include footer.html %}
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="javascripts/jquery.selectOnFocus.js"></script>
+    <script async src="javascripts/add-to-list-reply-templates.js"></script>
+    <script async src="javascripts/variation.js"></script>
+  </body>
+</html>

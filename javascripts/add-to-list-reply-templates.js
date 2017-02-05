@@ -3,7 +3,8 @@ var templates = [
 "Awesome Tutorial - I recommend it to be listed on HASHTAGS list TARGETURL TARGETUSER",
 "TARGETUSER #Recommendation for a new useful page from @ on HASHTAGS list TARGETURL",
 "Hey TARGETUSER look at this link - good page to be added to your HASHTAGS list on TARGETURL",
-"Good Tutorial TARGETUSER can include it in HASHTAGS list at TARGETURL"
+"Good Tutorial TARGETUSER can include it in HASHTAGS list at TARGETURL",
+"TARGETUSER I guess this page will be a good value addition in HASHTAGS list at TARGETURL"
 
 
 ];

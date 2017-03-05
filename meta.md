@@ -62,6 +62,30 @@ layout: post
 <li><b>More Statistics about fromdev.com domain </b><a rel="nofollow" target="_blank" title="Hypestat" name="Hypestat" href="http://fromdev.com.hypestat.com/" >Hypestat</a> </li>
 <li><b>General information about fromdev.com domain </b><a rel="nofollow" target="_blank" title="Informer" name="Informer" href="http://website.informer.com/fromdev.com" >Informer</a> </li>
 <li><b>Some more general information about fromdev.com domain including location and maps</b><a rel="nofollow" target="_blank" title="Pageadviser" name="Pageadviser" href="http://pageadviser.com/www.fromdev.com.html" >Pageadviser</a>  </li>
+<li><b></b><a href="http://www.builtwith.com/tools.fromdev.com" rel="nofollow">Fromdev Tools Stats on BuiltWith.com </a></li>
+<li><b></b><a href=""http://validator.w3.org/check?uri=tools.fromdev.com"" rel=""nofollow"">Markup Validation of http://tools.fromdev.com/ - W3C Markup 
+Validator</a></li>
+<li><b></b><a href="http://whois.tools4noobs.com/info/tools.fromdev.com" rel="nofollow">Fromdev Tools Profile on tools4noobs</a></li>
+<li><b></b><a href="http://www.alexa.com/siteinfo/tools.fromdev.com" rel="nofollow">Fromdev tools on Alexa Site Info</a></li>
+<li><b></b><a href="http://www.alexa.com/data/details/?url=tools.fromdev.com" rel="nofollow">Fromdev Tools on Alexa Data info</a></li>
+<li><b></b><a href="http://www.robtex.com/dns/tools.fromdev.com.html" rel="nofollow">tools.fromdev.com</a></li>
+<li><b></b><a href="http://www.talkreviews.ro/tools.fromdev.com" rel="nofollow">Tools - Website Review of Tools.fromdev.com - TalkReviews.com</a></li>
+<li><b></b><a href="http://www.listenarabic.com/search?q=tools.fromdev.com&sa=Search" rel="nofollow">ListenArabic.com Search</a></li>
+<li><b></b><a href="http://www.keywordspy.com/research/search.aspx?q=tools.fromdev.com&tab=domain-overview" rel="nofollow">tools.fromdev.com</a></li>
+<li><b></b><a href="http://boardreader.com/linkinfo/tools.fromdev.com" rel="nofollow">Boardreader - Forum Search Engine</a></li>
+<li><b></b><a href="http://builtwith.com/tools.fromdev.com" rel="nofollow">tools.fromdev.com Technology Profile</a></li>
+<li><b></b><a href="http://www.altavista.com/yhs/search?fr=altavista&itag=ody&kgs=0&kls=0&q=site:tools.fromdev.com" rel="nofollow">Yahoo Search - Web Search</a></li>
+<li><b></b><a href="http://wholinkstome.com/url/tools.fromdev.com" rel="nofollow">Tools.fromdev.com SEO, Social Media and PR Analysis</a></li>
+<li><b></b><a href="http://www.serpanalytics.com/#competitor/tools.fromdev.com/summary//1" rel="nofollow">SERP Analytics - Comprehensive Set of SEO and SEM Research Tools</a></li>
+<li><b></b><a href="http://www.pagerankplace.com/website/tools.fromdev.com" rel="nofollow">pagerankplace.com</a></li>
+<li><b></b><a href="http://www.protect-x.com/info/tools.fromdev.com" rel="nofollow">tools.fromdev.com site information | Protect-X AWM Services</a></li>
+<li><b></b><a href="http://hosts-file.net/default.asp?s=tools.fromdev.com" rel="nofollow">Hosts File for Fromdev Tools</a></li>
+<li><b></b><a href="http://siteanalytics.compete.com/tools.fromdev.com/" rel="nofollow">Site analytics for fromdev tools</a></li>
+<li><b></b><a href="http://www.consultanta-seo.ro/results/tools.fromdev.com" rel="nofollow">Fromdev Tools on Consultanta</a></li>
+<li><b></b><a href="http://www.websiteaccountant.be/tools.fromdev.com" rel="nofollow">Fromdev Tools on Website Accountants</a></li>
+<li><b></b><a href="http://www.talkreviews.ro/tools.fromdev.com" rel="nofollow">Fromdev Tools on Talk Reviews</a></li>
+<li><b></b><a href="http://www.websiteaccountant.nl/tools.fromdev.com" rel="nofollow">Fromdev Tools on Website Accountants</a></li>
+<li><b></b><a href="http://whoisx.co.uk/tools.fromdev.com" rel="nofollow">Fromdev tools on who is SX UK</a></li>
         </ol>
       </section>
          {% include footer.html %}

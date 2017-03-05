@@ -63,7 +63,7 @@ layout: post
 <li><b>General information about fromdev.com domain </b><a rel="nofollow" target="_blank" title="Informer" name="Informer" href="http://website.informer.com/fromdev.com" >Informer</a> </li>
 <li><b>Some more general information about fromdev.com domain including location and maps</b><a rel="nofollow" target="_blank" title="Pageadviser" name="Pageadviser" href="http://pageadviser.com/www.fromdev.com.html" >Pageadviser</a>  </li>
 <li><b></b><a href="http://www.builtwith.com/tools.fromdev.com" rel="nofollow">Fromdev Tools Stats on BuiltWith.com </a></li>
-<li><b></b><a href=""http://validator.w3.org/check?uri=tools.fromdev.com"" rel=""nofollow"">Markup Validation of http://tools.fromdev.com/ - W3C Markup 
+<li><b></b><a href="http://validator.w3.org/check?uri=tools.fromdev.com" rel="nofollow">Markup Validation of http://tools.fromdev.com/ - W3C Markup 
 Validator</a></li>
 <li><b></b><a href="http://whois.tools4noobs.com/info/tools.fromdev.com" rel="nofollow">Fromdev Tools Profile on tools4noobs</a></li>
 <li><b></b><a href="http://www.alexa.com/siteinfo/tools.fromdev.com" rel="nofollow">Fromdev tools on Alexa Site Info</a></li>

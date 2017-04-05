@@ -69,6 +69,7 @@ $(document).ready(function(){
         	var html = imageLink + authorText + review;
         	$('#showtext').val( html);
         	$('#preview').html(html);
+		$('#imageUrl').val(data.url);
         }
 	};
  	
@@ -115,6 +116,7 @@ $(document).ready(function(){
 </div>
 <div class="right">
 <textarea id="showtext"></textarea>
+<input id="imageUrl" type="text"/>
 </div >
 </div>
 <div id="preview" style="margin:5px;">Preview Area</div>

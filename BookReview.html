@@ -8,6 +8,8 @@
 <script src="javascripts/wrap.js" type="text/javascript"></script> 
 <script src="javascripts/link-index.js" type="text/javascript"></script>
 <script src="javascripts/register-links.js" type="text/javascript"></script>
+<script src="javascripts/jquery.selectOnFocus.js" type="text/javascript"></script>
+	
 
 <script type="text/javascript">//&lt;![CDATA[ 
 $(document).ready(function(){   
@@ -79,17 +81,8 @@ $(document).ready(function(){
 
     });
     
-    $("#showtext").focus(function () {
-        var $this = $(this);
-        $this.select();
-
-        // Work around Chrome's little problem
-        $this.mouseup(function () {
-            // Prevent further mouseup intervention
-            $this.unbind("mouseup");
-            return false;
-        });
-    });
+    $("#showtext").selectOnFocus();
+	$("#imageUrl").selectOnFocus();
 
 });//]]&gt;  
 

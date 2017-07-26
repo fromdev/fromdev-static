@@ -1,0 +1,117 @@
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>Book Review HTML</title>
+<LINK href="stylesheets/wrap.css" rel="stylesheet" type="text/css">  
+<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js" type="text/javascript"></script>
+<script src="javascripts/wrap.js" type="text/javascript"></script> 
+<script src="javascripts/link-index.js" type="text/javascript"></script>
+<script src="javascripts/register-links.js" type="text/javascript"></script>
+<script src="javascripts/jquery.selectOnFocus.js" type="text/javascript"></script>
+	
+
+<script type="text/javascript">//&lt;![CDATA[ 
+$(document).ready(function(){   
+
+
+
+  	$('#form').submit(function(){
+  		var $this = $(this);
+		$this.validate(); 		
+		return false;
+  	});
+
+    var getRemote = function () {
+	   // var baseUrl = 'http://localhost:8888/redirectedurl?';
+		var baseUrl = 'http://redirectedurl.appspot.com/redirectedurl?';
+		var asin = $('#asin').val().trim().replace(/[_\s]/g, '');
+		console.log('asin ' + asin);
+		var imageUrl = 'http://ws-na.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=' + asin + '&Format=_SL160_&ID=AsinImage&MarketPlace=US&ServiceVersion=20070822&WS=1';
+	    console.log(imageUrl);
+	    $.ajax({
+	        type: "GET",
+	        dataType: "jsonp",
+	        jsonpCallback: 'jsonCallback',
+	        url: baseUrl + 'url=' + encodeURIComponent(imageUrl),
+	        contentType: "application/json; charset=utf-8",
+	        async: false,
+	        error:jsonCallback,
+	        success:jsonCallback
+	    });
+	};
+
+	var jsonCallback = function (data) {
+	    console.log('success: ' + data.url);
+	    var imageLink = wrapItem({
+            elementSelector: '#title',
+            linkSelector: '#asin',
+            tagSelector:'#amazon-tag',
+            creator: createAmazonImageTag,
+            useAllText: true,
+            finalImageUrl: data.url
+        });
+ 
+ 		var authorText = wrapItem({
+            elementSelector: '#author',
+            creator: createTag,
+            openTag: '<p><strong>(By: ',
+            closeTag: ' )</strong></p>',
+            useAllText: true
+        });
+               
+        var review = wrapItem({
+            elementSelector: '#fulltext',
+            creator: createTag,
+            openTag: '<p>',
+            closeTag: '</p>',
+            useAllText: true
+        });
+        if(imageLink && authorText && review) {
+        	var html = imageLink + authorText + review;
+        	$('#showtext').val( html);
+        	$('#preview').html(html);
+		$('#imageUrl').val(data.url);
+        }
+	};
+ 	
+    $('#wrap').click(function () {
+    
+		getRemote();
+
+    });
+    
+    $("#showtext").selectOnFocus();
+	$("#imageUrl").selectOnFocus();
+
+});//]]&gt;  
+
+</script>
+
+
+</head>
+<body>
+<form id="form">
+<div class="container">
+<ul class='index'></ul>
+<p> <h2>Book Review</h2></p>
+<p> Use this page to format amazon book review related articles only.</p>
+<div class="left">
+<input type="text" id="title" value="" placeholder="Enter Book Title" required>
+<input type="text" id="author" value="" placeholder="Enter Book Author Name(s)" required>
+<input type="text" id="asin" value="" placeholder="Enter Amazon ASIN Number" required>
+<input type="text" id="amazon-tag" value="top-books-cs-20" style="display:none;" required>
+<textarea id="fulltext" value="" placeholder="Enter the Review Content Here" required></textarea>
+</div>
+<div class="center">
+<div id="log"></div>
+<button type="submit" id="wrap">Create HTML</button>
+</div>
+<div class="right">
+<textarea id="showtext"></textarea>
+<input id="imageUrl" type="text" style="width:100%;"/>
+</div >
+</div>
+<div id="preview" style="margin:5px;">Preview Area</div>
+</form>
+</body></html>

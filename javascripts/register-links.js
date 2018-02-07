@@ -6,5 +6,6 @@ addToLinks([
 'summary.html',
 'wrap.html',
 'JsonEscape.html',
-'AuthorBio.html'
+'AuthorBio.html',
+  'URLMaker.html'
 ]);

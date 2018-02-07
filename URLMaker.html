@@ -11,20 +11,20 @@
 $(window).load(function(){
     $('#wrap-intro').click(function () {   	 	
    	 	var title = $('#fulltext').val();
-var re = new RegExp(' ', "g");
-var re2 =  new RegExp('--', "g");
-var re3 = new RegExp("[0-9]", "g");
+var re = new RegExp('[^a-z]','g');
+  var re2 = new RegExp('--', "g");
+  if (title) {
+    title = title.trim().toLowerCase();
+    title = title.replace(re,'-');
+    title = title.split('.').join("");
+    while (title.indexOf('--') != -1) {
+      title = title.replace(re2, '-');
+    }
+    while('-' === title.slice(-1)) {
+    	title = title.slice(0,title.length-1);
+    }
 
-if(title){
-	title = title.trim().toLowerCase();
-  title = title.split('.').join("");
-  title = title.replace(re3,'-');
-  title = title.replace(re, '-');
-  while(title.indexOf('--') != -1) {
-  	title = title.replace(re2, '-');
   }
-  
-}
         $('#showtext').val(title);
     });
     

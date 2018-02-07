@@ -7,9 +7,10 @@
 <script src="javascripts/link-index.js" type="text/javascript"></script>
 <script src="javascripts/register-links.js" type="text/javascript"></script>
 
-<script type="text/javascript">//&lt;![CDATA[ 
+	<script type="text/javascript">//&lt;![CDATA[ 
 $(window).load(function(){
-    var title = $('#fulltext').val();
+    $('#wrap-intro').click(function () {   	 	
+   	 	var title = $('#fulltext').val();
 var re = new RegExp(' ', "g");
 var re2 =  new RegExp('--', "g");
 var re3 = new RegExp("[0-9]", "g");
@@ -24,15 +25,26 @@ if(title){
   }
   
 }
-$('#wrap-intro').click(function () {   	 	
-	$('#showtext').val(title);
+        $('#showtext').val(title);
     });
-
-
+    
+    $("#form").submit(function () {
+    	$("#form").validate();
+    	return false;
+    });
+    
+    $("#showtext").focus(function () {
+        var $this = $(this);
+        $this.select();
+        // Work around Chrome's little problem
+        $this.mouseup(function () {
+            // Prevent further mouseup intervention
+            $this.unbind("mouseup");
+            return false;
+        });
+    });
 });//]]&gt;  
-
 </script>
-
 
 </head>
 <body>

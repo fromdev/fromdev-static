@@ -1,0 +1,63 @@
+<html><head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<title>HTML Wrap Util for Editing Introduction Content</title>
+<LINK href="stylesheets/wrap.css" rel="stylesheet" type="text/css">  
+<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js" type="text/javascript"></script>
+<script src="javascripts/wrap.js" type="text/javascript"></script> 
+<script src="javascripts/link-index.js" type="text/javascript"></script>
+<script src="javascripts/register-links.js" type="text/javascript"></script>
+
+<script type="text/javascript">//&lt;![CDATA[ 
+$(window).load(function(){
+    var title = $('#fulltext').val();
+var re = new RegExp(' ', "g");
+var re2 =  new RegExp('--', "g");
+var re3 = new RegExp("[0-9]", "g");
+
+if(title){
+	title = title.trim().toLowerCase();
+  title = title.split('.').join("");
+  title = title.replace(re3,'-');
+  title = title.replace(re, '-');
+  while(title.indexOf('--') != -1) {
+  	title = title.replace(re2, '-');
+  }
+  
+}
+$('#showtext').val(title);
+
+});//]]&gt;  
+
+</script>
+
+
+</head>
+<body>
+<form id="form">
+<div class="container">
+<ul class='index'></ul>
+<p> <h2>Introduction </h2></p>
+<div class="left">
+<textarea id="fulltext" value="" placeholder="Enter the Title Here" required></textarea>
+</div>
+<div class="center">
+<div id="log"></div>
+<button id="wrap-intro">Create HTML</button>
+</div>
+<div class="right">
+<textarea id="showtext"></textarea>
+</div >
+</div>
+</form>
+<h2>Formatting Introduction Section : Steps</h2>
+<p>
+Introduction for each article needs to be formatted using following steps
+<ul>
+<li>Enter the Introduction Section Text in Left text field. </li>
+<li>Click "Create HTML" Button.</li>
+<li>The HTML will be created on right side text field.</li>
+<li>Copy the HTML text and paste it in a new document.</li>
+</ul>
+</p>
+</body></html>

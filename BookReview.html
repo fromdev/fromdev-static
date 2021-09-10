@@ -74,6 +74,11 @@ $(document).ready(function(){
         	var html = imageLink + authorText + review;
         	$('#showtext').val( html);
         	$('#preview').html(html);
+			$("#showjson").val(JSON.stringify({
+				name: $('#title').val(),
+				url: `http://www.amazon.com/dp/${asin}?tag=fromdevtools-20`,
+				imageUrl: data.url
+			}));
 		$('#imageUrl').val(data.url);
         }
 	};
@@ -86,6 +91,7 @@ $(document).ready(function(){
     
     $("#showtext").selectOnFocus();
 	$("#imageUrl").selectOnFocus();
+	$("#showjson").selectOnFocus();
 
 });//]]&gt;  
 
@@ -112,6 +118,7 @@ $(document).ready(function(){
 </div>
 <div class="right">
 <textarea id="showtext"></textarea>
+<textarea id="showjson"></textarea>
 <input id="imageUrl" type="text" style="width:100%;"/>
 </div >
 </div>

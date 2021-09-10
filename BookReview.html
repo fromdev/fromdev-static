@@ -74,8 +74,10 @@ $(document).ready(function(){
         	var html = imageLink + authorText + review;
         	$('#showtext').val( html);
         	$('#preview').html(html);
+			const title = $('#title').val();
+			const asin = $('#asin').val();
 			$("#showjson").val(JSON.stringify({
-				name: $('#title').val(),
+				name: title,
 				url: `http://www.amazon.com/dp/${asin}?tag=fromdevtools-20`,
 				imageUrl: data.url
 			}));

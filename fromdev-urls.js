@@ -105,7 +105,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/07/vinyl-stickers-printing-your-own-vs.html",
-    "name": "Vinyl Stickers: Printing Your Own vs. Ordering Online &#8211; A Time and Money Investment Comparison"
+    "name": "Vinyl Stickers: Printing Your Own vs. Ordering Online - A Time and Money Investment Comparison"
   },
 {
     "url": "https://www.fromdev.com/2022/06/how-much-does-it-cost-to-edit-essay.html",
@@ -173,7 +173,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/06/whats-difference-between-ipsec-vs-ssl-vpns-which-should-you-use.html",
-    "name": "What&#8217;s the Difference Between IPsec vs SSL VPNs &#8230; and Which Should You Use?"
+    "name": "Whats the Difference Between IPsec vs SSL VPNs and Which Should You Use?"
   },
 {
     "url": "https://www.fromdev.com/2022/06/best-cloud-cost-management-software.html",
@@ -273,7 +273,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/04/streamlining-software-development.html",
-    "name": "Streamlining Software Development &#8211; Easier Than you Think"
+    "name": "Streamlining Software Development - Easier Than you Think"
   },
 {
     "url": "https://www.fromdev.com/2022/04/how-to-select-dedicated-server-for-your.html",
@@ -421,7 +421,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/02/why-compliance-should-not-be-an-afterthought.html",
-    "name": "Why Compliance Shouldn&#8217;t Be an Afterthought"
+    "name": "Why Compliance Shouldnt Be an Afterthought"
   },
 {
     "url": "https://www.fromdev.com/2022/02/what-your-small-to-medium-sized-business-should-budget-for-penetration-testing.html",
@@ -441,7 +441,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/02/here-how-to-improve-your-cyber-security-plan.html",
-    "name": "Here&#8217;s How to Improve Your Cyber Security Plan"
+    "name": "Heres How to Improve Your Cyber Security Plan"
   },
 {
     "url": "https://www.fromdev.com/2022/02/privacy-of-single-sign-on-options-and-account-security.html",
@@ -533,7 +533,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/01/sap-hosted-solutions-the-next-generation-erp-software.html",
-    "name": "SAP Hosted Solutions &#8211; The Next Generation ERP Software"
+    "name": "SAP Hosted Solutions - The Next Generation ERP Software"
   },
 {
     "url": "https://www.fromdev.com/2022/01/how-to-sell-your-business.html",
@@ -861,7 +861,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/09/do-you-need-app-for-your-business.html",
-    "name": "Do you need an app for your business &#8211; Michael Osland"
+    "name": "Do you need an app for your business - Michael Osland"
   },
 {
     "url": "https://www.fromdev.com/2021/09/9-useful-privacy-tips-for-your-iphone.html",
@@ -941,7 +941,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/09/how-much-does-mobile-app-development-cost-ios-vs-android.html",
-    "name": "How Much Does Mobile App Development Cost &#8211; iOS Vs Android"
+    "name": "How Much Does Mobile App Development Cost - iOS Vs Android"
   },
 {
     "url": "https://www.fromdev.com/2021/09/these-are-some-perfect-types-of-wallets-you-can-use-for-cryptocurrencies.html",
@@ -981,7 +981,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/08/how-to-spy-on-my-husbands-cell-phone-without-touching-it.html",
-    "name": "How to Spy on My Husband&#8217;s Cell Phone without Touching It?"
+    "name": "How to Spy on My Husbands Cell Phone without Touching It?"
   },
 {
     "url": "https://www.fromdev.com/2021/08/leetcode-encourage-bad-programming-practice.html",
@@ -1081,11 +1081,11 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/08/types-of-lawyers-every-firm-needs-for.html",
-    "name": "Types of Lawyers Every Firm Needs for Successful Operation &#8211; Michael e Weintraub Esq"
+    "name": "Types of Lawyers Every Firm Needs for Successful Operation - Michael e Weintraub Esq"
   },
 {
     "url": "https://www.fromdev.com/2021/08/best-vpns-for-uae-you-shouldnt-miss.html",
-    "name": "7 Best VPNs For UAE You Shouldn&#8217;t Miss"
+    "name": "7 Best VPNs For UAE You Shouldnt Miss"
   },
 {
     "url": "https://www.fromdev.com/2021/08/website-architecture-ways-to-create-a-better-website-structure.html",
@@ -1101,7 +1101,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/08/web-designer-vs-web-developer-whats.html",
-    "name": "Web Designer vs Web Developer &#8211; What&#8217;s the Difference?"
+    "name": "Web Designer vs Web Developer - Whats the Difference?"
   },
 {
     "url": "https://www.fromdev.com/2021/08/alternative-careers-for-programmers.html",
@@ -1237,7 +1237,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/06/how-can-integrated-sales-system-make.html",
-    "name": "How Can An Integrated Sales System Make A Huge Difference For Your Business Management? &#8211; Views from Kimberly Dalius and Eric Dalius"
+    "name": "How Can An Integrated Sales System Make A Huge Difference For Your Business Management? - Views from Kimberly Dalius and Eric Dalius"
   },
 {
     "url": "https://www.fromdev.com/2021/06/kimberly-dalius-and-eric-dalius.html",
@@ -1381,7 +1381,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/05/standout-testimonials-sections-on.html",
-    "name": "Standout Testimonials Sections on Landing Pages We Can&#8217;t Look Away From"
+    "name": "Standout Testimonials Sections on Landing Pages We Cant Look Away From"
   },
 {
     "url": "https://www.fromdev.com/2021/05/why-a-strong-shekel-is-not-beneficial-for-exporters.html",
@@ -1613,7 +1613,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/03/husband-tracker.html",
-    "name": "Can I Track My Husband&#8217;s Phone without Touching It"
+    "name": "Can I Track My Husbands Phone without Touching It"
   },
 {
     "url": "https://www.fromdev.com/2021/03/david-jc-cutler-stresses-on-importance.html",
@@ -1645,7 +1645,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/02/how-to-track-wife-s-phone-without-her-knowing.html",
-    "name": "How to Track My Wife&#8217;s Phone without Her Knowing"
+    "name": "How to Track My Wifes Phone without Her Knowing"
   },
 {
     "url": "https://www.fromdev.com/2021/02/free-spy-apps-for-android-without-target-phone.html",
@@ -1725,7 +1725,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2021/01/advancing-the-gram-what-s-next-for-social-media-in-the-age-of-ai.html",
-    "name": "Advancing The Gram &#8211; What’s next for social media in the age of AI?"
+    "name": "Advancing The Gram - What’s next for social media in the age of AI?"
   },
 {
     "url": "https://www.fromdev.com/2021/01/smart-ways-to-attract-more-people-to-your-new-site.html",
@@ -1833,7 +1833,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/12/you-can-not-trust-default-antivirus-software-on-a-mac-or-windows.html",
-    "name": "You Can&#8217;t Trust Default Antivirus Software on a Mac or Windows"
+    "name": "You Cant Trust Default Antivirus Software on a Mac or Windows"
   },
 {
     "url": "https://www.fromdev.com/2020/12/michael-giannulis-on-the-competent-strategies-entrepreneurs-may-encompass-for-growing-in-the-real-estate-market.html",
@@ -1953,7 +1953,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/10/how-you-can-get-started-with-employee-training-without-any-prior-experience.html",
-    "name": "Here&#8217;s How You Can Get Started With Employee Training Without Any Prior Experience"
+    "name": "Heres How You Can Get Started With Employee Training Without Any Prior Experience"
   },
 {
     "url": "https://www.fromdev.com/2020/10/the-importance-of-technical-optimization-for-seo.html",
@@ -2033,7 +2033,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/09/video-collage-quick-easy.html",
-    "name": "Video collage &#8211; Quick & Easy"
+    "name": "Video collage - Quick & Easy"
   },
 {
     "url": "https://www.fromdev.com/2020/09/how-to-manage-circleci-secrets-with-akeyless-vault.html",
@@ -2113,7 +2113,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/08/a-marketers-guide-to-using-igtv.html",
-    "name": "A Marketers&#8217; Guide To Using IGTV"
+    "name": "A Marketers Guide To Using IGTV"
   },
 {
     "url": "https://www.fromdev.com/2020/08/web-design-and-development-simple-things-you-to-learn-about-it.html",
@@ -2145,11 +2145,11 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/08/fed-up-with-lag-try-these-tips-to-smoothen-your-pc-s-performance.html",
-    "name": "Fed Up with Lag? Try These 4 Tips to Smoothen Your PC&#8217;s Performance"
+    "name": "Fed Up with Lag? Try These 4 Tips to Smoothen Your PCs Performance"
   },
 {
     "url": "https://www.fromdev.com/2020/08/the-proxy-war-back-connect-v-s-residential-proxies.html",
-    "name": "The Proxy War &#8211; Back Connect v/s Residential Proxies"
+    "name": "The Proxy War - Back Connect v/s Residential Proxies"
   },
 {
     "url": "https://www.fromdev.com/2020/08/essential-items-your-website-design-should-have.html",
@@ -2317,7 +2317,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/06/torrenting-everything-you-need-to-know-as-a-beginner.html",
-    "name": "Torrenting &#8211; Everything You Need to Know As a Beginner"
+    "name": "Torrenting - Everything You Need to Know As a Beginner"
   },
 {
     "url": "https://www.fromdev.com/2020/06/increasing-amazon-product-visibility.html",
@@ -2333,7 +2333,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/06/top-amazing-apps-to-track-my-boyfriend-s-text-messages.html",
-    "name": "Top 6 Amazing Apps to Track My Boyfriend&#8217;s Text Messages"
+    "name": "Top 6 Amazing Apps to Track My Boyfriends Text Messages"
   },
 {
     "url": "https://www.fromdev.com/2020/06/fax-number-online-buying-guide-in.html",
@@ -2485,7 +2485,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/03/outsourcing-react-services-why-you-should-consider-it.html",
-    "name": "Outsourcing React Services &#8211; Why You Should Consider It?"
+    "name": "Outsourcing React Services - Why You Should Consider It?"
   },
 {
     "url": "https://www.fromdev.com/2020/03/how-to-start-a-software-development-firm-from-the-ground-up.html",
@@ -2509,7 +2509,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/02/risks-of-outsourcing-web-development-and-how-to-avoid-them.html",
-    "name": "4 Risks of Outsourcing Web Development &#8211; and How to Avoid Them"
+    "name": "4 Risks of Outsourcing Web Development - and How to Avoid Them"
   },
 {
     "url": "https://www.fromdev.com/2020/02/best-free-pdf-editors-in.html",
@@ -2521,7 +2521,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2020/02/top-reasons-why-you-don-t-need-business-training.html",
-    "name": "Top 10 Reasons Why You Don&#8217;t Need Business Training"
+    "name": "Top 10 Reasons Why You Dont Need Business Training"
   },
 {
     "url": "https://www.fromdev.com/2020/02/the-cissp-domains-explained-as-defined-in-the-cbk.html",
@@ -2709,7 +2709,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2019/11/gdpr-aftermath-have-companies-really-underestimated-their-gdpr-readiness.html",
-    "name": "GDPR Aftermath &#8211; Have Companies Really Underestimated Their GDPR Readiness?"
+    "name": "GDPR Aftermath - Have Companies Really Underestimated Their GDPR Readiness?"
   },
 {
     "url": "https://www.fromdev.com/2019/11/what-is-the-newest-blu-phone.html",
@@ -3341,7 +3341,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2019/01/what-is-latency-and-how-does-it-impact-app-development.html",
-    "name": "What Is Latency &#8211; and How Does It Impact App Development?"
+    "name": "What Is Latency - and How Does It Impact App Development?"
   },
 {
     "url": "https://www.fromdev.com/2019/01/what-to-consider-before-choosing-a-hosting-plan.html",
@@ -3353,7 +3353,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2019/01/square-pegs-in-round-holes-how-crypto-developers-can-keep-their-projects-alive.html",
-    "name": "Square Pegs in Round Holes &#8211; How Crypto Developers Can Keep Their Projects Alive"
+    "name": "Square Pegs in Round Holes - How Crypto Developers Can Keep Their Projects Alive"
   },
 {
     "url": "https://www.fromdev.com/2019/01/how-to-access-blocked-websites.html",
@@ -3477,7 +3477,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/11/how-to-hide-your-ip-address.html",
-    "name": "Internet Privacy &#8211; How to Hide Your IP Address"
+    "name": "Internet Privacy - How to Hide Your IP Address"
   },
 {
     "url": "https://www.fromdev.com/2018/11/best-free-spring-boot-tutorials-pdf.html",
@@ -3501,7 +3501,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/11/user-friendly-iphone-manager-iotransfer-new-features-review.html",
-    "name": "User-Friendly iPhone Manager &#8211; IOTransfer New Features Review"
+    "name": "User-Friendly iPhone Manager - IOTransfer New Features Review"
   },
 {
     "url": "https://www.fromdev.com/2018/11/pdf-editing-made-easy-by-jotform.html",
@@ -3673,7 +3673,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/07/storm-spark-hadoop-compare.html",
-    "name": "Storm, Spark, and Hadoop &#8211; Three Frameworks Comparison"
+    "name": "Storm, Spark, and Hadoop - Three Frameworks Comparison"
   },
 {
     "url": "https://www.fromdev.com/2018/07/be-popular-on-instagram.html",
@@ -3789,7 +3789,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/06/email-marketing-made-easy-some-credible-tips-and-tricks-you-should-definitely-know.html",
-    "name": "Email Marketing Made Easy &#8211; Some Credible Tips and Tricks You should Definitely Know!"
+    "name": "Email Marketing Made Easy - Some Credible Tips and Tricks You should Definitely Know!"
   },
 {
     "url": "https://www.fromdev.com/2018/06/annoying-office-jargons-you-keep-hearing.html",
@@ -4141,7 +4141,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/02/mac-user-tips-that-will-maximize-your.html",
-    "name": "Mac User Tips That Will Maximize Your Machine&#8217;s Work"
+    "name": "Mac User Tips That Will Maximize Your Machines Work"
   },
 {
     "url": "https://www.fromdev.com/2018/02/developers-and-artificial-intelligence.html",
@@ -4225,7 +4225,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/01/whats-latest-technology-for-gamers.html",
-    "name": "What&#8217;s The Latest Technology For Gamers"
+    "name": "Whats The Latest Technology For Gamers"
   },
 {
     "url": "https://www.fromdev.com/2018/01/how-cpp-help-u-become-blockchain-developer.html",
@@ -4305,7 +4305,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2018/01/must-know-about-ddos.html",
-    "name": "Need To Know Basis &#8211; The Questions You Should Be Asking About DDos"
+    "name": "Need To Know Basis - The Questions You Should Be Asking About DDos"
   },
 {
     "url": "https://www.fromdev.com/2018/01/what-is-hbase-why-it-is-popular-nosql.html",
@@ -4413,7 +4413,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/12/how-datacenter-location-affect-site-performance.html",
-    "name": "How Can a Web Hosting Datacenter Location Affect Your Website&#8217;s Performance"
+    "name": "How Can a Web Hosting Datacenter Location Affect Your Websites Performance"
   },
 {
     "url": "https://www.fromdev.com/2017/12/what-is-jquery-why-is-it-so-popular.html",
@@ -4513,7 +4513,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/11/startup-financing-alternatives.html",
-    "name": "Alternatives to Bank Loan Financing That Startups Can&#8217;t Ignore"
+    "name": "Alternatives to Bank Loan Financing That Startups Cant Ignore"
   },
 {
     "url": "https://www.fromdev.com/2017/11/email-design-tips.html",
@@ -4601,7 +4601,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/10/yodot-mov-repair-fix-video.html",
-    "name": "Yodot MOV Repair &#8211; Advanced Tool to FIX Video"
+    "name": "Yodot MOV Repair - Advanced Tool to FIX Video"
   },
 {
     "url": "https://www.fromdev.com/2017/10/how-to-keep-safe-from-data-breaches.html",
@@ -4673,7 +4673,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/10/crowdsoucing-cybersecurity.html",
-    "name": "Crowdsoucing is Cybersecurity&#8217;s Unlikely Ally"
+    "name": "Crowdsoucing is Cybersecuritys Unlikely Ally"
   },
 {
     "url": "https://www.fromdev.com/2017/10/skills-web-developers-need.html",
@@ -4709,7 +4709,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/09/jp-morgan-chases-bitcoin-controversy.html",
-    "name": "JP Morgan & Chase&#8217;s Bitcoin Controversy"
+    "name": "JP Morgan & Chases Bitcoin Controversy"
   },
 {
     "url": "https://www.fromdev.com/2017/09/best-color-combination-ecommerce.html",
@@ -4785,7 +4785,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/08/future-in-visual-recognition-vizrec.html",
-    "name": "The Future in Visual Recognition &#8211; VizRec"
+    "name": "The Future in Visual Recognition - VizRec"
   },
 {
     "url": "https://www.fromdev.com/2017/08/debt-consolidation-of-student-loans.html",
@@ -5117,7 +5117,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/03/hadoop-operations-book-review.html",
-    "name": "Hadoop Operations &#8211; Exclusive Book Review"
+    "name": "Hadoop Operations - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2017/03/gmail-hacked-android-insecure.html",
@@ -5197,7 +5197,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/03/technology-impact-on-teachers.html",
-    "name": "Is It Possible for Technology to Take the Teacher&#8217;s Place?"
+    "name": "Is It Possible for Technology to Take the Teachers Place?"
   },
 {
     "url": "https://www.fromdev.com/2017/02/best-arduino-books.html",
@@ -5289,7 +5289,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/02/professional-hadoop-solutions-review.html",
-    "name": "Professional Hadoop Solutions &#8211; Exclusive Book Review"
+    "name": "Professional Hadoop Solutions - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2017/01/best-15-inch-laptop-sleeves.html",
@@ -5297,7 +5297,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/01/pro-angularjs-exclusive-book-review.html",
-    "name": "Pro AngularJS &#8211; Exclusive Book Review"
+    "name": "Pro AngularJS - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2017/01/customer-service-bots-ecommerce.html",
@@ -5305,7 +5305,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2017/01/what-is-double-loop-learning.html",
-    "name": "What Is &#8216;Double Loop Learning&#8217; & How Can It Be Effectively Used In Business?"
+    "name": "What Is Double Loop Learning & How Can It Be Effectively Used In Business?"
   },
 {
     "url": "https://www.fromdev.com/2017/01/best-t-shirt-design-tools.html",
@@ -5597,7 +5597,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2016/09/google-amp-accelerated-mobile-pages.html",
-    "name": "What Is Google AMP &#8211; Accelerated Mobile Pages?"
+    "name": "What Is Google AMP - Accelerated Mobile Pages?"
   },
 {
     "url": "https://www.fromdev.com/2016/09/domain-name-hijacking-hacking.html",
@@ -5649,7 +5649,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2016/08/hacking-cyber-security-problems.html",
-    "name": "Hacking vs Cyber Security &#8211; Who Is The Winner?"
+    "name": "Hacking vs Cyber Security - Who Is The Winner?"
   },
 {
     "url": "https://www.fromdev.com/2016/08/why-is-bitcoin-still-leading.html",
@@ -5701,7 +5701,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2016/07/web-design-latest-ways.html",
-    "name": "Four Ways to Update Your Website&#8217;s Design"
+    "name": "Four Ways to Update Your Websites Design"
   },
 {
     "url": "https://www.fromdev.com/2016/07/top-online-co-op-games.html",
@@ -5957,7 +5957,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2016/03/hadoop-in-practice-exclusive-book-review.html",
-    "name": "Hadoop in Practice &#8211; Exclusive Book Review"
+    "name": "Hadoop in Practice - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2016/03/site-speed-tips.html",
@@ -6245,7 +6245,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2016/01/pro-apache-hadoop-book-review.html",
-    "name": "Pro Apache Hadoop &#8211; Exclusive Book Review"
+    "name": "Pro Apache Hadoop - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2016/01/why-android-is-popular.html",
@@ -6273,7 +6273,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2016/01/cakephp-based-cms.html",
-    "name": "CakePHP Based CMS &#8211; Easier Scalable & Flexible In All Terms!"
+    "name": "CakePHP Based CMS - Easier Scalable & Flexible In All Terms!"
   },
 {
     "url": "https://www.fromdev.com/2016/01/application-icons-free-download.html",
@@ -6333,7 +6333,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/12/swift-programming-apple-opensource.html",
-    "name": "Swift Programming Language &#8211; Apple Open Source"
+    "name": "Swift Programming Language - Apple Open Source"
   },
 {
     "url": "https://www.fromdev.com/2015/12/best-sites-royalty-free-vectors.html",
@@ -6681,7 +6681,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/09/big-data-is-better-myth.html",
-    "name": "Debunking the &#8216;Bigger is Better&#8217; Myth"
+    "name": "Debunking the Bigger is Better Myth"
   },
 {
     "url": "https://www.fromdev.com/2015/09/7-best-practices-for-developing-ui-and.html",
@@ -6777,7 +6777,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/08/how-to-convert-video-to-gif-software.html",
-    "name": "How to Convert Video to GIF &#8211; Software Review"
+    "name": "How to Convert Video to GIF - Software Review"
   },
 {
     "url": "https://www.fromdev.com/2015/08/best-backbone-js-books.html",
@@ -6937,7 +6937,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/07/learning-python-book-review.html",
-    "name": "Learning Python &#8211; Exclusive Book Review"
+    "name": "Learning Python - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2015/07/phone-hacked-signs.html",
@@ -7005,7 +7005,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/06/wearable-technology-consumers.html",
-    "name": "Wearable Technology in 2015 &#8211; 10 Industries Embracing It Quickly"
+    "name": "Wearable Technology in 2015 - 10 Industries Embracing It Quickly"
   },
 {
     "url": "https://www.fromdev.com/2015/06/angular-js-tutorials-pdf.html",
@@ -7089,7 +7089,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/05/python-programming-book-review-john-zelle.html",
-    "name": "Python Programming &#8211; Exclusive Book Review"
+    "name": "Python Programming - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2015/05/best-educational-apps-for-kids.html",
@@ -7301,7 +7301,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/02/developers-app-challenge-forgeathon.html",
-    "name": "Developers App Challenge &#8211; Forgeathon By Acision"
+    "name": "Developers App Challenge - Forgeathon By Acision"
   },
 {
     "url": "https://www.fromdev.com/2015/01/best-form-builder-online.html",
@@ -7321,7 +7321,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2015/01/cracking-coding-interview-exclusive-book-review.html",
-    "name": "Cracking The Coding Interview &#8211; Exclusive Book Review"
+    "name": "Cracking The Coding Interview - Exclusive Book Review"
   },
 {
     "url": "https://www.fromdev.com/2015/01/websites-to-test-javascript-code.html",
@@ -7365,7 +7365,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/12/os-x-yosemite-to-upgrade-or-not.html",
-    "name": "OS X Yosemite Review &#8211; To Upgrade Or Not"
+    "name": "OS X Yosemite Review - To Upgrade Or Not"
   },
 {
     "url": "https://www.fromdev.com/2014/12/how-to-create-online-forms.html",
@@ -7497,7 +7497,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/11/drupal-vs-wordpress.html",
-    "name": "WordPress vs Drupal &#8211; Content Management System Comparison"
+    "name": "WordPress vs Drupal - Content Management System Comparison"
   },
 {
     "url": "https://www.fromdev.com/2014/11/ruby-programming-books.html",
@@ -7517,7 +7517,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/10/android-lollipop-vs-ios-8.html",
-    "name": "Android Lollipop 5.0 vs. iOS 8 &#8211; Developers Perspective"
+    "name": "Android Lollipop 5.0 vs. iOS 8 - Developers Perspective"
   },
 {
     "url": "https://www.fromdev.com/2014/10/best-jquery-image-slider-plugins.html",
@@ -7581,7 +7581,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/09/Book-Review-Hacking-The-Art-of-Exploitation-Jon-Erickson.html",
-    "name": "Exclusive Book Review &#8211; Hacking: The Art of Exploitation"
+    "name": "Exclusive Book Review - Hacking: The Art of Exploitation"
   },
 {
     "url": "https://www.fromdev.com/2014/08/free-photoshop-tutorials-ebooks-learning-resources.html",
@@ -7641,7 +7641,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/07/qr-codes-things-must-know.html",
-    "name": "QR Codes &#8211; 25+ Interesting Things To Know About Them"
+    "name": "QR Codes - 25+ Interesting Things To Know About Them"
   },
 {
     "url": "https://www.fromdev.com/2014/06/top-computer-security-books.html",
@@ -7749,7 +7749,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/03/eCommerce-Website-Design-Trend.html",
-    "name": "12 eCommerce Website Design Trends You Can&#8217;t Miss"
+    "name": "12 eCommerce Website Design Trends You Cant Miss"
   },
 {
     "url": "https://www.fromdev.com/2014/03/Best-Gadgets-Under-50.html",
@@ -7817,7 +7817,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/01/game-cheating-hacking-guide.html",
-    "name": "Hacking Games &#8211; Guide To Hack Games"
+    "name": "Hacking Games - Guide To Hack Games"
   },
 {
     "url": "https://www.fromdev.com/2014/01/windows-phone-apps-must-have.html",
@@ -7833,7 +7833,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2014/01/raid-vs-non-raid-storage-difference.html",
-    "name": "RAID vs. non-RAID Storage &#8211; Difference & Comparison"
+    "name": "RAID vs. non-RAID Storage - Difference & Comparison"
   },
 {
     "url": "https://www.fromdev.com/2014/01/Best-YouTube-Downloader-Software.html",
@@ -7861,7 +7861,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2013/11/drupal-vs-joomla.html",
-    "name": "Drupal vs Joomla &#8211; A Comparison Of Two Great Content Management Systems"
+    "name": "Drupal vs Joomla - A Comparison Of Two Great Content Management Systems"
   },
 {
     "url": "https://www.fromdev.com/2013/11/Best-E-Commerce-Store-Tips.html",
@@ -8041,7 +8041,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2013/06/hadoop-when-to-use.html",
-    "name": "10 Hadoop Alternatives &#8211; When To Use Hadoop"
+    "name": "10 Hadoop Alternatives - When To Use Hadoop"
   },
 {
     "url": "https://www.fromdev.com/2013/06/why-android.html",
@@ -8053,7 +8053,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2013/06/free-responsive-blogger-template-responsivity.html",
-    "name": "Responsivity &#8211; An Exclusive Responsive Blogger Template Available For Free Download"
+    "name": "Responsivity - An Exclusive Responsive Blogger Template Available For Free Download"
   },
 {
     "url": "https://www.fromdev.com/2013/05/Zen-Cart-Install.html",
@@ -8069,11 +8069,11 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2013/05/Backup-Restore-Android-SMS.html",
-    "name": "4 Useful Free Apps &#8211; How to Backup and Restore Android SMS"
+    "name": "4 Useful Free Apps - How to Backup and Restore Android SMS"
   },
 {
     "url": "https://www.fromdev.com/2013/05/Speed-Up-Eclipse.html",
-    "name": "15 Useful Tips &#8211; Speed Up Eclipse To An Ultra Fast IDE"
+    "name": "15 Useful Tips - Speed Up Eclipse To An Ultra Fast IDE"
   },
 {
     "url": "https://www.fromdev.com/2013/05/How-To-Create-Mobile-Website.html",
@@ -8125,7 +8125,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2013/01/How-Do-I-Get-A-Job-At-Google.html",
-    "name": "Get Hired by FAANG Employers &#8211; 5 Killer Things You Can Do To Be Noticed [UPDATED 2021]"
+    "name": "Get Hired by FAANG Employers - 5 Killer Things You Can Do To Be Noticed [UPDATED 2021]"
   },
 {
     "url": "https://www.fromdev.com/2012/11/Best-Way-To-Learn-Java.html",
@@ -8213,11 +8213,11 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2012/04/recipe-storing-articles-in-content.html",
-    "name": "Recipe: Storing Articles in a Content Repository &#8211; Spring in Practice"
+    "name": "Recipe: Storing Articles in a Content Repository - Spring in Practice"
   },
 {
     "url": "https://www.fromdev.com/2012/04/creating-weak-learner-with-decision.html",
-    "name": "Creating a Weak Learner with a Decision Stump &#8211; Machine Learning in Action"
+    "name": "Creating a Weak Learner with a Decision Stump - Machine Learning in Action"
   },
 {
     "url": "https://www.fromdev.com/2012/04/top-5-open-source-amqp-advanced-message.html",
@@ -8277,7 +8277,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2011/06/create-cdn-content-delivery-network.html",
-    "name": "10 Excellent Free Open Source Projects To Create Your Own CDN &#8211; Content Delivery Network"
+    "name": "10 Excellent Free Open Source Projects To Create Your Own CDN - Content Delivery Network"
   },
 {
     "url": "https://www.fromdev.com/2011/06/content-delivery-network-alternative.html",
@@ -8305,7 +8305,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2010/11/how-to-debug-connection-leaks-in-c3p0.html",
-    "name": "c3p0 &#8211; A PooledConnection that has already signalled a Connection error is still in use"
+    "name": "c3p0 - A PooledConnection that has already signalled a Connection error is still in use"
   },
 {
     "url": "https://www.fromdev.com/2010/09/how-to-install-liferay-6x-on-glassfish.html",
@@ -8313,7 +8313,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2010/08/10-jdbc-questions-for-java-beginners.html",
-    "name": "12 Java JDBC Interview Questions & Answers for Developers &#8211; Java Database Connectivity"
+    "name": "12 Java JDBC Interview Questions & Answers for Developers - Java Database Connectivity"
   },
 {
     "url": "https://www.fromdev.com/2010/08/best-software-architecture-books-must.html",
@@ -8353,7 +8353,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2009/06/dealing-with-different-client-browsers.html",
-    "name": "How To Deal With Different Browsers In Java &#8211; Playing With User-Agent"
+    "name": "How To Deal With Different Browsers In Java - Playing With User-Agent"
   },
 {
     "url": "https://www.fromdev.com/2008/05/java-collections-questions.html",
@@ -8361,15 +8361,15 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2009/05/java-utility-methods-trimnotnull.html",
-    "name": "Java Collection Utility methods &#8211; Trim/notNull for Collection"
+    "name": "Java Collection Utility methods - Trim/notNull for Collection"
   },
 {
     "url": "https://www.fromdev.com/2009/05/java-array-utility-methods-trim-notnull-for-array-of-objects.html",
-    "name": "Java Array Utility methods &#8211; Trim/notNull for Array of Objects"
+    "name": "Java Array Utility methods - Trim/notNull for Array of Objects"
   },
 {
     "url": "https://www.fromdev.com/2009/05/why-ebay-will-keep-losing-its-business.html",
-    "name": "Why eBay will keep losing its business &#8211; product search is not relevant"
+    "name": "Why eBay will keep losing its business - product search is not relevant"
   },
 {
     "url": "https://www.fromdev.com/2009/05/as-java-developer-what-should-i-be.html",
@@ -8393,7 +8393,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2009/04/ognl-best-practices-finding-size-of.html",
-    "name": "How to find size of Collection in OGNL &#8211; JSTL workaround"
+    "name": "How to find size of Collection in OGNL - JSTL workaround"
   },
 {
     "url": "https://www.fromdev.com/2009/02/search-engine-best-practices-compass-as.html",
@@ -8445,7 +8445,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2008/08/hacking-by-reflection-accessing-private.html",
-    "name": "How to access private variables of Java Class &#8211; Hacking by reflection"
+    "name": "How to access private variables of Java Class - Hacking by reflection"
   },
 {
     "url": "https://www.fromdev.com/2008/08/effective-obfuscation-techniques-to.html",
@@ -8473,7 +8473,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2008/07/struts-2-ajax-drop-down-example_6449.html",
-    "name": "Struts 2 &#8211; AJAX Drop down Example"
+    "name": "Struts 2 - AJAX Drop down Example"
   },
 {
     "url": "https://www.fromdev.com/2008/05/about-me.html",
@@ -8485,7 +8485,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2008/05/hibernate-vs-ibatis.html",
-    "name": "Hibernate vs iBATIS &#8211; Comparison of two powerful ORM tools"
+    "name": "Hibernate vs iBATIS - Comparison of two powerful ORM tools"
   },
 {
     "url": "https://www.fromdev.com/2019/11/apple-expands-and-updates-its-everyone-can-code-program.html",
@@ -8541,7 +8541,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2019/11/what-fashion-can-learn-from-2019s-top-marketing-moments.html",
-    "name": "What fashion can learn from 2019&#8217;s top marketing moments"
+    "name": "What fashion can learn from 2019s top marketing moments"
   },
 {
     "url": "https://www.fromdev.com/2019/11/this-week-in-business-flying-ubers-and-pricey-french-cheese.html",
@@ -8573,7 +8573,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/01/how-to-hack-instagram-account-experts.html",
-    "name": "How to Hack an Instagram Account: An Expert&#8217;s Opinion"
+    "name": "How to Hack an Instagram Account: An Experts Opinion"
   },
 {
     "url": "https://www.fromdev.com/2023/01/performance-measurement-stress-testing.html",
@@ -8633,11 +8633,11 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2022/09/building-website-for-first-time-2.html",
-    "name": "Building a Website for the First Time &#8211; Beginners Guide"
+    "name": "Building a Website for the First Time - Beginners Guide"
   },
 {
     "url": "https://www.fromdev.com/2022/09/ways-to-recover-bitcoin-wallets.html",
-    "name": "Ways to recover a bitcoin wallet&#8217;s misplaced private keys"
+    "name": "Ways to recover a bitcoin wallets misplaced private keys"
   },
 {
     "url": "https://www.fromdev.com/2022/09/steps-for-end-to-end-user-management-in.html",
@@ -8697,11 +8697,11 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/02/must-have-accessories-for-productive-tech-workers.html",
-    "name": "5 Must-Have Accessories for Productive Tech Workers &#8211; Boost Your Efficiency with These Popular Picks!"
+    "name": "5 Must-Have Accessories for Productive Tech Workers - Boost Your Efficiency with These Popular Picks!"
   },
 {
     "url": "https://www.fromdev.com/2023/02/top-5-must-have-tech-gifts.html",
-    "name": "Top 5 Must-Have Tech Gifts for the Modern Gadget Lover &#8211; Perfect for Any Occasion!"
+    "name": "Top 5 Must-Have Tech Gifts for the Modern Gadget Lover - Perfect for Any Occasion!"
   },
 {
     "url": "https://www.fromdev.com/2023/02/top-5-upcoming-blockchain-hackathons-2023.html",
@@ -8761,7 +8761,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/03/pro-tips-to-win-in-fall-guys-ultimate-knockout-a-guide-to-mastering-the-game.html",
-    "name": "Pro Tips to Win in Fall Guys: Ultimate Knockout &#8211; A Guide to Mastering the Game"
+    "name": "Pro Tips to Win in Fall Guys: Ultimate Knockout - A Guide to Mastering the Game"
   },
 {
     "url": "https://www.fromdev.com/2023/04/20-pro-tips-to-win-at-league-of-legends-master-the-rift-and-dominate-the-competition.html",
@@ -8781,7 +8781,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/04/node-js-engineering-resume-10-must-have-skills-for-in-demand-developers.html",
-    "name": "Node.js Engineering Resume: 10 Must-Have Skills for In-Demand Developers&#8221;"
+    "name": "Node.js Engineering Resume: 10 Must-Have Skills for In-Demand Developers"
   },
 {
     "url": "https://www.fromdev.com/2023/04/blockchain-development-skills-that-will-make-your-resume-shine.html",
@@ -8837,7 +8837,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/03/discover-the-best-books-for-software-security-and-hacking-top-10-recommendations-by-reddit-users.html",
-    "name": "Discover the Best Books for Software Security and Hacking &#8211; Top 10 Recommendations by Reddit Users"
+    "name": "Discover the Best Books for Software Security and Hacking - Top 10 Recommendations by Reddit Users"
   },
 {
     "url": "https://www.fromdev.com/2023/03/static-residential-proxies-the-secret-weapon-for-web-scraping-and-market-research.html",
@@ -8865,7 +8865,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/03/how-to-open-ecommerce-a-complete-guide.html",
-    "name": "How To Open eCommerce &#8211; A Complete Guide"
+    "name": "How To Open eCommerce - A Complete Guide"
   },
 {
     "url": "https://www.fromdev.com/2023/03/how-to-get-an-instance-of-a-past-or-future-date-in-java.html",
@@ -8889,7 +8889,7 @@ const posts = [
   },
 {
     "url": "https://www.fromdev.com/2023/04/a-beginners-guide-to-pythons-yield-keyword-generating-efficient-sequences-on-the-fly.html",
-    "name": "A Beginner&#8217;s Guide to Python&#8217;s Yield Keyword: Generating Efficient Sequences on the Fly"
+    "name": "A Beginners Guide to Pythons Yield Keyword: Generating Efficient Sequences on the Fly"
   },
 {
     "url": "https://www.fromdev.com/2023/04/how-to-check-if-an-element-is-hidden-in-jquery-a-simple-guide.html",

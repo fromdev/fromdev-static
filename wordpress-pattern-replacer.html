@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WordPress Pattern Replacer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #0073aa;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .col {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        button {
+            background-color: #0073aa;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005177;
+        }
+        .pattern-container {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+        .pattern-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .pattern-row button {
+            padding: 5px 10px;
+            margin-top: 0;
+        }
+        h3 {
+            margin-top: 0;
+        }
+        .header-with-button {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #patternList {
+            margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        .pattern-item {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+        .pattern-item h4 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #0073aa;
+        }
+        .copy-button {
+            background-color: #4CAF50;
+        }
+        .copy-button:hover {
+            background-color: #388E3C;
+        }
+        .info {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7f5fe;
+            border-left: 4px solid #0073aa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WordPress Pattern Replacer</h1>
+
+    <div class="container">
+        <div class="col">
+            <h3>Input WordPress Content</h3>
+            <textarea id="inputText" placeholder="Paste your WordPress content here..."></textarea>
+            <button id="processButton">Process Content</button>
+            <button id="copyInputButton" class="copy-button">Copy Input</button>
+        </div>
+        <div class="col">
+            <h3>Processed Content</h3>
+            <textarea id="outputText" placeholder="Processed content will appear here..." readonly></textarea>
+            <button id="copyOutputButton" class="copy-button">Copy Output</button>
+        </div>
+    </div>
+
+    <div class="col pattern-container">
+        <div class="header-with-button">
+            <h3>Pattern Configuration</h3>
+            <button id="addPatternButton">Add New Pattern</button>
+        </div>
+
+        <div id="patternList">
+            <!-- Pattern items will be displayed here -->
+        </div>
+    </div>
+
+    <div class="info">
+        <p><strong>How to use:</strong> Paste your WordPress content in the left text area, then click "Process Content" to apply all the defined patterns. You can add, edit, or remove patterns as needed.</p>
+        <p><strong>Default pattern:</strong> The tool comes pre-configured with a pattern that converts paragraph blocks with images to image blocks.</p>
+    </div>
+
+    <script>
+        // Initialize pattern mappings
+        let patternMappings = [
+            {
+                name: "Convert Paragraph-Image to Image Block",
+                findPattern: /<!-- wp:paragraph -->\s*<p>(<img[^>]*>)\s*<\/p>\s*<!-- \/wp:paragraph -->/g,
+                replacePattern: '<!-- wp:image -->\n<figure class="wp-block-image">$1</figure>\n<!-- /wp:image -->'
+            },
+            {
+              name: "Remove Empty WP Paragraph",
+              findPattern: /<!-- wp:paragraph -->\n<p><\/p>\n<!-- \/wp:paragraph -->/g,
+              replacePattern: ''
+            },
+            {
+              name: "Remove Empty WP Paragraph",
+              findPattern: /<p><\/p>/g,
+              replacePattern: ''
+            },
+            {
+              name: "Remove Paragraph with whitespace",
+              findPattern: /<p>\s*<\/p>/g,
+              replacePattern: ''
+            },
+            {
+              name: "Replace four newlines with one",
+              findPattern: /\n\n\n\n/g,
+              replacePattern: '\n'
+            },
+            {
+              name: "Replace three newlines with one",
+              findPattern: /\n\n\n/g,
+              replacePattern: '\n'
+            },
+            {
+              name: "Replace two newlines with one",
+              findPattern: /\n\n/g,
+              replacePattern: '\n'
+            }
+        ];
+
+        // DOM Elements
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        const processButton = document.getElementById('processButton');
+        const copyInputButton = document.getElementById('copyInputButton');
+        const copyOutputButton = document.getElementById('copyOutputButton');
+        const addPatternButton = document.getElementById('addPatternButton');
+        const patternList = document.getElementById('patternList');
+
+        // Process content with all patterns
+        function processContent() {
+            let content = inputText.value;
+
+            patternMappings.forEach(mapping => {
+                content = content.replace(mapping.findPattern, mapping.replacePattern);
+            });
+
+            outputText.value = content;
+        }
+
+        // Copy text to clipboard
+        function copyToClipboard(text, buttonElement) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = buttonElement.textContent;
+                buttonElement.textContent = 'Copied!';
+                setTimeout(() => {
+                    buttonElement.textContent = originalText;
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy text to clipboard');
+            });
+        }
+
+        // Render all pattern mappings in the UI
+        function renderPatternList() {
+            patternList.innerHTML = '';
+
+            if (patternMappings.length === 0) {
+                patternList.innerHTML = '<p>No patterns defined. Click "Add New Pattern" to create one.</p>';
+                return;
+            }
+
+            patternMappings.forEach((pattern, index) => {
+                const patternItem = document.createElement('div');
+                patternItem.className = 'pattern-item';
+
+                patternItem.innerHTML = `
+                    <h4>${pattern.name}</h4>
+                    <strong>Find:</strong> ${escapeHtml(pattern.findPattern.toString())}
+                    <br>
+                    <strong>Replace:</strong> ${escapeHtml(pattern.replacePattern)}
+                    <br>
+                    <button class="edit-button" data-index="${index}">Edit</button>
+                    <button class="delete-button" data-index="${index}">Delete</button>
+                `;
+
+                patternList.appendChild(patternItem);
+            });
+
+            // Add event listeners for edit and delete buttons
+            document.querySelectorAll('.edit-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    editPattern(index);
+                });
+            });
+
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    deletePattern(index);
+                });
+            });
+        }
+
+        // Escape HTML for safe display
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Add new pattern
+        function addNewPattern() {
+            const name = prompt('Enter a name for this pattern:');
+            if (!name) return;
+
+            const findPatternStr = prompt('Enter the find pattern (as a regular expression):');
+            if (!findPatternStr) return;
+
+            const replacePattern = prompt('Enter the replace pattern:');
+            if (replacePattern === null) return;
+
+            try {
+                // Extract regex pattern and flags
+                const regexMatch = findPatternStr.match(/^\/(.*?)\/([gimuy]*)$/);
+                let findPattern;
+
+                if (regexMatch) {
+                    // User entered a regex with slashes and possibly flags
+                    findPattern = new RegExp(regexMatch[1], regexMatch[2]);
+                } else {
+                    // User entered a simple string or invalid regex
+                    findPattern = new RegExp(findPatternStr, 'g');
+                }
+
+                patternMappings.push({
+                    name,
+                    findPattern,
+                    replacePattern
+                });
+
+                renderPatternList();
+            } catch (error) {
+                alert('Invalid regular expression: ' + error.message);
+            }
+        }
+
+        // Edit existing pattern
+        function editPattern(index) {
+            const pattern = patternMappings[index];
+
+            const name = prompt('Edit pattern name:', pattern.name);
+            if (!name) return;
+
+            const findPatternStr = prompt('Edit find pattern (as a regular expression):', pattern.findPattern.toString());
+            if (!findPatternStr) return;
+
+            const replacePattern = prompt('Edit replace pattern:', pattern.replacePattern);
+            if (replacePattern === null) return;
+
+            try {
+                // Extract regex pattern and flags
+                const regexMatch = findPatternStr.match(/^\/(.*?)\/([gimuy]*)$/);
+                let findPattern;
+
+                if (regexMatch) {
+                    // User entered a regex with slashes and possibly flags
+                    findPattern = new RegExp(regexMatch[1], regexMatch[2]);
+                } else {
+                    // User entered a simple string or invalid regex
+                    findPattern = new RegExp(findPatternStr, 'g');
+                }
+
+                patternMappings[index] = {
+                    name,
+                    findPattern,
+                    replacePattern
+                };
+
+                renderPatternList();
+            } catch (error) {
+                alert('Invalid regular expression: ' + error.message);
+            }
+        }
+
+        // Delete pattern
+        function deletePattern(index) {
+            if (confirm('Are you sure you want to delete this pattern?')) {
+                patternMappings.splice(index, 1);
+                renderPatternList();
+            }
+        }
+
+        // Event Listeners
+        processButton.addEventListener('click', processContent);
+
+        copyInputButton.addEventListener('click', function() {
+            copyToClipboard(inputText.value, this);
+        });
+
+        copyOutputButton.addEventListener('click', function() {
+            copyToClipboard(outputText.value, this);
+        });
+
+        addPatternButton.addEventListener('click', addNewPattern);
+
+        // Initialize the UI
+        renderPatternList();
+    </script>
+</body>
+</html>

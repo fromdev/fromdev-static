@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Tools & Utilities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .tool-card {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .tool-card:nth-child(1) { animation-delay: 0.1s; }
+        .tool-card:nth-child(2) { animation-delay: 0.2s; }
+        .tool-card:nth-child(3) { animation-delay: 0.3s; }
+        .tool-card:nth-child(4) { animation-delay: 0.4s; }
+        .tool-card:nth-child(5) { animation-delay: 0.5s; }
+        .tool-card:nth-child(6) { animation-delay: 0.6s; }
+        .tool-card:nth-child(7) { animation-delay: 0.7s; }
+        .tool-card:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .tool-card:hover::before {
+            left: 100%;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .tool-category {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tool-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .tool-link {
+            display: block;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-link::after {
+            content: '→';
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%) translateX(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .tool-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: translateX(5px);
+            padding-right: 2.5rem;
+        }
+
+        .tool-link:hover::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .tool-card {
+                padding: 1rem;
+            }
+        }
+
+        /* Floating particles animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Developer Tools</h1>
+            <p class="subtitle">A Collection of Useful Web Utilities</p>
+        </header>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-category">Content Generators</div>
+                <div class="tool-links">
+                    <a href="AppsTitleGenerator.html" class="tool-link">Apps Title Generator</a>
+                    <a href="BooksTitleGenerator.html" class="tool-link">Books Title Generator</a>
+                    <a href="BooksTitleVariation.html" class="tool-link">Books Title Variation</a>
+                    <a href="ListTitleGenerator.html" class="tool-link">List Title Generator</a>
+                    <a href="TwitterReplyGenerator.html" class="tool-link">Twitter Reply Generator</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">Blog & Writing</div>
+                <div class="tool-links">
+                    <a href="BlogHeroImagePromptGenerator.html" class="tool-link">Blog Hero Image Prompt</a>
+                    <a href="AuthorBio.html" class="tool-link">Author Bio</a>
+                    <a href="ArticleUpdates.html" class="tool-link">Article Updates</a>
+                    <a href="Introduction.html" class="tool-link">Introduction</a>
+                    <a href="summary.html" class="tool-link">Summary</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">Book Reviews</div>
+                <div class="tool-links">
+                    <a href="BookReview.html" class="tool-link">Book Review</a>
+                    <a href="BulkBookReview.html" class="tool-link">Bulk Book Review</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">Amazon Tools</div>
+                <div class="tool-links">
+                    <a href="AmazonFormatter.html" class="tool-link">Amazon Formatter</a>
+                    <a href="AmazonImage.html" class="tool-link">Amazon Image</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">Text & Format Tools</div>
+                <div class="tool-links">
+                    <a href="text-to-html.html" class="tool-link">Text to HTML</a>
+                    <a href="format.html" class="tool-link">Format</a>
+                    <a href="wrap.html" class="tool-link">Wrap</a>
+                    <a href="JsonEscape.html" class="tool-link">JSON Escape</a>
+                    <a href="wordpress-pattern-replacer.html" class="tool-link">WordPress Pattern Replacer</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">List Generators</div>
+                <div class="tool-links">
+                    <a href="ListItem.html" class="tool-link">List Item</a>
+                    <a href="LinkListItem.html" class="tool-link">Link List Item</a>
+                    <a href="SmallLinkListItem.html" class="tool-link">Small Link List Item</a>
+                    <a href="list.html" class="tool-link">List</a>
+                    <a href="list-small.html" class="tool-link">List Small</a>
+                    <a href="li.html" class="tool-link">Li</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">Utilities</div>
+                <div class="tool-links">
+                    <a href="URLMaker.html" class="tool-link">URL Maker</a>
+                    <a href="ImageURLExtractor.html" class="tool-link">Image URL Extractor</a>
+                    <a href="encrypt.html" class="tool-link">Encrypt</a>
+                    <a href="decrypt.html" class="tool-link">Decrypt</a>
+                    <a href="share.html" class="tool-link">Share</a>
+                </div>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-category">Miscellaneous</div>
+                <div class="tool-links">
+                    <a href="SurpriseMeFromdev.html" class="tool-link">Surprise Me From Dev</a>
+                    <a href="app-description.html" class="tool-link">App Description</a>
+                    <a href="test.html" class="tool-link">Test</a>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Professional web utilities for developers and content creators</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.tool-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

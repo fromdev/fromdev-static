@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image URL Extractor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                       radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            background: linear-gradient(45deg, #fff, #f0f0f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .input-section {
+            margin-bottom: 2rem;
+        }
+
+        .input-label {
+            display: block;
+            color: white;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .input-textarea {
+            width: 100%;
+            min-height: 70px;
+            max-height: 200px;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .input-textarea:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.01);
+        }
+
+        .input-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .button-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .results-section {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .copy-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .results-title {
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .url-list {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 1rem;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .url-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 0.5rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            color: white;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            word-break: break-all;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .url-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .url-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #10ac84, #00d2d3);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            font-weight: 600;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .main-card {
+                padding: 1.5rem;
+            }
+
+            .button-container {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .copy-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .copy-buttons .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Image URL Extractor</h1>
+            <p class="subtitle">Extract image URLs from HTML content with style</p>
+        </div>
+
+        <div class="main-card">
+            <div class="input-section">
+                <label class="input-label" for="htmlInput">Paste your HTML content below:</label>
+                <textarea
+                    id="htmlInput"
+                    class="input-textarea"
+                    placeholder="Paste your HTML content here... (e.g., <img src='https://example.com/image.jpg' alt='Example'>)"
+                ></textarea>
+            </div>
+
+            <div class="button-container">
+                <button class="btn btn-primary" onclick="extractImageUrls()">
+                    🔍 Extract URLs
+                </button>
+                <button class="btn btn-secondary" onclick="clearAll()">
+                    🗑️ Clear All
+                </button>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalImages">0</div>
+                    <div class="stat-label">Total Images</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="uniqueUrls">0</div>
+                    <div class="stat-label">Unique URLs</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="duplicates">0</div>
+                    <div class="stat-label">Duplicates</div>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection">
+                <div class="results-header">
+                    <h3 class="results-title">Extracted Image URLs</h3>
+                    <div class="copy-buttons">
+                        <button class="btn btn-secondary" onclick="copyAllUrls()">
+                            📋 Copy as Text
+                        </button>
+                        <button class="btn btn-secondary" onclick="copyAsJson()">
+                            📄 Copy as JSON
+                        </button>
+                    </div>
+                </div>
+                <div class="url-list" id="urlList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+
+    <script>
+        let extractedUrls = [];
+
+        function extractImageUrls() {
+            const htmlInput = document.getElementById('htmlInput').value.trim();
+
+            if (!htmlInput) {
+                showToast('Please paste some HTML content first!', 'error');
+                return;
+            }
+
+            // Create a temporary DOM element to parse HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmlInput;
+
+            // Extract all img elements
+            const imgElements = tempDiv.querySelectorAll('img');
+            const urls = [];
+            const urlSet = new Set();
+
+            imgElements.forEach(img => {
+                const src = img.getAttribute('src');
+                if (src) {
+                    urls.push(src);
+                    urlSet.add(src);
+                }
+            });
+
+            extractedUrls = urls;
+
+            // Update statistics with animation
+            updateStats(urls.length, urlSet.size, urls.length - urlSet.size);
+
+            // Display results
+            displayResults(urls);
+
+            if (urls.length > 0) {
+                showToast(`Successfully extracted ${urls.length} image URL(s)!`);
+            } else {
+                showToast('No image URLs found in the provided HTML', 'warning');
+            }
+        }
+
+        function updateStats(total, unique, duplicates) {
+            const totalEl = document.getElementById('totalImages');
+            const uniqueEl = document.getElementById('uniqueUrls');
+            const duplicatesEl = document.getElementById('duplicates');
+
+            // Animate number changes
+            animateNumber(totalEl, parseInt(totalEl.textContent), total);
+            animateNumber(uniqueEl, parseInt(uniqueEl.textContent), unique);
+            animateNumber(duplicatesEl, parseInt(duplicatesEl.textContent), duplicates);
+        }
+
+        function animateNumber(element, from, to) {
+            const duration = 800;
+            const steps = 20;
+            const stepValue = (to - from) / steps;
+            let current = from;
+            let step = 0;
+
+            const timer = setInterval(() => {
+                step++;
+                current += stepValue;
+
+                if (step >= steps) {
+                    element.textContent = to;
+                    clearInterval(timer);
+                    element.classList.add('pulse');
+                    setTimeout(() => element.classList.remove('pulse'), 1000);
+                } else {
+                    element.textContent = Math.round(current);
+                }
+            }, duration / steps);
+        }
+
+        function displayResults(urls) {
+            const resultsSection = document.getElementById('resultsSection');
+            const urlList = document.getElementById('urlList');
+
+            if (urls.length === 0) {
+                resultsSection.style.display = 'none';
+                return;
+            }
+
+            urlList.innerHTML = '';
+
+            urls.forEach((url, index) => {
+                const urlItem = document.createElement('div');
+                urlItem.className = 'url-item';
+                urlItem.textContent = url;
+                urlItem.onclick = () => copyToClipboard(url);
+                urlItem.title = 'Click to copy URL';
+
+                // Add slight delay for staggered animation
+                setTimeout(() => {
+                    urlList.appendChild(urlItem);
+                }, index * 50);
+            });
+
+            resultsSection.style.display = 'block';
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast('URL copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast('URL copied to clipboard!');
+            });
+        }
+
+        function copyAllUrls() {
+            if (extractedUrls.length === 0) {
+                showToast('No URLs to copy!', 'warning');
+                return;
+            }
+
+            const allUrls = extractedUrls.join('\n');
+            copyToClipboard(allUrls);
+            showToast(`Copied ${extractedUrls.length} URLs as text to clipboard!`);
+        }
+
+        function copyAsJson() {
+            if (extractedUrls.length === 0) {
+                showToast('No URLs to copy!', 'warning');
+                return;
+            }
+
+            // Remove duplicates for JSON output
+            const uniqueUrls = [...new Set(extractedUrls)];
+            const jsonArray = JSON.stringify(uniqueUrls, null, 2);
+
+            copyToClipboard(jsonArray);
+            showToast(`Copied ${uniqueUrls.length} unique URLs as JSON array!`);
+        }
+
+        function clearAll() {
+            document.getElementById('htmlInput').value = '';
+            document.getElementById('resultsSection').style.display = 'none';
+            extractedUrls = [];
+
+            // Reset stats with animation
+            updateStats(0, 0, 0);
+
+            showToast('All content cleared!');
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+
+            // Set toast color based on type
+            if (type === 'error') {
+                toast.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a24)';
+            } else if (type === 'warning') {
+                toast.style.background = 'linear-gradient(45deg, #ffa726, #ff9800)';
+            } else {
+                toast.style.background = 'linear-gradient(45deg, #10ac84, #00d2d3)';
+            }
+
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Auto-resize textarea
+        document.getElementById('htmlInput').addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.max(200, this.scrollHeight) + 'px';
+        });
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    extractImageUrls();
+                } else if (e.key === 'k') {
+                    e.preventDefault();
+                    clearAll();
+                }
+            }
+        });
+
+        // Sample data for demonstration
+        window.addEventListener('load', function() {
+            const sampleHtml = `<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/example1.jpeg"><img alt="" border="0" width="600" src="https://blogger.googleusercontent.com/img/example1.jpeg"/></a></div>
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/example2.jpeg"><img alt="" border="0" width="600" src="https://blogger.googleusercontent.com/img/example2.jpeg"/></a></div>`;
+
+            // Show tooltip on first load
+            setTimeout(() => {
+                showToast('💡 Tip: Paste HTML content and click "Extract URLs" to get started!', 'warning');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

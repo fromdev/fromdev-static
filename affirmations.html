@@ -35,6 +35,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            padding-bottom: 6rem;
             position: relative;
         }
 
@@ -213,6 +214,12 @@
             color: rgba(255, 255, 255, 0.6);
             font-size: 0.9rem;
             animation: bounce 2s infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         @keyframes bounce {
@@ -311,11 +318,41 @@
                     I am grateful for my strong, healthy, and beautifully thick hair. Every strand grows with vitality, and my scalp is nourished with perfect balance. I radiate confidence and well-being.
                 </div>
             </div>
+
+            <div class="affirmation-card">
+                <div class="om-symbol">ॐ</div>
+                <div class="affirmation-text">
+                    I am deeply grateful for my vibrant health, lasting happiness, and abundant prosperity. I live each day with clarity, purpose, and joy. I am guided by divine light, and I grow closer to God with every breath.
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="scroll-indicator">
+    <div class="scroll-indicator" id="scrollIndicator">
         ↓ Scroll for more affirmations ↓
     </div>
+
+    <script>
+        // Hide scroll indicator when user reaches the bottom of the page
+        function handleScroll() {
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Hide indicator when user is near the bottom (within 100px)
+            if (scrollTop + windowHeight >= documentHeight - 100) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
+            }
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+        
+        // Initial check in case page loads at bottom
+        handleScroll();
+    </script>
 </body>
 </html>

@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prompt Builder — Article Template</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted:#94a3b8;
+      --accent:#7c3aed;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Helvetica Neue", monospace;
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg),#071024 120%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      gap:20px;
+    }
+
+    .wrapper{
+      width:100%;
+      max-width:960px;
+      background:linear-gradient(180deg,var(--card), rgba(11,18,32,0.9));
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    .logo{
+      width:44px;
+      height:44px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(135deg,var(--accent),#5b21b6);
+      box-shadow: 0 6px 18px rgba(124,58,237,0.18);
+      font-weight:700;
+      font-family:var(--mono);
+      color:white;
+    }
+
+    h1.app-title{
+      font-size:16px;
+      margin:0;
+      letter-spacing:0.2px;
+    }
+
+    p.lead{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .content{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:18px;
+    }
+
+    form.controls{
+      background:var(--glass);
+      padding:14px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    input[type="text"]{
+      width:100%;
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      background:transparent;
+      color:inherit;
+      font-size:15px;
+      outline:none;
+    }
+
+    .row{
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    button.btn{
+      appearance:none;
+      border:0;
+      padding:10px 14px;
+      border-radius:10px;
+      cursor:pointer;
+      font-weight:600;
+      background:linear-gradient(90deg,var(--accent),#5b21b6);
+      color:white;
+      box-shadow: 0 8px 22px rgba(59,7,97,0.25);
+    }
+
+    button.ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    .meta{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      margin-top:12px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .preview{
+      padding:14px;
+      border-radius:12px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.02);
+      max-height:520px;
+      overflow:auto;
+    }
+
+    .preview h2{
+      margin:0 0 8px 0;
+      font-size:14px;
+      color:#fff;
+      font-weight:700;
+    }
+
+    textarea#result{
+      width:100%;
+      min-height:260px;
+      max-height:520px;
+      resize:vertical;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+      background:transparent;
+      color:inherit;
+      font-family: var(--mono);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    .small{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .right-col{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .card{
+      padding:12px;
+      border-radius:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.006));
+      border:1px solid rgba(255,255,255,0.02);
+    }
+
+    .actions{
+      display:flex;
+      gap:8px;
+      margin-top:8px;
+      align-items:center;
+    }
+
+    .copy-ok{
+      background:linear-gradient(90deg,#0ea5a4,#06b6d4);
+      color:#021;
+    }
+
+    footer{
+      margin-top:14px;
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+    }
+
+    @media (max-width:920px){
+      .content{grid-template-columns:1fr; }
+      .right-col{order: -1}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper" role="application" aria-labelledby="appTitle">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">PB</div>
+        <div>
+          <h1 id="appTitle" class="app-title">Prompt Builder — Article Template</h1>
+          <p class="lead">Type a title to generate a ready-to-use article prompt (SEO + HTML formatting).</p>
+        </div>
+      </div>
+      <div class="meta" aria-hidden="true">
+        <div>800–1000 words • HTML output • SEO</div>
+      </div>
+    </header>
+
+    <div class="content" role="main">
+      <form class="controls" onsubmit="return false;" aria-label="Prompt generator form">
+        <label for="titleInput">Post Title (this will be used as the article topic)</label>
+        <input id="titleInput" type="text" placeholder="e.g. Sustainable Urban Gardening Tips" autocomplete="off" required
+               aria-required="true" />
+
+        <div class="row">
+          <button id="generateBtn" class="btn" type="button">Generate Prompt</button>
+          <button id="regenBtn" class="ghost" type="button">Regenerate</button>
+        </div>
+
+        <div class="meta" aria-live="polite" id="status">Ready — enter a title and click Generate.</div>
+
+        <div style="margin-top:12px;">
+          <label for="options" class="small">Options</label>
+          <div class="small" id="options">• Words: 800–1000 • Use HTML headings & lists • No inline styles</div>
+        </div>
+      </form>
+
+      <div class="right-col">
+        <div class="card preview" aria-labelledby="previewTitle">
+          <h2 id="previewTitle">Generated Prompt</h2>
+          <textarea id="result" readonly aria-label="Generated prompt content"></textarea>
+
+          <div class="actions">
+            <button id="copyBtn" class="ghost" type="button" aria-label="Copy prompt to clipboard">Copy</button>
+            <button id="selectBtn" class="ghost" type="button" aria-label="Select all prompt text">Select All</button>
+            <button id="downloadBtn" class="btn" type="button" aria-label="Download prompt as text">Download</button>
+          </div>
+
+          <div style="margin-top:10px" class="small">
+            Tip: Paste this prompt into your preferred AI writing tool or CMS.
+          </div>
+        </div>
+
+        <div class="card" aria-hidden="true">
+          <strong class="small">Example output snippet</strong>
+          <p class="small" style="margin-top:8px;color:var(--muted)">
+            The generated prompt will follow this template:
+          </p>
+          <pre class="small" style="margin:8px 0;padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);overflow:auto">
+Write a detailed, SEO-optimized article on the topic ${title}. Structure the article professionally with clear HTML headings (&lt;H1&gt;, &lt;H2&gt;, &lt;H3&gt;) and use natural keyword integration to maximize search engine visibility.
+
+The article must:
+- Be 800 to 1000 words.
+- Use HTML formatting.
+- Have a H1 heading that is different from the post title.
+- Include an engaging introduction and a strong conclusion.
+- Use bullet points, numbered lists, and short paragraphs for easy readability.
+
+Example Article Format:
+&lt;h1&gt;[ARTICLE_HEADING]&lt;/h1&gt;
+...
+          </pre>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="small">Built for content creators • Friendly, copyable prompts</div>
+      <div class="small" id="wordCount">—</div>
+    </footer>
+  </div>
+
+  <script>
+    (function(){
+      // Elements
+      const titleInput = document.getElementById('titleInput');
+      const generateBtn = document.getElementById('generateBtn');
+      const regenBtn = document.getElementById('regenBtn');
+      const resultEl = document.getElementById('result');
+      const copyBtn = document.getElementById('copyBtn');
+      const selectBtn = document.getElementById('selectBtn');
+      const downloadBtn = document.getElementById('downloadBtn');
+      const status = document.getElementById('status');
+      const wordCount = document.getElementById('wordCount');
+
+      // Core template (exactly as user requested)
+      const TEMPLATE = `Write a detailed, SEO-optimized article on the topic \${title}. Structure the article professionally with clear HTML headings (<H1>, <H2>, <H3>) and use natural keyword integration to maximize search engine visibility.
+
+The article must:
+- Be 800 to 1000 words.
+- Use HTML formatting.
+- Have a H1 heading that is different from the post title.
+- Include an engaging introduction and a strong conclusion.
+- Use bullet points, numbered lists, and short paragraphs for easy readability.
+
+Apply clean HTML formatting and Donot add inline styles.
+
+Example Article Format:
+<h1>[ARTICLE_HEADING]</h1>
+<p>[ARTICLE_INTRODUCTION_PARAGRAPH]</p>
+<h2>[SECTION_1_HEADING]</h2>
+<p>[SECTION_1_CONTENT_PARAGRAPH_1]</p>
+<p>[SECTION_1_CONTENT_PARAGRAPH_2]</p>
+
+<h2>[SECTION_2_HEADING]</h2>
+<p>[SECTION_2_CONTENT_PARAGRAPH_1]</p>
+
+<h3>[SUBSECTION_2A_HEADING]</h3>
+<p>[SUBSECTION_2A_CONTENT]</p>
+<ul>
+    <li>[LIST_ITEM_1]</li>
+    <li>[LIST_ITEM_2]</li>
+    <li>[LIST_ITEM_3]</li>
+</ul>
+<h2>[SECTION_3_HEADING]</h2>
+<p>[SECTION_3_CONTENT_PARAGRAPH_1]</p>
+<p>[SECTION_3_CONTENT_PARAGRAPH_2]</p>
+<h2>Conclusion</h2>
+<p>[CONCLUSION_PARAGRAPH]</p>
+
+Write in a friendly, conversational, and informative tone, ensuring the article is factually accurate, well-researched, and engaging for readers.
+
+Act strictly as a Content Writer — deliver only the article content without any explanations, notes, or extra text. Your content will be published automatically.`;
+
+      // Utility: sanitize minimal (trim and collapse whitespace)
+      function cleanTitle(t){
+        return String(t || '').trim().replace(/\s{2,}/g,' ');
+      }
+
+      // Generate the prompt replacing ${title} with a safe value
+      function generatePrompt(title){
+        const cleaned = cleanTitle(title);
+        const safeTitle = cleaned || 'Untitled Topic';
+        // Replace all occurrences of ${title} exactly (template uses ${title})
+        return TEMPLATE.replace(/\$\{title\}/g, safeTitle);
+      }
+
+      // Update UI with generated prompt
+      function updateResult(p){
+        resultEl.value = p;
+        status.textContent = 'Prompt generated';
+        // estimate lines/words for quick feedback
+        const words = p.split(/\s+/).filter(Boolean).length;
+        wordCount.textContent = words + ' words (prompt length)';
+      }
+
+      // Generate on button click
+      generateBtn.addEventListener('click', function(){
+        const title = titleInput.value;
+        if(!cleanTitle(title)){
+          status.textContent = 'Please enter a title first.';
+          titleInput.focus();
+          return;
+        }
+        const prompt = generatePrompt(title);
+        updateResult(prompt);
+      });
+
+      // Regenerate -- slightly vary phrasing to provide alternative prompts
+      regenBtn.addEventListener('click', function(){
+        const title = titleInput.value;
+        const cleaned = cleanTitle(title);
+        if(!cleaned){
+          status.textContent = 'Please enter a title to regenerate.';
+          titleInput.focus();
+          return;
+        }
+        // Slightly different instruction set variant
+        const variant = `Write a comprehensive, SEO-friendly article about the topic ${cleaned}. Format the output in clean HTML using clear headings (<H1>, <H2>, <H3>) and include natural keyword placement to improve search visibility.
+
+The article should:
+- Contain 800–1000 words.
+- Be fully in HTML.
+- Have a H1 heading that differs from the post title.
+- Start with an engaging introduction and finish with a strong conclusion.
+- Include short paragraphs, bullet points, and at least one numbered list for readability.
+
+Do not include inline styles. Provide only the article content with no extra explanations.`;
+        updateResult(variant + "\n\n" + "Example Article Format:\n" + TEMPLATE.split('Example Article Format:')[1].trim());
+      });
+
+      // Copy to clipboard
+      copyBtn.addEventListener('click', function(){
+        const text = resultEl.value;
+        if(!text){
+          status.textContent = 'Nothing to copy — generate a prompt first.';
+          return;
+        }
+        navigator.clipboard?.writeText(text).then(function(){
+          copyBtn.textContent = 'Copied';
+          copyBtn.classList.add('copy-ok');
+          status.textContent = 'Copied to clipboard.';
+          setTimeout(()=>{ copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copy-ok'); },1500);
+        }).catch(function(){
+          // fallback: select + execCommand
+          resultEl.select();
+          try{
+            document.execCommand('copy');
+            status.textContent = 'Copied to clipboard (fallback).';
+          }catch(e){
+            status.textContent = 'Copy failed — select and copy manually.';
+          }
+        });
+      });
+
+      // Select all text
+      selectBtn.addEventListener('click', function(){
+        resultEl.focus();
+        resultEl.select();
+        status.textContent = 'All text selected.';
+      });
+
+      // Download prompt as .txt
+      downloadBtn.addEventListener('click', function(){
+        const text = resultEl.value;
+        if(!text){
+          status.textContent = 'Nothing to download — generate a prompt first.';
+          return;
+        }
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const safeName = (cleanTitle(titleInput.value) || 'prompt').replace(/[^\w\- ]+/g, '').replace(/\s+/g,'-').toLowerCase();
+        a.href = url;
+        a.download = safeName + '-prompt.txt';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+        status.textContent = 'Downloaded prompt file.';
+      });
+
+      // UX: generate on Enter in title field
+      titleInput.addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+          e.preventDefault();
+          generateBtn.click();
+        }
+      });
+
+      // Prefill with example for convenience
+      titleInput.value = 'Sustainable Urban Gardening Tips';
+      updateResult(generatePrompt(titleInput.value));
+      status.textContent = 'Example prompt ready — edit the title and click Generate.';
+    })();
+  </script>
+</body>
+</html>
